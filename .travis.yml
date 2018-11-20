@@ -1,0 +1,33 @@
+notifications:
+  email: false
+
+
+language: node_js
+node_js:
+ - "node"
+
+
+cache:
+  directories:
+    - 'node_modules'
+
+
+stages:
+  - lint
+  - build
+  - test
+  - name: deploy
+    if: branch = master
+
+
+jobs:
+  include:
+    - stage: lint
+      script: ./deploy
+    - stage: build
+      script: ./compile
+    - stage: test
+      name: "Visual Regression Tests"
+      script: ./deploy
+    - stage: deploy
+      script: ./deploy
