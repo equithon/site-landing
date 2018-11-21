@@ -1,0 +1,19 @@
+{
+  "name": "equithon-main",
+  "description": "Equithon Main Website",
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "prettier": "prettier --single-quote es5 --write './src/**/*.jsx' './test/*.test.js' './test/*.test.jsx'"
+  },
+  "dependencies": {
+    "gatsby": "^2.0.0",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1"
+  },
+  "devDependencies": {
+    "firebase-tools": "^6.1.1",
+    "prettier": "1.15.2"
+  }
+}

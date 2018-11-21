@@ -1,0 +1,36 @@
+notifications:
+  email: false
+
+language: node_js
+node_js:
+ - "node"
+
+cache:
+  directories:
+    - 'node_modules'
+    - 'public'
+
+before_script:
+    - npm install
+
+stages:
+  - lint
+  - test
+  - name: build
+    if: branch = staging OR branch = master
+  - name: deploy
+    if: branch = staging OR branch = master
+
+jobs:
+  include:
+    - stage: lint
+      script: ./.travisci/lint
+    - stage: build
+      script: ./.travisci/build
+    - stage: test
+      name: "Visual Regression Tests"
+      script: ./.travisci/visual-test
+      name: "Unit Tests"
+      script: ./.travisci/unit-test
+    - stage: deploy
+      script: ./.travisci/deploy
