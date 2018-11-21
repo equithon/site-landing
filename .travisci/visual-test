@@ -2,3 +2,6 @@
 set -e
 
 echo "Running visual regression tests..."
+
+
+echo "Visual regression testing complete."

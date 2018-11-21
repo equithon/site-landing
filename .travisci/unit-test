@@ -2,3 +2,6 @@
 set -e
 
 echo "Running unit tests..."
+
+
+echo "Unit testing complete."

@@ -4,8 +4,7 @@
   "scripts": {
     "develop": "gatsby develop",
     "build": "gatsby build",
-    "serve": "gatsby serve",
-    "prettier": "prettier --single-quote es5 --write './src/**/*.jsx' './test/*.test.js' './test/*.test.jsx'"
+    "serve": "gatsby serve"
   },
   "dependencies": {
     "gatsby": "^2.0.0",
@@ -13,7 +12,30 @@
     "react-dom": "^16.5.1"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.11.1",
     "firebase-tools": "^6.1.1",
-    "prettier": "1.15.2"
+    "husky": "^1.2.0",
+    "lint-staged": "^8.0.5",
+    "prettier": "^1.15.2",
+    "pretty-quick": "^1.8.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "pretty-quick --staged",
+      "eslint --ext .jsx,.js src/ --fix",
+      "git add"
+    ]
   }
 }
