@@ -8,9 +8,17 @@ const ButtonContainer = styled.div`
   cursor: pointer;
 
   transition: all 0.3s ease 0s;
+  color: ${props => (props.outline ? props.backgroundColor : props.color)};
+  background-color: ${props =>
+    props.outline ? props.color : props.backgroundColor};
+  box-shadow: ${props =>
+    props.outline ? `inset 0px 0px 0px 4px ${props.backgroundColor}` : ''};
 
   &:hover {
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    color: ${props => props.color};
+    background-color: ${props => props.backgroundColor};
+    box-shadow: ${props =>
+      props.outline ? '' : '0px 8px 15px rgba(0, 0, 0, 0.1)'};
   }
 `;
 
@@ -33,6 +41,9 @@ class GenericButton extends React.Component {
       <ButtonContainer
         className={this.props.className}
         onClick={this.handleClick}
+        backgroundColor={this.props.backgroundColor}
+        color={this.props.color}
+        outline={this.props.outline}
       >
         {this.state.text}
       </ButtonContainer>

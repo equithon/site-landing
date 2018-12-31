@@ -142,9 +142,7 @@ const ApplyButton = styled(GenericButton)`
   height: 6vh;
   width: 10vw;
   border-radius: 500px;
-  background-color: #66adef;
 
-  color: white;
   line-height: 6vh;
   text-align: center;
   font-weight: 500;
@@ -186,7 +184,12 @@ class MainPage extends React.Component {
             2018.
           </ActionTextContainer>
           <MainButtonContainer>
-            <ApplyButton text="Apply" click={() => {}} />
+            <ApplyButton
+              text="Apply"
+              backgroundColor="#66adef"
+              color="#fff"
+              click={() => {}}
+            />
           </MainButtonContainer>
         </ContentContainer>
       </PageContainer>
