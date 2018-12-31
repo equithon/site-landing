@@ -4,15 +4,15 @@ import React from 'react';
 
 /* --- Images --- */
 
-class PageFooter extends React.Component {
+class MobileMenu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
 
   render() {
-    return <div>footer</div>;
+    return <div>mobile menu</div>;
   }
 }
 
-export default PageFooter;
+export default MobileMenu;
