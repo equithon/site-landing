@@ -25,7 +25,7 @@ const ContentContainer = styled.div`
   height: 80vh;
   margin: auto;
 
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: 'SF Pro Display', serif;
   color: #46484a;
 
   display: grid;
