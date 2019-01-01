@@ -1,48 +1,35 @@
 /* --- Packages and Components --- */
 import React from 'react';
-import styled from 'styled-components';
-import { isMobile } from 'react-device-detect';
+import { MobileView } from 'react-device-detect';
+import { GlobalStyle } from '../data/configOptions';
 
-import PageHeader from '../components/PageHeader';
-import PageFooter from '../components/PageFooter';
+import MobileMenu from '../components/MobileMenu';
+import HelmetHeader from '../components/HelmetHeader';
 
-/* --- Images --- */
-import HeroImg from '../static/img/hero.png';
+import PageHeader from './PageHeader';
+import PageFooter from './PageFooter';
+import MainPage from './MainPage';
+import AboutPage from './AboutPage';
+import PreviewPage from './PreviewPage';
+import SponsorsPage from './SponsorsPage';
+import FAQPage from './FAQPage';
 
-const MobileMenu = styled.div`
-  color: red;
-`;
+/* --- Component [STATELESS] --- */
+export default () => (
+  <div className="wrapper">
+    <GlobalStyle />
+    <HelmetHeader />
 
-class MainPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+    <PageHeader />
+    <MainPage />
+    <AboutPage />
+    <PreviewPage />
+    <SponsorsPage />
+    <FAQPage />
+    <PageFooter />
 
-  render() {
-    return (
-      <div className="wrapper">
-        <PageHeader />
-
-        {isMobile ? <MobileMenu>mobile menu</MobileMenu> : null}
-
-        <div className="page hero">
-          Equithon
-          <img src={HeroImg} alt="A person thinking." />
-        </div>
-
-        <div className="page about1">what is equithon?</div>
-
-        <div className="page about2">whats in store?</div>
-
-        <div className="page sponsors">sponsors</div>
-
-        <div className="page faq">faq</div>
-
-        <PageFooter />
-      </div>
-    );
-  }
-}
-
-export default MainPage;
+    <MobileView>
+      <MobileMenu />
+    </MobileView>
+  </div>
+);

@@ -1,9 +1,17 @@
 /* --- Packages and Components --- */
 import React from 'react';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
 /* --- Images --- */
 
+/* --- Styles --- */
+const PageContainer = styled.div`
+  width: 100vw;
+  height: 10vh;
+  background-color: blue;
+`;
+
+/* --- Component --- */
 class PageFooter extends React.Component {
   constructor(props) {
     super(props);
@@ -11,7 +19,7 @@ class PageFooter extends React.Component {
   }
 
   render() {
-    return <div>footer</div>;
+    return <PageContainer>footer</PageContainer>;
   }
 }
 
