@@ -2,7 +2,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { createGlobalStyle } from 'styled-components';
-import { isMobile } from 'react-device-detect';
+import { MobileView } from 'react-device-detect';
 
 import MobileMenu from '../components/MobileMenu';
 
@@ -81,14 +81,18 @@ class App extends React.Component {
             type="image/png"
           />
         </Helmet>
+
         <PageHeader />
-        {isMobile ? <MobileMenu /> : null}
         <MainPage />
-        <AboutPage className="section about" />
-        <PreviewPage className="section preview" />
-        <SponsorsPage className="section sponsors" />
-        <FAQPage className="section faq" />
-        <PageFooter /> {/* Frank will implement */}
+        <AboutPage />
+        <PreviewPage />
+        <SponsorsPage />
+        <FAQPage />
+        <PageFooter />
+
+        <MobileView>
+          <MobileMenu />
+        </MobileView>
       </div>
     );
   }

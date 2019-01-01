@@ -19,7 +19,11 @@ class PreviewPage extends React.Component {
   }
 
   render() {
-    return <PageContainer>sneak peek at 2019</PageContainer>;
+    return (
+      <PageContainer className="section preview">
+        sneak peek at 2019
+      </PageContainer>
+    );
   }
 }
 

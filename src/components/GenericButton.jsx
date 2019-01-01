@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 /* --- Images --- */
 /* --- Styles --- */
-const ButtonContainer = styled.div`
+const ComponentContainer = styled.div`
   cursor: pointer;
 
   transition: all 0.3s ease 0s;
@@ -38,7 +38,7 @@ class GenericButton extends React.Component {
 
   render() {
     return (
-      <ButtonContainer
+      <ComponentContainer
         className={this.props.className}
         onClick={this.handleClick}
         backgroundColor={this.props.backgroundColor}
@@ -46,7 +46,7 @@ class GenericButton extends React.Component {
         outline={this.props.outline}
       >
         {this.state.text}
-      </ButtonContainer>
+      </ComponentContainer>
     );
   }
 }

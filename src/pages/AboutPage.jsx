@@ -19,7 +19,7 @@ class AboutPage extends React.Component {
   }
 
   render() {
-    return <PageContainer>about page</PageContainer>;
+    return <PageContainer className="section about">about page</PageContainer>;
   }
 }
 
