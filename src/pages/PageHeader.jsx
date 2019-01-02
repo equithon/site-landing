@@ -90,7 +90,7 @@ class PageHeader extends React.Component {
     this.state = {
       scrolled: false,
       hidden: false,
-      lastScrollPos: window.pageYOffset
+      lastScrollPos: typeof window !== 'undefined' && window.pageYOffset
     };
     this.curHeader = React.createRef();
 
@@ -115,7 +115,7 @@ class PageHeader extends React.Component {
 
   handleScroll() {
     const SCROLL_TRIGGER_DELTA = 5;
-    const curScrollPos = window.pageYOffset;
+    const curScrollPos = typeof window !== 'undefined' && window.pageYOffset;
     if (
       this.state.scrolled &&
       Math.abs(curScrollPos - this.state.lastScrollPos) >= SCROLL_TRIGGER_DELTA

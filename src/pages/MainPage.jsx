@@ -89,7 +89,7 @@ const Header = styled.span`
   position: relative;
 
   &:after {
-    content: 'change';
+    content: '${props => props.shadowText}';
     color: rgba(199, 199, 199, 0.4);
     font-size: 1.3em;
 
@@ -174,14 +174,10 @@ class MainPage extends React.Component {
           <HeroImgContainer src={HeroImg} alt="A person thinking." />
           <HeaderTextContainer>
             <Header shadowText={mainPageData.mainText.split(' ').splice(-1)}>
-              {' '}
-              {mainPageData.mainText}{' '}
+              {mainPageData.mainText}
             </Header>
           </HeaderTextContainer>
-          <ActionTextContainer>
-            Join us in working towards social equity at Equithon on May 1-3,
-            2018.
-          </ActionTextContainer>
+          <ActionTextContainer>{mainPageData.actionText}</ActionTextContainer>
           <MainButtonContainer>
             <ApplyButton
               text="Apply"

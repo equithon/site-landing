@@ -9,7 +9,9 @@ export const headerData = {
 };
 
 export const mainPageData = {
-  mainText: 'Be a part of the change.'
+  mainText: 'Be a part of the change.',
+  actionText:
+    'Join us in working towards social equity at Equithon on May 1-3, 2018.'
 };
 
 export const aboutPageData = {
