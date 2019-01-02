@@ -20,7 +20,7 @@ class PreviewPage extends React.Component {
 
   render() {
     return (
-      <PageContainer className="section preview">
+      <PageContainer className="section" id="event">
         sneak peek at 2019
       </PageContainer>
     );

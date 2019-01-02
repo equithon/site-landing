@@ -20,7 +20,9 @@ class SponsorsPage extends React.Component {
 
   render() {
     return (
-      <PageContainer className="section sponsors">sponsors page</PageContainer>
+      <PageContainer className="section" id="sponsors">
+        sponsors page
+      </PageContainer>
     );
   }
 }

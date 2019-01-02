@@ -1,7 +1,6 @@
 /* --- Packages and Components --- */
 import React from 'react';
 import styled from 'styled-components';
-
 import { mediaSize } from '../data/configOptions';
 import { mainPageData } from '../data/siteData';
 
@@ -90,7 +89,7 @@ const Header = styled.span`
   position: relative;
 
   &:after {
-    content: 'change';
+    content: '${props => props.shadowText}';
     color: rgba(199, 199, 199, 0.4);
     font-size: 1.3em;
 
@@ -138,25 +137,17 @@ const MainButtonContainer = styled.div`
   `};
 `;
 
-const ApplyButton = styled(GenericButton)`
+const ActionButton = styled(GenericButton)`
   height: 6vh;
-  width: 10vw;
-  border-radius: 500px;
-
-  line-height: 6vh;
-  text-align: center;
   font-weight: 500;
   font-size: 2vmin;
 
   ${mediaSize.tablet`
-    width: 20vw;
     font-size: 2.5vmin;
   `};
 
   ${mediaSize.phone`
     height: 5vh;
-    line-height: 5vh;
-    width: 25vw;
     font-size: 3vmin;
   `};
 `;
@@ -170,22 +161,18 @@ class MainPage extends React.Component {
 
   render() {
     return (
-      <PageContainer className="section main">
+      <PageContainer className="section" id="main">
         <ContentContainer>
           <HeroImgContainer src={HeroImg} alt="A person thinking." />
           <HeaderTextContainer>
             <Header shadowText={mainPageData.mainText.split(' ').splice(-1)}>
-              {' '}
-              {mainPageData.mainText}{' '}
+              {mainPageData.mainText}
             </Header>
           </HeaderTextContainer>
-          <ActionTextContainer>
-            Join us in working towards social equity at Equithon on May 1-3,
-            2018.
-          </ActionTextContainer>
+          <ActionTextContainer>{mainPageData.actionText}</ActionTextContainer>
           <MainButtonContainer>
-            <ApplyButton
-              text="Apply"
+            <ActionButton
+              text={mainPageData.actionButton.text}
               backgroundColor="#66adef"
               color="#fff"
               click={() => {}}

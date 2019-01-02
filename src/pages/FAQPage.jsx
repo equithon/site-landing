@@ -19,7 +19,11 @@ class FAQPage extends React.Component {
   }
 
   render() {
-    return <PageContainer className="section faq">faq page</PageContainer>;
+    return (
+      <PageContainer className="section" id="faq">
+        faq page
+      </PageContainer>
+    );
   }
 }
 
