@@ -16,7 +16,7 @@ import FAQPage from './FAQPage';
 
 /* --- Component [STATELESS] --- */
 export default () => (
-  <div className="wrapper">
+  <div id="appWrapper">
     <GlobalStyle />
     <HelmetHeader />
 

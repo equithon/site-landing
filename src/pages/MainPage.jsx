@@ -1,7 +1,6 @@
 /* --- Packages and Components --- */
 import React from 'react';
 import styled from 'styled-components';
-
 import { mediaSize } from '../data/configOptions';
 import { mainPageData } from '../data/siteData';
 
@@ -170,7 +169,7 @@ class MainPage extends React.Component {
 
   render() {
     return (
-      <PageContainer className="section main">
+      <PageContainer className="section" id="main">
         <ContentContainer>
           <HeroImgContainer src={HeroImg} alt="A person thinking." />
           <HeaderTextContainer>

@@ -1,21 +1,85 @@
 /* --- Packages and Components --- */
 import React from 'react';
 import styled from 'styled-components';
+import { Link, scrollSpy } from 'react-scroll';
 
-/* --- Images --- */
+import { mediaSize } from '../data/configOptions';
+
+/* --- Images & Other Assets --- */
+import Favicon from '../static/img/logo_tiny.png';
+import { headerData } from '../data/siteData';
 
 /* --- Styles --- */
 const PageContainer = styled.header`
   width: 100vw;
-  height: 10vh;
-  background-color: blue;
+  height: 12vh;
+  top: -2vh;
   position: fixed;
   z-index: 100;
+  background-color: white;
   transition: transform 0.5s cubic-bezier(0.87, -0.41, 0.19, 1.44);
   transform: translateY(0);
 
   &.hidden {
     transform: translateY(-100%);
+  }
+`;
+
+const ContentContainer = styled.div`
+  width: 80vw;
+  height: 6vh;
+  padding-top: 4vh;
+  margin: auto;
+  font-family: 'SF Pro Display', serif;
+`;
+
+const BrandContainer = styled.div`
+  float: left;
+  height: 100%;
+`;
+
+const BrandImg = styled.img`
+  vertical-align: top;
+  margin-right: 1vw;
+  max-width: 10vw;
+  max-height: 100%;
+`;
+
+const BrandText = styled.span`
+  display: inline-block;
+  margin-top: 2px;
+  font-weight: 550;
+  font-size: 3vh;
+  line-height: 6vh;
+  color: #a16beb;
+`;
+
+const LinksContainer = styled.div`
+  float: right;
+  height: 100%;
+
+  ${mediaSize.phone`
+    display: none;
+  `}
+`;
+
+const HeaderLink = styled(Link)`
+  display: inline-block;
+  margin-top: 2px;
+  margin-left: 2vw;
+  line-height: 6vh;
+  color: #555;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 750ms;
+
+  ${mediaSize.tablet`
+    font-size: 2vw;
+    margin-left: 3vw;
+  `}
+
+  &.active-header-link, :hover {
+    color: #a16beb;
   }
 `;
 
@@ -36,6 +100,7 @@ class PageHeader extends React.Component {
   componentDidMount() {
     window.addEventListener('scroll', () => this.setState({ scrolled: true }));
     this.height = this.curHeader.current.offsetHeight;
+    scrollSpy.update();
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -56,7 +121,7 @@ class PageHeader extends React.Component {
       Math.abs(curScrollPos - this.state.lastScrollPos) >= SCROLL_TRIGGER_DELTA
     ) {
       // scrolled, and for more than the delta
-      const shouldHide = // eslint-disable-next-line no-access-state-in-setstate
+      const shouldHide = // eslint-disable-next-line
         curScrollPos > this.state.lastScrollPos && curScrollPos > this.height;
       this.setState({
         scrolled: false, // reset scroll
@@ -74,7 +139,28 @@ class PageHeader extends React.Component {
         className={this.state.hidden ? 'hidden' : ''}
         ref={this.curHeader}
       >
-        header
+        <ContentContainer>
+          <BrandContainer>
+            <BrandImg src={Favicon} />
+            <BrandText>Equithon</BrandText>
+          </BrandContainer>
+
+          <LinksContainer>
+            {headerData.links.map(link => (
+              <HeaderLink
+                className="header-link"
+                to={link.scrollTo}
+                activeClass="active-header-link"
+                spy
+                smooth
+                duration={750}
+                key={link.scrollTo}
+              >
+                {link.text}
+              </HeaderLink>
+            ))}
+          </LinksContainer>
+        </ContentContainer>
       </PageContainer>
     );
   }
