@@ -66,7 +66,7 @@ const LinksContainer = styled.div`
   }
 `;
 
-const HeaderLink = styled(Link)`
+const HeaderSiteLink = styled(Link)`
   display: inline-block;
 
   line-height: 6vh;
@@ -79,7 +79,7 @@ const HeaderLink = styled(Link)`
     display: none;
   `}
 
-  &.active-header-link, :hover {
+  &.active-link, :hover {
     color: #66adef;
   }
 `;
@@ -164,17 +164,17 @@ class PageHeader extends React.Component {
 
           <LinksContainer>
             {headerData.links.map(link => (
-              <HeaderLink
+              <HeaderSiteLink
                 className="header-link"
                 to={link.scrollTo}
-                activeClass="active-header-link"
+                activeClass="active-link"
                 spy
                 smooth
                 duration={750}
                 key={link.scrollTo}
               >
-                {link.text}
-              </HeaderLink>
+                {link.name}
+              </HeaderSiteLink>
             ))}
             <ActionButton
               text={headerData.actionButton.text}
