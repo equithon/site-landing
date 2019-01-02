@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link, scrollSpy } from 'react-scroll';
 
-import { mediaSize } from '../data/configOptions';
+import { mediaSize } from '../data/siteTools';
 
 import GenericButton from '../components/GenericButton';
 
@@ -32,7 +32,6 @@ const ContentContainer = styled.div`
   height: 6vh;
   padding-top: 4vh;
   margin: auto;
-  font-family: 'SF Pro Display', serif;
 `;
 
 const BrandContainer = styled.div`
