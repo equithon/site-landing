@@ -5,6 +5,8 @@ import { Link, scrollSpy } from 'react-scroll';
 
 import { mediaSize } from '../data/configOptions';
 
+import GenericButton from '../components/GenericButton';
+
 /* --- Images & Other Assets --- */
 import Favicon from '../static/img/logo_tiny.png';
 import { headerData } from '../data/siteData';
@@ -41,7 +43,6 @@ const BrandContainer = styled.div`
 const BrandImg = styled.img`
   vertical-align: top;
   margin-right: 1vw;
-  max-width: 10vw;
   max-height: 100%;
 `;
 
@@ -57,16 +58,18 @@ const BrandText = styled.span`
 const LinksContainer = styled.div`
   float: right;
   height: 100%;
+  display: flex;
+  align-items: center;
 
-  ${mediaSize.phone`
-    display: none;
-  `}
+  & > * {
+    margin-top: 4px;
+    margin-left: 2vw;
+  }
 `;
 
 const HeaderLink = styled(Link)`
   display: inline-block;
-  margin-top: 2px;
-  margin-left: 2vw;
+
   line-height: 6vh;
   color: #555;
   font-weight: 500;
@@ -74,13 +77,28 @@ const HeaderLink = styled(Link)`
   transition: color 750ms;
 
   ${mediaSize.tablet`
-    font-size: 2vw;
-    margin-left: 3vw;
+    display: none;
   `}
 
   &.active-header-link, :hover {
-    color: #a16beb;
+    color: #66adef;
   }
+`;
+
+const ActionButton = styled(GenericButton)`
+  height: 75%;
+
+  font-weight: 500;
+  font-size: 1em;
+
+  ${mediaSize.tablet`
+    height: 80%;
+    font-size: 2vmin;
+  `};
+
+  ${mediaSize.phone`
+    font-size: 3vmin;
+  `};
 `;
 
 /* --- Component --- */
@@ -159,6 +177,13 @@ class PageHeader extends React.Component {
                 {link.text}
               </HeaderLink>
             ))}
+            <ActionButton
+              text={headerData.actionButton.text}
+              backgroundColor="#66adef"
+              color="#fff"
+              click={() => {}}
+              outline
+            />
           </LinksContainer>
         </ContentContainer>
       </PageContainer>
