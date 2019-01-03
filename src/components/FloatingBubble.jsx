@@ -28,6 +28,8 @@ const ComponentContainer = styled.div`
 `;
 
 const ContentContainer = styled.div`
+  top: -5px; // elements naturally feel lower, so to counteract that
+  position: relative;
   /*
     padding: 60% 10%;
     margin-top: -0.6em;
@@ -46,6 +48,7 @@ const ContentContainer = styled.div`
 `;
 
 export default props => (
+  // for momentum scrolling ? https://codepen.io/popmotion/pen/dmWWdp
   <ComponentContainer backgroundColor={props.backgroundColor}>
     <ContentContainer>{props.children}</ContentContainer>
   </ComponentContainer>
