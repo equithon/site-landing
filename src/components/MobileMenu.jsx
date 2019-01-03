@@ -36,7 +36,7 @@ const MenuBackground = styled.div`
   height: 200vw;
   opacity: ${props => (props.open ? 0.975 : 1)};
   background-color: #854dd0;
-  border-radius: 2000px;
+  border-radius: 50%;
   position: absolute;
   z-index: 101;
   top: 50%;
@@ -115,7 +115,7 @@ const MenuIconBar = styled.div`
 
   // https://codepen.io/sergioandrade/pen/onkub maybe implement later?
 
-  transition: all 0.5s ease;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   &.top-bar {
     // translate is mismatched
     transform: ${props =>
