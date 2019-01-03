@@ -1,7 +1,7 @@
 /* --- Packages and Components --- */
 import React from 'react';
 import styled from 'styled-components';
-import { mediaSize } from '../data/configOptions';
+import { mediaSize } from '../data/siteTools';
 
 /* --- Images --- */
 /* --- Styles --- */

@@ -1,7 +1,7 @@
 /* --- Packages and Components --- */
 import React from 'react';
 import { MobileView } from 'react-device-detect';
-import { GlobalStyle } from '../data/configOptions';
+import { GlobalStyle } from '../data/siteTools';
 
 import MobileMenu from '../components/MobileMenu';
 import HelmetHeader from '../components/HelmetHeader';

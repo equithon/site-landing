@@ -1,7 +1,7 @@
 /* --- Packages and Components --- */
 import React from 'react';
 import styled from 'styled-components';
-import { mediaSize } from '../data/configOptions';
+import { mediaSize } from '../data/siteTools';
 import { mainPageData } from '../data/siteData';
 
 import GenericButton from '../components/GenericButton';
@@ -24,7 +24,6 @@ const ContentContainer = styled.div`
   height: 80vh;
   margin: auto;
 
-  font-family: 'SF Pro Display', serif;
   color: #46484a;
 
   display: grid;
