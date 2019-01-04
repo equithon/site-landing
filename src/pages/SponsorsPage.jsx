@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { mediaSize } from '../data/siteTools';
-import FloatingBubble from '../components/FloatingBubble';
+import ScrollingSponsorPane from '../components/ScrollingSponsorPane';
 
 /* --- Images --- */
 
@@ -11,11 +11,10 @@ import FloatingBubble from '../components/FloatingBubble';
 const PageContainer = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: grey;
 `;
 
 const ContentContainer = styled.div`
-  padding-top: 10vh;
+  padding-top: 5vh;
   width: 80vw;
   height: 80vh;
   margin: auto;
@@ -31,10 +30,18 @@ const ContentContainer = styled.div`
   `};
 `;
 
-const PageHeader = styled.div`
+const PageTitle = styled.div`
   font-size: 5vmin;
   font-weight: 500;
   color: black;
+
+  margin-bottom: 1vw;
+`;
+
+const SponsorsPane = styled(ScrollingSponsorPane)`
+  background-color: white;
+  height: 100%;
+  width: 100%;
 `;
 
 /* --- Component --- */
@@ -48,28 +55,8 @@ class SponsorsPage extends React.Component {
     return (
       <PageContainer className="section" id="sponsors">
         <ContentContainer>
-          <PageHeader>Special Thanks</PageHeader>
-          <FloatingBubble backgroundColor="black" color="white">
-            <div
-              style={{ width: '4em', height: '4em', backgroundColor: 'blue' }}
-            >
-              test
-            </div>
-          </FloatingBubble>
-          <FloatingBubble backgroundColor="black" color="white">
-            <div
-              style={{ width: '2em', height: '2em', backgroundColor: 'blue' }}
-            >
-              test
-            </div>
-          </FloatingBubble>
-          <FloatingBubble backgroundColor="black" color="white">
-            <div
-              style={{ width: '3em', height: '3em', backgroundColor: 'blue' }}
-            >
-              test
-            </div>
-          </FloatingBubble>
+          <PageTitle>Special Thanks</PageTitle>
+          <SponsorsPane className="sponsor-scroll-pane" />
         </ContentContainer>
       </PageContainer>
     );

@@ -2,4 +2,4 @@ export const mobileMenuProps = {
   open: 'i'
 };
 
-export const sponsorBubbleProps = {};
+export const sponsorScrollPaneProps = {};
