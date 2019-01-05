@@ -28,6 +28,20 @@ class ScrollingSponsorPane extends React.Component {
         { x: Math.random() * (900 - 400) + 400, y: 400, vy: 0.1 },
         { x: Math.random() * (900 - 400) + 400, y: 600, vy: 0.1 },
         { x: Math.random() * (900 - 400) + 400, y: 800, vy: 0.1 },
+        { x: Math.random() * (900 - 400) + 400, y: 1000, vy: 0.1 },
+
+        { x: Math.random() * (900 - 400) + 400, y: 0, vy: 0.1 },
+        { x: Math.random() * (900 - 400) + 400, y: 200, vy: 0.1 },
+        { x: Math.random() * (900 - 400) + 400, y: 400, vy: 0.1 },
+        { x: Math.random() * (900 - 400) + 400, y: 600, vy: 0.1 },
+        { x: Math.random() * (900 - 400) + 400, y: 800, vy: 0.1 },
+        { x: Math.random() * (900 - 400) + 400, y: 1000, vy: 0.1 },
+
+        { x: Math.random() * (900 - 400) + 400, y: 0, vy: 0.1 },
+        { x: Math.random() * (900 - 400) + 400, y: 200, vy: 0.1 },
+        { x: Math.random() * (900 - 400) + 400, y: 400, vy: 0.1 },
+        { x: Math.random() * (900 - 400) + 400, y: 600, vy: 0.1 },
+        { x: Math.random() * (900 - 400) + 400, y: 800, vy: 0.1 },
         { x: Math.random() * (900 - 400) + 400, y: 1000, vy: 0.1 }
       ]
     };
