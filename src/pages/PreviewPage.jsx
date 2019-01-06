@@ -83,16 +83,24 @@ const LookBackContainer = styled.div`
   justify-content: space-around;
   height: 25vw;
   margin: 5vw 0;
+  font-size: 1.5vw;
+
+  ${mediaSize.tablet`
+    font-size: 2vw;
+  `};
 
   ${mediaSize.phone`
     flex-direction: column;
     height: auto;
+    font-size: 3.5vw;
   `};
 `;
 
 const SneakPeekContainer = styled.div`
   display: grid;
   width: 100%;
+
+  font-size: 1.5vw;
 
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 2fr 5fr;
@@ -101,7 +109,13 @@ const SneakPeekContainer = styled.div`
     'statAttendees statDuration statGoal'
     'statCategories categories categories';
 
+  ${mediaSize.tablet`
+      font-size: 2vw;
+  `};
+
   ${mediaSize.phone`
+    font-size: 4vw;
+
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 3fr;
     grid-template-areas:

@@ -21,7 +21,6 @@ const ComponentContainer = styled.div`
   border-radius: 50%;
 
   text-align: center;
-  font-size: 130%;
   position: relative;
 
   & div {
@@ -34,9 +33,11 @@ const ComponentContainer = styled.div`
   ${mediaSize.tablet`
     width: ${props => `calc(${props.size} * 1.2)`};
     height: ${props => `calc(${props.size} * 1.2)`};
+
   `} ${mediaSize.phone`
     width: ${props => `calc(${props.size} * 2.3)`};
     height: ${props => `calc(${props.size} * 2.3)`};
+
   `};
 `;
 
