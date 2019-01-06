@@ -28,6 +28,7 @@ const CounterContainer = styled.span`
   `};
 
   font-size: ${props => props.size};
+  color: ${props => props.color};
 `;
 
 const Counter = styled.span`
@@ -52,7 +53,7 @@ const Desc = styled.span`
 
 /* --- Component --- */
 const StatCounter = props => (
-  <CounterContainer size={props.size}>
+  <CounterContainer size={props.size} color={props.color}>
     <Counter>
       <CountUp
         start={props.countStart || 0}

@@ -60,28 +60,42 @@ export const previewPageData = {
       },
       {
         contents: '... countries',
-        backgroundColor: '#A9C2F8',
+        backgroundColor: '#E2D4F5',
         color: '#46484A'
       },
       {
         contents: '... backgrounds',
-        backgroundColor: '#E2D4F5',
-        color: '#46484A'
+        backgroundColor: '#AE85E6',
+        color: 'white'
       }
     ]
   },
   thisYear: {
     header: 'A Sneak Peek At 2019',
     statCounters: [
-      { start: 0, end: 500, suffix: '+', subtitle: 'Attendees' },
-      { start: 0, end: 36, subtitle: 'Hours' },
+      {
+        start: 0,
+        end: 500,
+        suffix: '+',
+        subtitle: 'Attendees',
+        gridArea: 'statAttendees'
+      },
+      { start: 0, end: 36, subtitle: 'Hours', gridArea: 'statDuration' },
       {
         start: 0,
         end: 5,
-        supertitle: 'Participants will work towards one of:',
-        subtitle: 'Tracks:'
+        textAbove: 'Participants will work towards one of:',
+        subtitle: 'Tracks',
+        color: '#854dd0',
+        gridArea: 'statCategories'
       },
-      { start: 100, end: 1, subtitle: 'Common Goal' }
+      {
+        start: 100,
+        end: 1,
+        subtitle: 'Common Goal',
+        color: 'white',
+        gridArea: 'statGoal'
+      }
     ],
     categories: [
       {
@@ -101,13 +115,13 @@ export const previewPageData = {
       },
       {
         contents: 'Mobility Rights',
-        backgroundColor: '#AE85E6',
-        color: 'white'
+        backgroundColor: '#E2D4F5',
+        color: '#46484A'
       },
       {
         contents: 'Mental Health',
-        backgroundColor: '#E2D4F5',
-        color: '#46484A'
+        backgroundColor: '#AE85E6',
+        color: 'white'
       }
     ]
   }
