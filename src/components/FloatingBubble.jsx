@@ -11,7 +11,7 @@ import { mediaSize } from '../data/siteTools';
 
 /* --- Styles --- */
 const ComponentContainer = styled.div`
-  display: inline-block;
+  display: inline-flex;
   height: ${props => props.size};
   width: ${props => props.size};
 
@@ -23,7 +23,7 @@ const ComponentContainer = styled.div`
   position: relative;
 
   & div {
-    margin-top: 30%;
+    margin: auto; // center align in flexbox
   }
 
   transform: ${props => `rotate(${props.rotate}deg)`};
@@ -45,7 +45,7 @@ const FloatingBubble = props => (
     color={props.color}
     rotate={props.rotate}
   >
-    {props.children}
+    <div>{props.children}</div>
   </ComponentContainer>
 );
 

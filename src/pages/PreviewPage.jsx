@@ -157,6 +157,10 @@ const CategoriesContainer = styled.div`
     left: 0;
     justify-content: space-around;
 
+    & > div:first-child {
+      right: -6vw;
+    }
+
     & > div:last-child {
       left: -10vw;
       bottom: 10vw;
@@ -213,7 +217,7 @@ class PreviewPage extends React.Component {
           <LookBackContainer>
             {previewPageData.lastYear.statBubbles.map((bubble, i) => {
               const isEvenOffset = i % 2 === 0;
-              const rotationOffset = Math.random() * (7 - -7) + -7;
+              const rotationOffset = Math.random() * (10 - -10) + -10;
               const mobileTopOffset = i;
               let bubbleOffset = isEvenOffset
                 ? Math.random() * (10 - 5) + 5
@@ -265,7 +269,7 @@ class PreviewPage extends React.Component {
             <CategoriesContainer>
               {previewPageData.thisYear.categories.map((categoryBubble, i) => {
                 const isEvenOffset = i % 2 === 0;
-                const rotationOffset = Math.random() * (15 - -15) + -15;
+                const rotationOffset = Math.random() * (10 - -10) + -10;
                 const mobileTopOffset =
                   isEvenOffset &&
                   i + 1 !== previewPageData.thisYear.categories.length
