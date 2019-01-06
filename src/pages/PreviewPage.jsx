@@ -1,9 +1,12 @@
 /* --- Packages and Components --- */
 import React from 'react';
 import styled from 'styled-components';
+// import { isMobile } from 'react-device-detect';
 
 import { mediaSize } from '../data/siteTools';
 import { previewPageData } from '../data/siteData';
+
+import StatCounter from '../components/StatCounter';
 
 /* --- Images --- */
 
@@ -82,16 +85,18 @@ const SubHeader = styled.div`
 
 const SneakPeekContainer = styled.div``;
 
-const StatCounter = styled.div`
+const StatCounterContainer = styled.div`
   display: inline-block;
-  margin-right: 10vw;
-  & div.number {
-    font-size: 6vw;
-  }
+  width: 30%;
+  margin-right: 3%;
 
-  & div.subtitle {
-    font-size: 2vw;
-  }
+  ${mediaSize.tablet`
+  `};
+
+  ${mediaSize.phone`
+    width: 45%;
+    margin-right: 5%;
+  `};
 `;
 
 /* --- Component --- */
@@ -127,22 +132,29 @@ class PreviewPage extends React.Component {
           <SubHeader>{previewPageData.thisYear.header}</SubHeader>
           <SneakPeekContainer>
             {previewPageData.thisYear.statCounters.map(counter => (
-              <StatCounter>
-                <div className="number">{counter.end}</div>
-                <div className="subtitle">{counter.subtitle}</div>
-              </StatCounter>
+              <StatCounterContainer>
+                <StatCounter
+                  countStart={counter.start}
+                  countEnd={counter.end}
+                  countDuration={3}
+                  size="6vw"
+                  suffix={counter.suffix}
+                >
+                  <span>{counter.subtitle}</span>
+                </StatCounter>
+              </StatCounterContainer>
+            ))}
+            {previewPageData.thisYear.categories.map(categoryBubble => (
+              <Bubble
+                size="8vw"
+                backgroundColor={categoryBubble.backgroundColor}
+                color={categoryBubble.color}
+                rotate={Math.random() * (15 - -15) + -15}
+              >
+                <div>{categoryBubble.contents}</div>
+              </Bubble>
             ))}
           </SneakPeekContainer>
-          {previewPageData.thisYear.categories.map(categoryBubble => (
-            <Bubble
-              size="8vw"
-              backgroundColor={categoryBubble.backgroundColor}
-              color={categoryBubble.color}
-              rotate={Math.random() * (15 - -15) + -15}
-            >
-              <div>{categoryBubble.contents}</div>
-            </Bubble>
-          ))}
         </ContentContainer>
       </PageContainer>
     );

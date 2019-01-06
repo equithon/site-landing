@@ -5,12 +5,14 @@
     used to count up stats on a page.
 */
 
+/* --- Packages and Components --- */
 import React from 'react';
 import styled from 'styled-components';
 import CountUp from 'react-countup';
 
 import { mediaSize } from '../data/siteTools';
 
+/* --- Styles --- */
 const CounterContainer = styled.span`
   display: inline-grid;
   grid-template-rows: auto auto;
@@ -23,40 +25,40 @@ const CounterContainer = styled.span`
     max-width: 100%;
   `} ${mediaSize.phone`
     padding: 5%;
-    justify-items: center;
-    text-align: center;
   `};
+
+  font-size: ${props => props.size};
 `;
 
 const Counter = styled.span`
-  font-size: 3.5vw;
   grid-area: counter;
 
   ${mediaSize.tablet`
-    font-size: 4em;
+    font-size: 150%;
   `} ${mediaSize.phone`
-    font-size: 2em;
-  `};
+    font-size: 250%;
+    `};
 `;
 
 const Desc = styled.span`
   grid-area: desc;
-  font-size: 2.5vh;
+  font-size: 40%;
   ${mediaSize.tablet`
-    font-size: 1.5em;
+    font-size: 60%;
   `} ${mediaSize.phone`
-    font-size: 1em;
-
+    font-size: 85%;
   `};
 `;
 
+/* --- Component --- */
 const StatCounter = props => (
-  <CounterContainer>
+  <CounterContainer size={props.size}>
     <Counter>
       <CountUp
         start={props.countStart || 0}
         end={props.countEnd || 100}
-        duration={props.countDuration || 250}
+        duration={props.countDuration || 5}
+        suffix={props.suffix}
       />
     </Counter>
     <Desc>{props.children}</Desc>

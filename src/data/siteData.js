@@ -75,13 +75,13 @@ export const previewPageData = {
     statCounters: [
       { start: 0, end: 500, suffix: '+', subtitle: 'Attendees' },
       { start: 0, end: 36, subtitle: 'Hours' },
-      { start: 100, end: 1, subtitle: 'Common Goal' },
       {
         start: 0,
         end: 5,
         supertitle: 'Participants will work towards one of:',
-        subtitle: 'Tracks'
-      }
+        subtitle: 'Tracks:'
+      },
+      { start: 100, end: 1, subtitle: 'Common Goal' }
     ],
     categories: [
       {
