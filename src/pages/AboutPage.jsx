@@ -34,11 +34,12 @@ const ContentContainer = styled.div`
     'pic testimonial';
 
   ${mediaSize.tablet`
-    height: 80vh;
-
+    padding-top: 5vh;
+    width: 80vw;
+    height: 90vh;
     grid-template-columns: auto;
     grid-template-rows: 1fr 3fr 1fr;
-    grid-row-gap: 2vw;
+    grid-row-gap: 4vw;
     grid-template-areas:
       'main'
       'pic'
@@ -46,7 +47,6 @@ const ContentContainer = styled.div`
   `};
 
   ${mediaSize.phone`
-    height: 80vh;
     grid-template-rows: 1fr 3fr 1fr;
   `};
 `;
@@ -89,7 +89,7 @@ const MainContainer = styled.div`
 `;
 
 const MainHeader = styled.div`
-  font-size: 3vw;
+  font-size: 2.5vw;
   font-weight: 500;
   margin-bottom: 10px;
 
@@ -103,7 +103,7 @@ const MainHeader = styled.div`
 `;
 
 const MainDesc = styled.div`
-  font-size: 1.5vw;
+  font-size: 1.3vw;
   font-weight: 400;
 
   ${mediaSize.tablet`
@@ -125,7 +125,7 @@ const TestimonialContainer = styled.div`
   z-index: 1;
   top: -2em;
 
-  font-size: 1.5vw;
+  font-size: 1.3vw;
 
   & > div {
     color: #9c9797;
