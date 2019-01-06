@@ -11,6 +11,10 @@ export const siteButtons = {
   actionButton: { text: 'Contact', link: 'www.google.com' }
 };
 
+export const mobileMenuData = {
+  links: siteStructure.sections
+};
+
 export const headerData = {
   logoSrc: '',
   links: siteStructure.sections,
@@ -44,6 +48,48 @@ export const aboutPageData = {
   ]
 };
 
-export const mobileMenuData = {
-  links: siteStructure.sections
+export const FAQPageData = {
+  header: 'Frequently Asked Questions',
+  faqs: [
+    {
+      question: 'What exactly do you do at Equithon?',
+      answer:
+        'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 other team members will create a technical project that solves an issue in one of our 5 project tracks.'
+    },
+    {
+      question: 'What exactly do you do at Equithon?',
+      answer:
+        'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 other team members will create a technical project that solves an issue in one of our 5 project tracks.'
+    },
+    {
+      question: "What's going to be happening?",
+      answer:
+        'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks.'
+    },
+    {
+      question: "What's going to be happening?",
+      answer:
+        'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks.'
+    },
+    {
+      question: 'What exactly do you do at Equithon?',
+      answer:
+        'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 other team members will create a technical project that solves an issue in one of our 5 project tracks.'
+    },
+    {
+      question: "What's going to be happening?",
+      answer:
+        'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks.'
+    },
+    {
+      question: 'What exactly do you do at Equithon?',
+      answer:
+        'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 other team members will create a technical project that solves an issue in one of our 5 project tracks.'
+    },
+    {
+      question: "What's going to be happening?",
+      answer:
+        'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks.'
+    }
+  ]
 };
