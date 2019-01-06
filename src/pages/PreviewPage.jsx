@@ -177,12 +177,13 @@ const StatBubbleContainer = styled.div`
   height: 100%;
   position: relative;
 
+
   & > div {
     display: inline-block;
     position: relative;
     left: 50%;
     top: ${props => `${props.offset}%`};
-    transform: translateX(-50%);
+    transform: translateX(-50%)  translateZ(0);
 
     ${mediaSize.phone`
       top: ${props => `calc(${props.mobileTopOffset} * -8vw)`};
