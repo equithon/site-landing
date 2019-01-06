@@ -90,7 +90,7 @@ const MainContainer = styled.div`
 
 const MainHeader = styled.div`
   font-size: 2.5vw;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 10px;
 
   ${mediaSize.tablet`

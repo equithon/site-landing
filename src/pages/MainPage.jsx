@@ -164,8 +164,8 @@ class MainPage extends React.Component {
         <ContentContainer>
           <HeroImgContainer src={HeroImg} alt="A person thinking." />
           <HeaderTextContainer>
-            <Header shadowText={mainPageData.mainText.split(' ').splice(-1)}>
-              {mainPageData.mainText}
+            <Header shadowText={mainPageData.header.split(' ').splice(-1)}>
+              {mainPageData.header}
             </Header>
           </HeaderTextContainer>
           <ActionTextContainer>{mainPageData.actionText}</ActionTextContainer>
