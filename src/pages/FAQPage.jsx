@@ -25,10 +25,7 @@ const ContentContainer = styled.div`
   color: #46484a;
 
   ${mediaSize.tablet`
-    padding-top: 5vh;
     width: 80vw;
-    height: 90vh;
-
   `};
 
   ${mediaSize.phone`
@@ -62,15 +59,15 @@ const Accordion = styled.div`
 
   & > div.question {
     font-size: 2vw;
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: 10px;
 
     ${mediaSize.tablet`
-      font-size: 3vw;
+      font-size: 3.5vw;
     `};
 
     ${mediaSize.phone`
-      font-size: 6vw;
+      font-size: 5vw;
     `};
   }
 
@@ -86,6 +83,13 @@ const Accordion = styled.div`
       font-size: 4vw;
     `};
   }
+
+  ${mediaSize.tablet`
+    width: 100%;
+  `};
+
+  ${mediaSize.phone`
+  `};
 `;
 
 /* --- Component --- */
