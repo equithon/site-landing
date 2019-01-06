@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const siteStructure = {
   sections: [
     { name: 'About', scrollTo: 'about' },
@@ -54,17 +56,39 @@ export const previewPageData = {
     header: 'A Look Back At 2018',
     statBubbles: [
       {
-        contents: '... representation',
+        contents: (
+          <div>
+            <span style={{ fontWeight: 600 }}>58% Female</span>,{' '}
+            <span style={{ fontWeight: 600 }}>40% Male</span>, and{' '}
+            <span style={{ fontWeight: 600 }}>2% Non-Binary</span>{' '}
+            Representation
+          </div>
+        ),
         backgroundColor: '#AE85E6',
         color: 'white'
       },
       {
-        contents: '... countries',
+        contents: (
+          <div>
+            Global presence from{' '}
+            <span style={{ fontWeight: 600 }}>Canada, USA, Europe</span>, and{' '}
+            <span style={{ fontWeight: 600 }}>India</span>
+          </div>
+        ),
         backgroundColor: '#E2D4F5',
         color: '#46484A'
       },
       {
-        contents: '... backgrounds',
+        contents: (
+          <div>
+            Hackers with{' '}
+            <span style={{ fontWeight: 600 }}>
+              diverse academic backgrounds
+            </span>{' '}
+            ranging from <span style={{ fontWeight: 600 }}>Engineering</span> to{' '}
+            <span style={{ fontWeight: 600 }}>Arts</span>
+          </div>
+        ),
         backgroundColor: '#AE85E6',
         color: 'white'
       }
@@ -99,27 +123,27 @@ export const previewPageData = {
     ],
     categories: [
       {
-        contents: 'Physical Accessibility',
+        contents: <div style={{ fontWeight: 500 }}>Physical Accessibility</div>,
         backgroundColor: '#E2D4F5',
         color: '#46484A'
       },
       {
-        contents: 'Female Empowerment',
+        contents: <div style={{ fontWeight: 500 }}>Female Empowerment</div>,
         backgroundColor: '#AE85E6',
         color: 'white'
       },
       {
-        contents: 'Economic Disparity',
+        contents: <div style={{ fontWeight: 500 }}>Economic Disparity</div>,
         backgroundColor: '#E2D4F5',
         color: '#46484A'
       },
       {
-        contents: 'Mobility Rights',
+        contents: <div style={{ fontWeight: 500 }}>Mobility Rights</div>,
         backgroundColor: '#E2D4F5',
         color: '#46484A'
       },
       {
-        contents: 'Mental Health',
+        contents: <div style={{ fontWeight: 500 }}>Mental Health</div>,
         backgroundColor: '#AE85E6',
         color: 'white'
       }
