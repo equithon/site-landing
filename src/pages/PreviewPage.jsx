@@ -7,6 +7,7 @@ import { mediaSize } from '../data/siteTools';
 import { previewPageData } from '../data/siteData';
 
 import StatCounter from '../components/StatCounter';
+import FloatingBubble from '../components/FloatingBubble';
 
 /* --- Images --- */
 
@@ -15,7 +16,6 @@ const PageContainer = styled.div`
   width: 100vw;
   height: auto;
   margin: 0;
-  background-color: rgb(189, 189, 189);
   box-sizing: border-box;
 `;
 
@@ -57,23 +57,6 @@ const PageDesc = styled.div`
   ${mediaSize.phone`
     font-size: 4vw;
   `};
-`;
-
-const Bubble = styled.div`
-  border-radius: 50%;
-  background-color: ${props => props.backgroundColor};
-  color: ${props => props.color};
-  width: ${props => props.size};
-  height: ${props => props.size};
-  text-align: center;
-  display: inline-block;
-  position: relative;
-
-  & div {
-    margin-top: 30%;
-  }
-
-  transform: ${props => `rotate(${props.rotate}deg)`};
 `;
 
 const SubHeader = styled.div`
@@ -246,14 +229,14 @@ class PreviewPage extends React.Component {
                   mobileTopOffset={mobileTopOffset}
                 >
                   <div>
-                    <Bubble
-                      size={isMobileOnly ? '40vw' : '20vw'}
+                    <FloatingBubble
+                      size="20vw"
                       backgroundColor={bubble.backgroundColor}
                       color={bubble.color}
                       rotate={rotationOffset}
                     >
                       <div>{bubble.contents}</div>
-                    </Bubble>
+                    </FloatingBubble>
                   </div>
                 </StatBubbleContainer>
               );
@@ -300,14 +283,14 @@ class PreviewPage extends React.Component {
                     mobileTopOffset={mobileTopOffset}
                   >
                     <div>
-                      <Bubble
-                        size={isMobileOnly ? '30vw' : '13vw'}
+                      <FloatingBubble
+                        size="13vw"
                         backgroundColor={categoryBubble.backgroundColor}
                         color={categoryBubble.color}
                         rotate={rotationOffset}
                       >
                         <div>{categoryBubble.contents}</div>
-                      </Bubble>
+                      </FloatingBubble>
                     </div>
                   </StatBubbleContainer>
                 );
