@@ -155,6 +155,7 @@ export const previewPageData = {
   }
 };
 
+
 export const FAQPageData = {
   header: 'Frequently Asked Questions',
   faqs: [
