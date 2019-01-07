@@ -155,9 +155,6 @@ export const previewPageData = {
   }
 };
 
-export const mobileMenuData = {
-  links: siteStructure.sections
-=======
 export const FAQPageData = {
   header: 'Frequently Asked Questions',
   faqs: [
@@ -202,4 +199,4 @@ export const FAQPageData = {
         'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks.'
     }
   ]
-`};
+};
