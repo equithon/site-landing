@@ -7,6 +7,7 @@ import { mediaSize } from '../data/siteTools';
 import { previewPageData } from '../data/siteData';
 
 import StatCounter from '../components/StatCounter';
+import FloatingBubble from '../components/FloatingBubble';
 
 /* --- Images --- */
 
@@ -15,7 +16,6 @@ const PageContainer = styled.div`
   width: 100vw;
   height: auto;
   margin: 0;
-  background-color: rgb(189, 189, 189);
   box-sizing: border-box;
 `;
 
@@ -59,23 +59,6 @@ const PageDesc = styled.div`
   `};
 `;
 
-const Bubble = styled.div`
-  border-radius: 50%;
-  background-color: ${props => props.backgroundColor};
-  color: ${props => props.color};
-  width: ${props => props.size};
-  height: ${props => props.size};
-  text-align: center;
-  display: inline-block;
-  position: relative;
-
-  & div {
-    margin-top: 30%;
-  }
-
-  transform: ${props => `rotate(${props.rotate}deg)`};
-`;
-
 const SubHeader = styled.div`
   font-size: 2vw;
   font-weight: 600;
@@ -100,16 +83,24 @@ const LookBackContainer = styled.div`
   justify-content: space-around;
   height: 25vw;
   margin: 5vw 0;
+  font-size: 1.5vw;
+
+  ${mediaSize.tablet`
+    font-size: 2vw;
+  `};
 
   ${mediaSize.phone`
     flex-direction: column;
     height: auto;
+    font-size: 3.5vw;
   `};
 `;
 
 const SneakPeekContainer = styled.div`
   display: grid;
   width: 100%;
+
+  font-size: 1.5vw;
 
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 2fr 5fr;
@@ -118,7 +109,13 @@ const SneakPeekContainer = styled.div`
     'statAttendees statDuration statGoal'
     'statCategories categories categories';
 
+  ${mediaSize.tablet`
+      font-size: 2vw;
+  `};
+
   ${mediaSize.phone`
+    font-size: 4vw;
+
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 3fr;
     grid-template-areas:
@@ -174,6 +171,10 @@ const CategoriesContainer = styled.div`
     left: 0;
     justify-content: space-around;
 
+    & > div:first-child {
+      right: -6vw;
+    }
+
     & > div:last-child {
       left: -10vw;
       bottom: 10vw;
@@ -195,7 +196,7 @@ const StatBubbleContainer = styled.div`
     position: relative;
     left: 50%;
     top: ${props => `${props.offset}%`};
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateZ(0);
 
     ${mediaSize.phone`
       top: ${props => `calc(${props.mobileTopOffset} * -8vw)`};
@@ -230,7 +231,7 @@ class PreviewPage extends React.Component {
           <LookBackContainer>
             {previewPageData.lastYear.statBubbles.map((bubble, i) => {
               const isEvenOffset = i % 2 === 0;
-              const rotationOffset = Math.random() * (7 - -7) + -7;
+              const rotationOffset = Math.random() * (10 - -10) + -10;
               const mobileTopOffset = i;
               let bubbleOffset = isEvenOffset
                 ? Math.random() * (10 - 5) + 5
@@ -246,14 +247,14 @@ class PreviewPage extends React.Component {
                   mobileTopOffset={mobileTopOffset}
                 >
                   <div>
-                    <Bubble
-                      size={isMobileOnly ? '40vw' : '20vw'}
+                    <FloatingBubble
+                      size="20vw"
                       backgroundColor={bubble.backgroundColor}
                       color={bubble.color}
                       rotate={rotationOffset}
                     >
-                      <div>{bubble.contents}</div>
-                    </Bubble>
+                      {bubble.contents}
+                    </FloatingBubble>
                   </div>
                 </StatBubbleContainer>
               );
@@ -282,7 +283,7 @@ class PreviewPage extends React.Component {
             <CategoriesContainer>
               {previewPageData.thisYear.categories.map((categoryBubble, i) => {
                 const isEvenOffset = i % 2 === 0;
-                const rotationOffset = Math.random() * (15 - -15) + -15;
+                const rotationOffset = Math.random() * (10 - -10) + -10;
                 const mobileTopOffset =
                   isEvenOffset &&
                   i + 1 !== previewPageData.thisYear.categories.length
@@ -300,14 +301,14 @@ class PreviewPage extends React.Component {
                     mobileTopOffset={mobileTopOffset}
                   >
                     <div>
-                      <Bubble
-                        size={isMobileOnly ? '30vw' : '13vw'}
+                      <FloatingBubble
+                        size="13vw"
                         backgroundColor={categoryBubble.backgroundColor}
                         color={categoryBubble.color}
                         rotate={rotationOffset}
                       >
-                        <div>{categoryBubble.contents}</div>
-                      </Bubble>
+                        {categoryBubble.contents}
+                      </FloatingBubble>
                     </div>
                   </StatBubbleContainer>
                 );

@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const siteStructure = {
   sections: [
     { name: 'About', scrollTo: 'about' },
@@ -9,6 +11,10 @@ export const siteStructure = {
 
 export const siteButtons = {
   actionButton: { text: 'Contact', link: 'www.google.com' }
+};
+
+export const mobileMenuData = {
+  links: siteStructure.sections
 };
 
 export const headerData = {
@@ -33,7 +39,7 @@ export const aboutPageData = {
       authorName: 'Mandy Meindersma',
       authorDesc: 'University of Alberta CS, Equithon 2018 Category Winner',
       authorQuote:
-        'I was able to meet three amazing bad ass women who helped me grow and made me a better person. We all found our own strengths and we made something amazing together.'
+        'I was able to meet three amazing badass women who helped me grow and made me a better person. We all found our own strengths and we made something amazing together.'
     },
     {
       authorName: 'Mandy Meindersma',
@@ -54,17 +60,39 @@ export const previewPageData = {
     header: 'A Look Back At 2018',
     statBubbles: [
       {
-        contents: '... representation',
+        contents: (
+          <div>
+            <span style={{ fontWeight: 600 }}>58% Female</span>,{' '}
+            <span style={{ fontWeight: 600 }}>40% Male</span>, and{' '}
+            <span style={{ fontWeight: 600 }}>2% Non-Binary</span>{' '}
+            Representation
+          </div>
+        ),
         backgroundColor: '#AE85E6',
         color: 'white'
       },
       {
-        contents: '... countries',
+        contents: (
+          <div>
+            Global presence from{' '}
+            <span style={{ fontWeight: 600 }}>Canada, USA, Europe</span>, and{' '}
+            <span style={{ fontWeight: 600 }}>India</span>
+          </div>
+        ),
         backgroundColor: '#E2D4F5',
         color: '#46484A'
       },
       {
-        contents: '... backgrounds',
+        contents: (
+          <div>
+            Hackers with{' '}
+            <span style={{ fontWeight: 600 }}>
+              diverse academic backgrounds
+            </span>{' '}
+            ranging from <span style={{ fontWeight: 600 }}>Engineering</span> to{' '}
+            <span style={{ fontWeight: 600 }}>Arts</span>
+          </div>
+        ),
         backgroundColor: '#AE85E6',
         color: 'white'
       }
@@ -99,27 +127,27 @@ export const previewPageData = {
     ],
     categories: [
       {
-        contents: 'Physical Accessibility',
+        contents: <div style={{ fontWeight: 500 }}>Physical Accessibility</div>,
         backgroundColor: '#E2D4F5',
         color: '#46484A'
       },
       {
-        contents: 'Female Empowerment',
+        contents: <div style={{ fontWeight: 500 }}>Female Empowerment</div>,
         backgroundColor: '#AE85E6',
         color: 'white'
       },
       {
-        contents: 'Economic Disparity',
+        contents: <div style={{ fontWeight: 500 }}>Economic Disparity</div>,
         backgroundColor: '#E2D4F5',
         color: '#46484A'
       },
       {
-        contents: 'Mobility Rights',
+        contents: <div style={{ fontWeight: 500 }}>Mobility Rights</div>,
         backgroundColor: '#E2D4F5',
         color: '#46484A'
       },
       {
-        contents: 'Mental Health',
+        contents: <div style={{ fontWeight: 500 }}>Mental Health</div>,
         backgroundColor: '#AE85E6',
         color: 'white'
       }
@@ -127,6 +155,48 @@ export const previewPageData = {
   }
 };
 
-export const mobileMenuData = {
-  links: siteStructure.sections
+export const FAQPageData = {
+  header: 'Frequently Asked Questions',
+  faqs: [
+    {
+      question: 'What exactly do you do at Equithon?',
+      answer:
+        'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 other team members will create a technical project that solves an issue in one of our 5 project tracks.'
+    },
+    {
+      question: 'What do I have to do to participate?',
+      answer:
+        'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 other team members will create a technical project that solves an issue in one of our 5 project tracks.'
+    },
+    {
+      question: 'How many people can be part of the same team?',
+      answer:
+        'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks.'
+    },
+    {
+      question: 'what',
+      answer:
+        'You’ll get the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks.'
+    },
+    {
+      question: 'What exactly do you do at Equithon?',
+      answer:
+        'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 other team members will create a technical project that solves an issue in one of our 5 project tracks.'
+    },
+    {
+      question: "What's going to be happening?",
+      answer:
+        'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks.'
+    },
+    {
+      question: 'What exactly do you do at Equithon?',
+      answer:
+        'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 other team members will create a technical project that solves an issue in one of our 5 project tracks.'
+    },
+    {
+      question: "What's going to be happening?",
+      answer:
+        'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks.'
+    }
+  ]
 };
