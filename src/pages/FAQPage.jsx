@@ -36,14 +36,15 @@ const ContentContainer = styled.div`
 const Header = styled.div`
   font-size: 2.5vw;
   font-weight: 500;
-  margin-bottom: 10px;
 
   ${mediaSize.tablet`
     font-size: 5vw;
+    margin-bottom: 20px;
   `};
 
   ${mediaSize.phone`
     font-size: 7vw;
+    margin-bottom: 30px;
   `};
 `;
 

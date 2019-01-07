@@ -37,7 +37,7 @@ export const aboutPageData = {
       authorName: 'Mandy Meindersma',
       authorDesc: 'University of Alberta CS, Equithon 2018 Category Winner',
       authorQuote:
-        'I was able to meet three amazing bad ass women who helped me grow and made me a better person. We all found our own strengths and we made something amazing together.'
+        'I was able to meet three amazing badass women who helped me grow and made me a better person. We all found our own strengths and we made something amazing together.'
     },
     {
       authorName: 'Mandy Meindersma',
@@ -57,17 +57,17 @@ export const FAQPageData = {
         'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 other team members will create a technical project that solves an issue in one of our 5 project tracks.'
     },
     {
-      question: 'What exactly do you do at Equithon?',
+      question: 'What do I have to do to participate?',
       answer:
         'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 other team members will create a technical project that solves an issue in one of our 5 project tracks.'
     },
     {
-      question: "What's going to be happening?",
+      question: 'How many people can be part of the same team?',
       answer:
         'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks.'
     },
     {
-      question: "What's going to be happening?",
+      question: 'what',
       answer:
         'You’ll get the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks.'
     },
