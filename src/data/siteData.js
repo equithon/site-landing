@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const siteStructure = {
   sections: [
     { name: 'About', scrollTo: 'about' },
@@ -22,7 +24,7 @@ export const headerData = {
 };
 
 export const mainPageData = {
-  mainText: 'Be a part of the change.',
+  header: 'Be a part of the change.',
   actionText:
     'Join us in working towards social equity at Equithon on May 1-3, 2018.',
   actionButton: siteButtons.actionButton
@@ -47,6 +49,112 @@ export const aboutPageData = {
     }
   ]
 };
+
+export const previewPageData = {
+  header: "What's in store?",
+  previewDesc: [
+    'Whether you’re a talented and curious beginner who wants to learn more about technology and its role in improving social equity, or a veteran of the hackathon scene looking for a unique challenge, Equithon invites you to take part and work towards a brighter future.',
+    'We want you to improve the world and yourself in the process; at the event, you’ll encounter enriching workshops, fun activities, and the chance to work with brilliant idea and technical mentors, fellow hackers, and professionals in various fields.'
+  ],
+  lastYear: {
+    header: 'A Look Back At 2018',
+    statBubbles: [
+      {
+        contents: (
+          <div>
+            <span style={{ fontWeight: 600 }}>58% Female</span>,{' '}
+            <span style={{ fontWeight: 600 }}>40% Male</span>, and{' '}
+            <span style={{ fontWeight: 600 }}>2% Non-Binary</span>{' '}
+            Representation
+          </div>
+        ),
+        backgroundColor: '#AE85E6',
+        color: 'white'
+      },
+      {
+        contents: (
+          <div>
+            Global presence from{' '}
+            <span style={{ fontWeight: 600 }}>Canada, USA, Europe</span>, and{' '}
+            <span style={{ fontWeight: 600 }}>India</span>
+          </div>
+        ),
+        backgroundColor: '#E2D4F5',
+        color: '#46484A'
+      },
+      {
+        contents: (
+          <div>
+            Hackers with{' '}
+            <span style={{ fontWeight: 600 }}>
+              diverse academic backgrounds
+            </span>{' '}
+            ranging from <span style={{ fontWeight: 600 }}>Engineering</span> to{' '}
+            <span style={{ fontWeight: 600 }}>Arts</span>
+          </div>
+        ),
+        backgroundColor: '#AE85E6',
+        color: 'white'
+      }
+    ]
+  },
+  thisYear: {
+    header: 'A Sneak Peek At 2019',
+    statCounters: [
+      {
+        start: 0,
+        end: 500,
+        suffix: '+',
+        subtitle: 'Attendees',
+        gridArea: 'statAttendees'
+      },
+      { start: 0, end: 36, subtitle: 'Hours', gridArea: 'statDuration' },
+      {
+        start: 0,
+        end: 5,
+        textAbove: 'Participants will work towards one of:',
+        subtitle: 'Tracks',
+        color: '#854dd0',
+        gridArea: 'statCategories'
+      },
+      {
+        start: 100,
+        end: 1,
+        subtitle: 'Common Goal',
+        color: 'white',
+        gridArea: 'statGoal'
+      }
+    ],
+    categories: [
+      {
+        contents: <div style={{ fontWeight: 500 }}>Physical Accessibility</div>,
+        backgroundColor: '#E2D4F5',
+        color: '#46484A'
+      },
+      {
+        contents: <div style={{ fontWeight: 500 }}>Female Empowerment</div>,
+        backgroundColor: '#AE85E6',
+        color: 'white'
+      },
+      {
+        contents: <div style={{ fontWeight: 500 }}>Economic Disparity</div>,
+        backgroundColor: '#E2D4F5',
+        color: '#46484A'
+      },
+      {
+        contents: <div style={{ fontWeight: 500 }}>Mobility Rights</div>,
+        backgroundColor: '#E2D4F5',
+        color: '#46484A'
+      },
+      {
+        contents: <div style={{ fontWeight: 500 }}>Mental Health</div>,
+        backgroundColor: '#AE85E6',
+        color: 'white'
+      }
+    ]
+  }
+};
+
 
 export const FAQPageData = {
   header: 'Frequently Asked Questions',

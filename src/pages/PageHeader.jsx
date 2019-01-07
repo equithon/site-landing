@@ -111,7 +111,7 @@ class PageHeader extends React.Component {
     };
     this.curHeader = React.createRef();
 
-    setInterval(() => this.handleScroll(), 150); // only check for scroll every 150ms for performance
+    this.scrollTimer = setInterval(() => this.handleScroll(), 150); // only check for scroll every 150ms for performance
   }
 
   componentDidMount() {
@@ -128,6 +128,7 @@ class PageHeader extends React.Component {
     window.removeEventListener('scroll', () =>
       this.setState({ scrolled: true })
     );
+    clearInterval(this.scrollTimer);
   }
 
   handleScroll() {
