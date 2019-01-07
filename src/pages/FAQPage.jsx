@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 import { mediaSize } from '../data/siteTools';
 import { FAQPageData } from '../data/siteData';
+
+import GenericAccordion from '../components/GenericAccordion';
 /* --- Images --- */
 
 /* --- Styles --- */
@@ -20,7 +22,6 @@ const ContentContainer = styled.div`
   width: 85vw;
   height: auto;
   margin: auto;
-  background-color: grey;
 
   color: #46484a;
 
@@ -53,17 +54,16 @@ const QandAContainer = styled.div`
   justify-content: space-between;
 `;
 
-const Accordion = styled.div`
-  width: 40%;
-  padding: 2vw 0;
+const FAQAccordion = styled(GenericAccordion)`
+  width: 45%;
 
-  & > div.question {
+  & > div.label {
     font-size: 2vw;
     font-weight: 500;
     margin-bottom: 10px;
 
     ${mediaSize.tablet`
-      font-size: 3.5vw;
+      font-size: 4vw;
     `};
 
     ${mediaSize.phone`
@@ -71,12 +71,12 @@ const Accordion = styled.div`
     `};
   }
 
-  & > div.answer {
+  & div.contents {
     font-size: 1.5vw;
     font-weight: 400;
 
     ${mediaSize.tablet`
-      font-size: 2vw;
+      font-size: 3vw;
     `};
 
     ${mediaSize.phone`
@@ -106,10 +106,9 @@ class FAQPage extends React.Component {
           <Header>{FAQPageData.header}</Header>
           <QandAContainer>
             {FAQPageData.faqs.map(qa => (
-              <Accordion>
-                <div className="question">{qa.question}</div>
-                {/* <div className="answer">{qa.answer}</div> */}
-              </Accordion>
+              <FAQAccordion className="accordion question" label={qa.question}>
+                <div className="contents">{qa.answer}</div>
+              </FAQAccordion>
             ))}
           </QandAContainer>
         </ContentContainer>
