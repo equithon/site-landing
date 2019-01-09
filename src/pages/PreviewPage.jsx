@@ -1,7 +1,6 @@
 /* --- Packages and Components --- */
 import React from 'react';
 import styled from 'styled-components';
-import { isMobileOnly } from 'react-device-detect';
 
 import { mediaSize } from '../data/siteTools';
 import { previewPageData } from '../data/siteData';
@@ -10,6 +9,7 @@ import StatCounter from '../components/StatCounter';
 import FloatingBubble from '../components/FloatingBubble';
 
 /* --- Images --- */
+import AbstractShape2 from '../static/img/shapes/preview_sponsors_large@2x.png';
 
 /* --- Styles --- */
 const PageContainer = styled.div`
@@ -17,6 +17,7 @@ const PageContainer = styled.div`
   height: auto;
   margin: 0;
   box-sizing: border-box;
+  position: relative;
 `;
 
 const ContentContainer = styled.div`
@@ -25,12 +26,12 @@ const ContentContainer = styled.div`
   height: auto;
   margin: auto;
 
-  color: #46484a;
+  color: ${props => props.theme.offBlack};
 `;
 
 const Header = styled.div`
   font-size: 2.5vw;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 10px;
 
   ${mediaSize.tablet`
@@ -61,7 +62,7 @@ const PageDesc = styled.div`
 
 const SubHeader = styled.div`
   font-size: 2vw;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 2vw;
   margin-top: 3vw;
 
@@ -200,12 +201,35 @@ const StatBubbleContainer = styled.div`
 
     ${mediaSize.phone`
       top: ${props => `calc(${props.mobileTopOffset} * -8vw)`};
-      transform: ${props => `translateX(calc(-50% + ${props.offset}%))`};
+      transform: ${props => `translateX(calc(-50% + ${props.mobileOffset}%))`};
     `};
   }
 
   ${mediaSize.phone`
     width: 50%;
+  `};
+`;
+
+const ShapeContainer = styled.img`
+  position: absolute;
+  bottom: -40vw;
+  right: -5px;
+  max-width: 120vw;
+  max-height: 120vw;
+  z-index: -1;
+
+  ${mediaSize.tablet`
+    max-height: 220vw;
+    max-width: 220vw;
+    bottom: -90vw;
+    right: -40vw;
+  `};
+
+  ${mediaSize.phone`
+    max-height: 220vw;
+    max-width: 220vw;
+    bottom: -10vw;
+    right: -20vw;
   `};
 `;
 
@@ -233,18 +257,18 @@ class PreviewPage extends React.Component {
               const isEvenOffset = i % 2 === 0;
               const rotationOffset = Math.random() * (10 - -10) + -10;
               const mobileTopOffset = i;
-              let bubbleOffset = isEvenOffset
+              const phoneBubbleOffset = isEvenOffset
+                ? Math.random() * (15 - 0) + 0
+                : Math.random() * (87 - 83) + 83;
+              const bubbleOffset = isEvenOffset
                 ? Math.random() * (10 - 5) + 5
                 : Math.random() * (0 - -10) + -10;
-              if (isMobileOnly)
-                bubbleOffset = isEvenOffset
-                  ? Math.random() * (15 - 0) + 0
-                  : Math.random() * (95 - 85) + 85;
 
               return (
                 <StatBubbleContainer
                   offset={bubbleOffset}
                   mobileTopOffset={mobileTopOffset}
+                  mobileOffset={phoneBubbleOffset}
                 >
                   <div>
                     <FloatingBubble
@@ -289,16 +313,17 @@ class PreviewPage extends React.Component {
                   i + 1 !== previewPageData.thisYear.categories.length
                     ? 0
                     : -2;
-                let bubbleOffset = isEvenOffset
+                const bubbleOffset = isEvenOffset
                   ? Math.random() * (60 - 48) + 48
                   : Math.random() * (17 - 5) + 5;
-                if (isMobileOnly)
-                  bubbleOffset = Math.random() * (10 - -10) + -10;
+
+                const phoneBubbleOffset = Math.random() * (10 - -10) + -10;
 
                 return (
                   <StatBubbleContainer
                     offset={bubbleOffset}
                     mobileTopOffset={mobileTopOffset}
+                    mobileOffset={phoneBubbleOffset}
                   >
                     <div>
                       <FloatingBubble
@@ -316,6 +341,7 @@ class PreviewPage extends React.Component {
             </CategoriesContainer>
           </SneakPeekContainer>
         </ContentContainer>
+        <ShapeContainer src={AbstractShape2} />
       </PageContainer>
     );
   }

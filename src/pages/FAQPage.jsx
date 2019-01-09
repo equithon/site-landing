@@ -1,6 +1,7 @@
 /* --- Packages and Components --- */
 import React from 'react';
 import styled from 'styled-components';
+import { isMobile } from 'react-device-detect';
 
 import { mediaSize } from '../data/siteTools';
 import { FAQPageData } from '../data/siteData';
@@ -13,17 +14,16 @@ const PageContainer = styled.div`
   width: 100vw;
   height: auto;
   margin: 0;
-  background-color: white;
   box-sizing: border-box;
 `;
 
 const ContentContainer = styled.div`
   padding: 10vh 0;
-  width: 85vw;
+  width: 80vw;
   height: auto;
   margin: auto;
 
-  color: #46484a;
+  color: ${props => props.theme.offBlack};
 
   ${mediaSize.tablet`
     width: 80vw;
@@ -33,9 +33,22 @@ const ContentContainer = styled.div`
   `};
 `;
 
-const Header = styled.div`
+const PageHeader = styled.div`
   font-size: 2.5vw;
   font-weight: 500;
+  color: ${props => props.theme.offBlack};
+  position: relative;
+  display: inline-block;
+
+  ${'' /* &:after {
+    color: black;
+    mix-blend-mode: difference;
+    content: '${props => props.title}';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  } */}
 
   ${mediaSize.tablet`
     font-size: 5vw;
@@ -59,12 +72,12 @@ const FAQAccordion = styled(GenericAccordion)`
   width: 45%;
 
   & > div.label {
-    font-size: 2vw;
+    font-size: 1.5vw;
     font-weight: 500;
     margin-bottom: 10px;
 
     ${mediaSize.tablet`
-      font-size: 4vw;
+      font-size: 3.5vw;
     `};
 
     ${mediaSize.phone`
@@ -73,11 +86,11 @@ const FAQAccordion = styled(GenericAccordion)`
   }
 
   & div.contents {
-    font-size: 1.5vw;
+    font-size: 1.3vw;
     font-weight: 400;
 
     ${mediaSize.tablet`
-      font-size: 3vw;
+      font-size: 2.5vw;
     `};
 
     ${mediaSize.phone`
@@ -93,6 +106,50 @@ const FAQAccordion = styled(GenericAccordion)`
   `};
 `;
 
+const AdditionalQuestionsContainer = styled.div`
+  width: 40vw;
+  margin: auto;
+  text-align: center;
+
+  color: ${props => props.theme.offBlack};
+
+  & > div {
+    font-weight: 500;
+    padding-bottom: 5px;
+
+    font-size: 1.5vw;
+
+    ${mediaSize.tablet`
+      font-size: 3.5vw;
+    `};
+
+    ${mediaSize.phone`
+      font-size: 5vw;
+    `};
+  }
+
+  & > a {
+    color: ${props => props.theme.offBlack};
+    font-size: 1.3vw;
+
+    ${mediaSize.tablet`
+      font-size: 2.5vw;
+    `};
+
+    ${mediaSize.phone`
+      font-size: 4vw;
+    `};
+  }
+
+  ${mediaSize.tablet`
+    width: 60vw;
+  `};
+
+  ${mediaSize.phone`
+    width: 80vw;
+  `};
+`;
+
 /* --- Component --- */
 class FAQPage extends React.Component {
   constructor(props) {
@@ -104,14 +161,26 @@ class FAQPage extends React.Component {
     return (
       <PageContainer className="section" id="faq">
         <ContentContainer>
-          <Header>{FAQPageData.header}</Header>
+          <PageHeader title={FAQPageData.header}>
+            {FAQPageData.header}
+          </PageHeader>
           <QandAContainer>
             {FAQPageData.faqs.map(qa => (
-              <FAQAccordion className="accordion question" label={qa.question}>
+              <FAQAccordion
+                className="accordion question"
+                label={qa.question}
+                collapsible={isMobile}
+              >
                 <div className="contents">{qa.answer}</div>
               </FAQAccordion>
             ))}
           </QandAContainer>
+          <AdditionalQuestionsContainer>
+            <div>{FAQPageData.FAQAction.actionText}</div>
+            <a href={FAQPageData.FAQAction.link.to}>
+              {FAQPageData.FAQAction.link.text}
+            </a>
+          </AdditionalQuestionsContainer>
         </ContentContainer>
       </PageContainer>
     );
