@@ -23,34 +23,26 @@ const ComponentContainer = styled.div`
 
 const AccordionLabel = styled.div`
   cursor: pointer;
-  height: ${props => (props.collapsible ? '25%' : 'auto')};
+  height: auto;
 
   & div.label-container {
     display: inline-flex;
     align-items: center;
-    position: relative;
-    vertical-align: top;
-    height: 100%;
-    max-width: 70vw;
 
     & div.caret {
       display: ${props => (props.collapsible ? 'inline-flex' : 'none')};
 
       align-items: center;
-      position: relative;
-      vertical-align: top;
       width: 1vw;
-      height: 100%;
       margin-left: 10px;
+      margin-top: 5px;
 
       ${mediaSize.tablet`
         width: 1.5vw;
-        margin-left: 15px;
       `};
 
       ${mediaSize.phone`
         width: 2vw;
-        margin-left: 15px;
       `};
 
       & img {
@@ -68,6 +60,7 @@ const AccordionLabel = styled.div`
 
 const AccordionContents = styled.div`
   transition: max-height 0.5s ease-in-out;
+  overflow: hidden;
 
   max-height: ${props => (props.selected ? '10vw' : '0')};
 
