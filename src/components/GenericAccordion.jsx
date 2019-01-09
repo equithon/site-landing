@@ -32,34 +32,36 @@ const AccordionLabel = styled.div`
     vertical-align: top;
     height: 100%;
     max-width: 70vw;
-  }
 
-  & div.caret {
-    display: ${props => (props.collapsible ? 'inline-flex' : 'none')};
-    align-items: center;
-    position: relative;
-    vertical-align: top;
-    width: 1vw;
-    height: 100%;
-    margin-left: 10px;
+    & div.caret {
+      display: ${props => (props.collapsible ? 'inline-flex' : 'none')};
 
-    ${mediaSize.tablet`
-      width: 1.5vw;
-      margin-left: 15px;
-    `};
+      align-items: center;
+      position: relative;
+      vertical-align: top;
+      width: 1vw;
+      height: 100%;
+      margin-left: 10px;
 
-    ${mediaSize.phone`
-      width: 2vw;
-      margin-left: 15px;
-    `};
+      ${mediaSize.tablet`
+        width: 1.5vw;
+        margin-left: 15px;
+      `};
 
-    & img {
-      // Source: Caret Down by Wireform from the Noun Project
-      max-width: 100%;
-      max-height: 100%;
+      ${mediaSize.phone`
+        width: 2vw;
+        margin-left: 15px;
+      `};
 
-      transform: ${props => (props.selected ? 'rotate(180deg)' : 'rotate(0)')};
-      transition: transform 0.25s ease-in-out;
+      & img {
+        // Source: Caret Down by Wireform from the Noun Project
+        max-width: 100%;
+        max-height: 100%;
+
+        transform: ${props =>
+          props.selected ? 'rotate(180deg)' : 'rotate(0)'};
+        transition: transform 0.25s ease-in-out;
+      }
     }
   }
 `;
@@ -68,6 +70,19 @@ const AccordionContents = styled.div`
   transition: max-height 0.5s ease-in-out;
 
   max-height: ${props => (props.selected ? '10vw' : '0')};
+
+  & div.contents {
+    font-size: 1.3vw;
+    font-weight: 400;
+
+    ${mediaSize.tablet`
+      font-size: 2.5vw;
+    `};
+
+    ${mediaSize.phone`
+      font-size: 4vw;
+    `};
+  }
 
   ${mediaSize.tablet`
     max-height: ${props => (props.selected ? '20vw' : '0')};
@@ -108,18 +123,20 @@ class GenericAccordion extends React.Component {
         >
           {' '}
           {/* eslint-disable-line */}
-          <div className="label-container">{this.props.label}</div>
-          <div className="caret">
-            <img
-              src={CaretIcon}
-              alt="A caret symbol used to indicate a dropdown availability."
-            />
+          <div className="label-container">
+            {this.props.label}
+            <div className="caret">
+              <img
+                src={CaretIcon}
+                alt="A caret symbol used to indicate a dropdown availability."
+              />
+            </div>
           </div>
         </AccordionLabel>
         <AccordionContents
           selected={this.state.open || !this.props.collapsible}
         >
-          {this.props.children}
+          <div className="contents">{this.props.children}</div>
         </AccordionContents>
       </ComponentContainer>
     );
