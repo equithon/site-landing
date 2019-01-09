@@ -138,12 +138,13 @@ const MainButtonContainer = styled.div`
 `;
 
 const ActionButton = styled(GenericButton)`
-  height: 10vw;
+  height: 3vw;
   font-weight: 500;
   font-size: 2vmin;
 
   ${mediaSize.tablet`
     font-size: 2.5vmin;
+    height: 8vw;
   `};
 
   ${mediaSize.phone`
