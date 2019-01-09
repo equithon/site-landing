@@ -17,13 +17,13 @@ const ComponentContainer = styled.div`
 
   &:hover,
   &.selected {
-    filter: brightness(20%);
+    filter: ${props => (props.collapsible ? 'brightness(20%)' : 'none')};
   }
 `;
 
 const AccordionLabel = styled.div`
   cursor: pointer;
-  height: 25%;
+  height: ${props => (props.collapsible ? '25%' : 'auto')};
 
   & div.label-container {
     display: inline-flex;
@@ -35,7 +35,7 @@ const AccordionLabel = styled.div`
   }
 
   & div.caret {
-    display: inline-flex;
+    display: ${props => (props.collapsible ? 'inline-flex' : 'none')};
     align-items: center;
     position: relative;
     vertical-align: top;
@@ -65,7 +65,6 @@ const AccordionLabel = styled.div`
 `;
 
 const AccordionContents = styled.div`
-  overflow: hidden;
   transition: max-height 0.5s ease-in-out;
 
   max-height: ${props => (props.selected ? '10vw' : '0')};
@@ -96,6 +95,7 @@ class GenericAccordion extends React.Component {
         className={`${this.props.className} ${
           this.state.open ? 'selected' : ''
         }`}
+        collapsible={this.props.collapsible}
         show={this.state.open}
       >
         <AccordionLabel
@@ -104,6 +104,7 @@ class GenericAccordion extends React.Component {
           }
           className="label"
           selected={this.state.open}
+          collapsible={this.props.collapsible}
         >
           {' '}
           {/* eslint-disable-line */}
@@ -115,7 +116,9 @@ class GenericAccordion extends React.Component {
             />
           </div>
         </AccordionLabel>
-        <AccordionContents selected={this.state.open}>
+        <AccordionContents
+          selected={this.state.open || !this.props.collapsible}
+        >
           {this.props.children}
         </AccordionContents>
       </ComponentContainer>

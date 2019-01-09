@@ -1,5 +1,20 @@
 import React from 'react';
 
+export const siteColors = {
+  offBlack: '#46484a',
+  offWhite: '#EFEFEF',
+  warning: '#F4A867',
+  error: '#F07285',
+
+  darkerPurple: '#854DD0',
+  primary: '#9A71D1',
+  lighterPurple: '#E2D4F5',
+
+  darkerBlue: '#4270DE',
+  secondary: '#4B97E0',
+  lighterBlue: '#A9C2F8'
+};
+
 export const siteStructure = {
   sections: [
     { name: 'About', scrollTo: 'about' },
@@ -10,7 +25,13 @@ export const siteStructure = {
 };
 
 export const siteButtons = {
-  actionButton: { text: 'Contact', link: 'www.google.com' }
+  contactButton: { text: 'Contact', link: 'mailto:hello@equithon.org' },
+  applyButton: { text: 'Apply', link: 'www.my.equithon.org' },
+  signupButton: {
+    text: 'Stay Posted',
+    link:
+      'https://www.google.com/search?q=this+should+sign+the+user+up+for+a+mailing+list&oq=this+should+sign+the+user+up+for+a+mailing+list&aqs=chrome..69i57.5475j0j1&sourceid=chrome&ie=UTF-8'
+  }
 };
 
 export const mobileMenuData = {
@@ -20,14 +41,14 @@ export const mobileMenuData = {
 export const headerData = {
   logoSrc: '',
   links: siteStructure.sections,
-  actionButton: siteButtons.actionButton
+  actionButton: siteButtons.applyButton
 };
 
 export const mainPageData = {
   header: 'Be a part of the change.',
   actionText:
     'Join us in working towards social equity at Equithon on May 1-3, 2018.',
-  actionButton: siteButtons.actionButton
+  actionButton: siteButtons.applyButton
 };
 
 export const aboutPageData = {
@@ -80,7 +101,7 @@ export const previewPageData = {
           </div>
         ),
         backgroundColor: '#E2D4F5',
-        color: '#46484A'
+        color: 'siteColors.offBlack'
       },
       {
         contents: (
@@ -129,7 +150,7 @@ export const previewPageData = {
       {
         contents: <div style={{ fontWeight: 500 }}>Physical Accessibility</div>,
         backgroundColor: '#E2D4F5',
-        color: '#46484A'
+        color: 'siteColors.offBlack'
       },
       {
         contents: <div style={{ fontWeight: 500 }}>Female Empowerment</div>,
@@ -139,12 +160,12 @@ export const previewPageData = {
       {
         contents: <div style={{ fontWeight: 500 }}>Economic Disparity</div>,
         backgroundColor: '#E2D4F5',
-        color: '#46484A'
+        color: 'siteColors.offBlack'
       },
       {
         contents: <div style={{ fontWeight: 500 }}>Mobility Rights</div>,
         backgroundColor: '#E2D4F5',
-        color: '#46484A'
+        color: 'siteColors.offBlack'
       },
       {
         contents: <div style={{ fontWeight: 500 }}>Mental Health</div>,
@@ -155,6 +176,48 @@ export const previewPageData = {
   }
 };
 
+export const sponsorsPageData = {
+  header: 'Special Thanks',
+  sponsorUsBlurb:
+    'Equithon would not be possible without the generous sponsorship of companies and individuals who have all exhibited a passion for social innovation and are commited to helping us improve the world, one project at a time.',
+  sponsorAction: {
+    actionText: 'Interested in sponsoring?',
+    link: {
+      text: 'Shoot us an email.',
+      to: 'mailto: hello@equithon.org'
+    }
+  },
+  sponsors: [
+    {
+      name: 'Loopio',
+      link: 'http://loopio.com',
+      tier: 'diamond',
+      backgroundColor: 'blue',
+      color: 'white'
+    },
+    {
+      name: 'Loopio',
+      link: 'http://loopio.com',
+      tier: 'diamond',
+      backgroundColor: 'blue',
+      color: 'white'
+    },
+    {
+      name: 'Loopio',
+      link: 'http://loopio.com',
+      tier: 'diamond',
+      backgroundColor: 'blue',
+      color: 'white'
+    },
+    {
+      name: 'Loopio',
+      link: 'http://loopio.com',
+      tier: 'diamond',
+      backgroundColor: 'blue',
+      color: 'white'
+    }
+  ]
+};
 
 export const FAQPageData = {
   header: 'Frequently Asked Questions',
@@ -199,5 +262,12 @@ export const FAQPageData = {
       answer:
         'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks.'
     }
-  ]
+  ],
+  FAQAction: {
+    actionText: 'Have another burning question?',
+    link: {
+      text: "Talk to our team (we don't bite).",
+      to: 'mailto: hello@equithon.org'
+    }
+  }
 };

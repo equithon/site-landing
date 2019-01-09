@@ -8,13 +8,13 @@ import GenericButton from '../components/GenericButton';
 
 /* --- Images --- */
 import HeroImg from '../static/img/hero.png';
+import AbstractShape1 from '../static/img/shapes/main_about_middle_left@2x.png';
 
 /* --- Styles --- */
 const PageContainer = styled.div`
   width: 100vw;
   height: 100vh;
   margin: 0;
-  background-color: white;
   box-sizing: border-box;
 `;
 
@@ -24,7 +24,7 @@ const ContentContainer = styled.div`
   height: 80vh;
   margin: auto;
 
-  color: #46484a;
+  color: ${props => props.theme.offBlack};
 
   display: grid;
   grid-column-gap: 3vw;
@@ -49,7 +49,7 @@ const ContentContainer = styled.div`
   `};
 
   ${mediaSize.phone`
-    height: 60vh;
+    height: 70vh;
     grid-template-rows: 5fr 1fr 1fr 1fr;
   `};
 `;
@@ -124,6 +124,7 @@ const ActionTextContainer = styled.div`
   `};
 
   ${mediaSize.phone`
+    font-size: 4vw;
   `};
 `;
 
@@ -137,17 +138,41 @@ const MainButtonContainer = styled.div`
 `;
 
 const ActionButton = styled(GenericButton)`
-  height: 6vh;
+  height: 3vw;
   font-weight: 500;
   font-size: 2vmin;
 
   ${mediaSize.tablet`
     font-size: 2.5vmin;
+    height: 8vw;
   `};
 
   ${mediaSize.phone`
-    height: 5vh;
-    font-size: 3vmin;
+    height: 12vw;
+    font-size: 5vmin;
+  `};
+`;
+
+const ShapeContainer = styled.img`
+  position: absolute;
+  bottom: -15vw;
+  left: -20px;
+  max-width: 30vw;
+  max-height: 30vw;
+  z-index: -1;
+
+  ${mediaSize.tablet`
+    max-height: 50vw;
+    max-width: 50vw;
+    left: -14vw;
+    bottom: -12vw;
+  `};
+
+  ${mediaSize.phone`
+    max-height: 60vw;
+    max-width: 60vw;
+    left: -5vw;
+    bottom: -15vw;
   `};
 `;
 
@@ -178,6 +203,7 @@ class MainPage extends React.Component {
             />
           </MainButtonContainer>
         </ContentContainer>
+        <ShapeContainer src={AbstractShape1} />
       </PageContainer>
     );
   }

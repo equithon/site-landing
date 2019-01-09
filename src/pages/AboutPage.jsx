@@ -14,7 +14,6 @@ const PageContainer = styled.div`
   width: 100vw;
   height: 100vh;
   margin: 0;
-  background-color: white;
   box-sizing: border-box;
 `;
 
@@ -24,7 +23,7 @@ const ContentContainer = styled.div`
   height: 80vh;
   margin: auto;
 
-  color: #46484a;
+  color: ${props => props.theme.offBlack};
 
   display: grid;
   grid-template-columns: 5fr 4fr;
@@ -90,7 +89,7 @@ const MainContainer = styled.div`
 
 const MainHeader = styled.div`
   font-size: 2.5vw;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 10px;
 
   ${mediaSize.tablet`
