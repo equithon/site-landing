@@ -1,7 +1,7 @@
 /* --- Packages and Components --- */
 import React from 'react';
 import styled from 'styled-components';
-import { Link, scrollSpy } from 'react-scroll';
+import { Link, scrollSpy, animateScroll } from 'react-scroll';
 
 import { mediaSize } from '../data/siteTools';
 
@@ -37,6 +37,7 @@ const ContentContainer = styled.div`
 const BrandContainer = styled.div`
   float: left;
   height: 100%;
+  cursor: pointer;
 `;
 
 const BrandImg = styled.img`
@@ -158,7 +159,7 @@ class PageHeader extends React.Component {
         ref={this.curHeader}
       >
         <ContentContainer>
-          <BrandContainer>
+          <BrandContainer onClick={() => animateScroll.scrollToTop()}>
             <BrandImg src={Favicon} />
             <BrandText>Equithon</BrandText>
           </BrandContainer>

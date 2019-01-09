@@ -71,7 +71,7 @@ const SubHeader = styled.div`
 
 const SponsorUsPleaseContainer = styled.div`
   width: 40vw;
-  margin: 20vw auto 0 auto;
+  margin: 0 auto;
   text-align: center;
 
   color: white;
@@ -104,9 +104,11 @@ const SponsorUsPleaseContainer = styled.div`
   }
 
   ${mediaSize.tablet`
+    margin: 10vw auto 0 auto;
   `};
 
   ${mediaSize.phone`
+    margin: 20vw auto 0 auto;
     width: 60vw;
   `};
 `;

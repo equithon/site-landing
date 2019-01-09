@@ -20,7 +20,7 @@ import FAQPage from './FAQPage';
 /* --- Component [STATELESS] --- */
 export default () => (
   <ThemeProvider theme={siteColors}>
-    <div id="appWrapper">
+    <div id="appWrapper" style={{ width: '100%', overflowX: 'hidden' }}>
       <GlobalStyle />
       <HelmetHeader />
 

@@ -65,7 +65,6 @@ const AccordionLabel = styled.div`
 `;
 
 const AccordionContents = styled.div`
-  overflow: hidden;
   transition: max-height 0.5s ease-in-out;
 
   max-height: ${props => (props.selected ? '10vw' : '0')};
