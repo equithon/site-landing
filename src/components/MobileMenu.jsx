@@ -1,6 +1,7 @@
 /* --- Packages and Components --- */
 import React from 'react';
 import styled from 'styled-components';
+import posed from 'react-pose';
 import onClickOutside from 'react-onclickoutside';
 import { Link, scrollSpy } from 'react-scroll';
 
@@ -21,6 +22,8 @@ const ComponentContainer = styled.div`
   color: white;
   text-align: center;
   line-height: 10vw;
+  box-shadow: 2px 2px 1px 2px rgba(154, 113, 209, 0.6);
+  border-radius: 50%;
 
   ${mediaSize.phone`
     width: 14vw;
@@ -35,8 +38,8 @@ const MenuBackground = styled.div`
   width: 200vw;
   height: 200vw;
   opacity: ${props => (props.open ? 0.975 : 1)};
-  background-color: #854dd0;
-  border-radius: 2000px;
+  background-color: ${props => props.theme.darkerPurple};
+  border-radius: 50%;
   position: absolute;
   z-index: 101;
   top: 50%;
@@ -56,7 +59,18 @@ const MenuBackground = styled.div`
   `}
 `;
 
-const MenuContents = styled.div`
+const MenuContentsAnimConfig = {
+  entering: {
+    staggerChildren: 150,
+    staggerDirection: -1
+  },
+  entered: {
+    staggerChildren: 150,
+    staggerDirection: -1
+  }
+};
+
+const MenuContents = styled(posed.div(MenuContentsAnimConfig))`
   position: absolute;
   z-index: 102;
   right: ${props =>
@@ -64,7 +78,18 @@ const MenuContents = styled.div`
   bottom: 100%;
 `;
 
-const MenuSiteLink = styled(Link)`
+const MenuLinkAnimConfig = {
+  entering: {
+    y: '100%',
+    opacity: 0
+  },
+  entered: {
+    y: '0%',
+    opacity: 1
+  }
+};
+
+const MenuSiteLinkDiv = styled(posed.div(MenuLinkAnimConfig))`
   display: block;
   font-weight: 500;
   cursor: pointer;
@@ -76,15 +101,17 @@ const MenuSiteLink = styled(Link)`
   font-size: 4vw;
   cursor: pointer;
 
-  &.active-link,
-  :hover {
-    color: #66adef;
-  }
-
   ${mediaSize.phone`
     font-size: 6vw;
     line-height: 170%;
   `}
+`;
+
+const MenuSiteLink = styled(Link)`
+  &.active-link,
+  :hover {
+    color: #66adef;
+  }
 `;
 
 const MenuIconContainer = styled.div`
@@ -168,21 +195,27 @@ class MobileMenu extends React.Component {
           </MenuIcon>
         </MenuIconContainer>
         {this.state.open ? (
-          <MenuContents offset={this.menuBar.offsetLeft}>
+          <MenuContents
+            offset={this.menuBar.offsetLeft}
+            pose="entered"
+            initialPose="entering"
+          >
             {mobileMenuData.links.map((link, i) => (
-              <MenuSiteLink
-                className="mobile-menu-link"
-                to={link.scrollTo}
-                activeClass="active-link"
-                spy
-                smooth
-                duration={750}
-                key={link.scrollTo}
-                offset={i}
-                onClick={() => this.setState({ open: false })}
-              >
-                {link.name}
-              </MenuSiteLink>
+              <MenuSiteLinkDiv>
+                <MenuSiteLink
+                  className="mobile-menu-link"
+                  to={link.scrollTo}
+                  activeClass="active-link"
+                  spy
+                  smooth
+                  duration={750}
+                  key={link.scrollTo}
+                  offset={i}
+                  onClick={() => this.setState({ open: false })}
+                >
+                  {link.name}
+                </MenuSiteLink>
+              </MenuSiteLinkDiv>
             ))}
           </MenuContents>
         ) : null}
