@@ -9,6 +9,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import CountUp from 'react-countup';
+import VisibilitySensor from 'react-visibility-sensor';
 
 import { mediaSize } from '../data/siteTools';
 
@@ -52,18 +53,45 @@ const Desc = styled.span`
 `;
 
 /* --- Component --- */
-const StatCounter = props => (
-  <CounterContainer size={props.size} color={props.color}>
-    <Counter>
-      <CountUp
-        start={props.countStart || 0}
-        end={props.countEnd || 100}
-        duration={props.countDuration || 5}
-        suffix={props.suffix}
-      />
-    </Counter>
-    <Desc>{props.children}</Desc>
-  </CounterContainer>
-);
+class StatCounter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { scrolledTo: false };
+  }
+
+  handleVisibilityChange(isVisible) {
+    if (isVisible) {
+      this.setState({ scrolledTo: true });
+    }
+  }
+
+  render() {
+    return (
+      <VisibilitySensor
+        delayedCall
+        onChange={isVisible => this.handleVisibilityChange(isVisible)}
+      >
+        <CounterContainer size={this.props.size} color={this.props.color}>
+          <Counter>
+            <CountUp
+              start={this.props.countStart || 0}
+              end={
+                this.state.scrolledTo
+                  ? this.props.countEnd || 100
+                  : this.props.countStart || 0
+              }
+              duration={this.props.countDuration || 5}
+              suffix={this.props.suffix}
+              ref={countUp => {
+                this.countUpRef = countUp;
+              }}
+            />
+          </Counter>
+          <Desc>{this.props.children}</Desc>
+        </CounterContainer>
+      </VisibilitySensor>
+    );
+  }
+}
 
 export default StatCounter;
