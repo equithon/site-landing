@@ -240,7 +240,7 @@ export const FAQPageData = {
     {
       question: 'what',
       answer:
-        'You’ll get the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks.'
+        "You’ll get the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make this question is intentionally written to overflow, we shouldn't have an answer as long as this a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks."
     },
     {
       question: 'What exactly do you do at Equithon?',
@@ -253,7 +253,8 @@ export const FAQPageData = {
         'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks.'
     },
     {
-      question: 'What exactly do you do at Equithon?',
+      question:
+        'What exactly do you do at Eqpgjwegpw epgjweogwegow epg wejgweog pwejgpwje pg jwegwpeuithon?',
       answer:
         'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 other team members will create a technical project that solves an issue in one of our 5 project tracks.'
     },
