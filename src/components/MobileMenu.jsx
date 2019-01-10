@@ -32,7 +32,7 @@ const ComponentContainer = styled.div`
     height: 14vw;
     line-height: 14vw;
     bottom: 2em;
-    right: 2em;
+    right: ${props => (props.x ? '-70%' : '2em')};
   `}
 `;
 
