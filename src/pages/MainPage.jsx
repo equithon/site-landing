@@ -9,7 +9,7 @@ import { mainPageData } from '../data/siteData';
 import GenericButton from '../components/GenericButton';
 
 /* --- Images --- */
-import HeroImg from '../static/img/hero.png';
+import HeroImg from '../static/img/HeroImage_1.png';
 import AbstractShape1 from '../static/img/shapes/main_about_middle_left@2x.png';
 
 /* --- Styles --- */
