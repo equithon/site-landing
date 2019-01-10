@@ -16,7 +16,7 @@ const ComponentContainer = styled.div`
 
   position: fixed;
   bottom: 3em;
-  right: ${props => (props.x ? '-70%' : '3em')};
+  right: ${props => (props.shouldHide ? '-70%' : '3em')};
   z-index: 100;
 
   color: white;
@@ -32,7 +32,7 @@ const ComponentContainer = styled.div`
     height: 14vw;
     line-height: 14vw;
     bottom: 2em;
-    right: ${props => (props.x ? '-70%' : '2em')};
+    right: ${props => (props.shouldHide ? '-70%' : '2em')};
   `}
 `;
 
@@ -40,7 +40,7 @@ const MenuBackground = styled.div`
   width: 200vw;
   height: 200vw;
   opacity: ${props => (props.open ? 0.975 : 1)};
-  background-color: ${props => props.theme.darkerPurple};
+  background-color: #a16beb;
   border-radius: 50%;
   position: absolute;
   z-index: 101;
@@ -217,10 +217,10 @@ class MobileMenu extends React.Component {
     return (
       <ComponentContainer
         onClick={() => this.setState(prevState => ({ open: !prevState.open }))}
-        x={this.state.hidden}
+        shouldHide={this.state.hidden}
         ref={this.curMenu}
       >
-        <MenuBackground open={this.state.open} />
+        <MenuBackground open={this.state.open && !this.state.hidden} />
         <MenuIconContainer>
           <MenuIcon>
             <MenuIconBar

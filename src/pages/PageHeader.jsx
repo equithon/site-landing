@@ -50,7 +50,7 @@ const BrandText = styled.span`
   display: inline-block;
   margin-top: 2px;
   font-weight: 550;
-  font-size: 1.5vw;
+  font-size: 2vw;
   line-height: 6vh;
   color: #a16beb;
 
@@ -68,7 +68,7 @@ const LinksContainer = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  font-size: 0.8vw;
+  font-size: 1vw;
 
   & > * {
     margin-top: 4px;
@@ -98,7 +98,7 @@ const ActionButton = styled(GenericButton)`
   height: 75%;
 
   font-weight: 500;
-  font-size: 1em;
+  font-size: 1vw;
 
   ${mediaSize.tablet`
     height: 80%;
