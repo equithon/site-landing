@@ -85,24 +85,8 @@ const FAQAccordion = styled(GenericAccordion)`
     `};
   }
 
-  & div.contents {
-    font-size: 1.3vw;
-    font-weight: 400;
-
-    ${mediaSize.tablet`
-      font-size: 2.5vw;
-    `};
-
-    ${mediaSize.phone`
-      font-size: 4vw;
-    `};
-  }
-
   ${mediaSize.tablet`
     width: 100%;
-  `};
-
-  ${mediaSize.phone`
   `};
 `;
 
@@ -171,7 +155,7 @@ class FAQPage extends React.Component {
                 label={qa.question}
                 collapsible={isMobile}
               >
-                <div className="contents">{qa.answer}</div>
+                {qa.answer}
               </FAQAccordion>
             ))}
           </QandAContainer>
