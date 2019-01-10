@@ -1,6 +1,8 @@
 /* --- Packages and Components --- */
 import React from 'react';
 import styled from 'styled-components';
+import Fade from 'react-reveal/Fade';
+
 import { mediaSize } from '../data/siteTools';
 import { mainPageData } from '../data/siteData';
 
@@ -186,23 +188,25 @@ class MainPage extends React.Component {
   render() {
     return (
       <PageContainer className="section" id="main">
-        <ContentContainer>
-          <HeroImgContainer src={HeroImg} alt="A person thinking." />
-          <HeaderTextContainer>
-            <Header shadowText={mainPageData.header.split(' ').splice(-1)}>
-              {mainPageData.header}
-            </Header>
-          </HeaderTextContainer>
-          <ActionTextContainer>{mainPageData.actionText}</ActionTextContainer>
-          <MainButtonContainer>
-            <ActionButton
-              text={mainPageData.actionButton.text}
-              backgroundColor="#66adef"
-              color="#fff"
-              click={() => {}}
-            />
-          </MainButtonContainer>
-        </ContentContainer>
+        <Fade bottom distance="5vw">
+          <ContentContainer>
+            <HeroImgContainer src={HeroImg} alt="A person thinking." />
+            <HeaderTextContainer>
+              <Header shadowText={mainPageData.header.split(' ').splice(-1)}>
+                {mainPageData.header}
+              </Header>
+            </HeaderTextContainer>
+            <ActionTextContainer>{mainPageData.actionText}</ActionTextContainer>
+            <MainButtonContainer>
+              <ActionButton
+                text={mainPageData.actionButton.text}
+                backgroundColor="#66adef"
+                color="#fff"
+                click={() => {}}
+              />
+            </MainButtonContainer>
+          </ContentContainer>
+        </Fade>
         <ShapeContainer src={AbstractShape1} />
       </PageContainer>
     );

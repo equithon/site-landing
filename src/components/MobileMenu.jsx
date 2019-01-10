@@ -16,7 +16,7 @@ const ComponentContainer = styled.div`
 
   position: fixed;
   bottom: 3em;
-  right: 3em;
+  right: ${props => (props.x ? '-70%' : '3em')};
   z-index: 100;
 
   color: white;
@@ -24,6 +24,8 @@ const ComponentContainer = styled.div`
   line-height: 10vw;
   box-shadow: 2px 2px 1px 2px rgba(154, 113, 209, 0.6);
   border-radius: 50%;
+
+  transition: right 0.5s cubic-bezier(0.87, -0.41, 0.19, 1.44);
 
   ${mediaSize.phone`
     width: 14vw;
@@ -163,22 +165,60 @@ class MobileMenu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      open: false,
+      scrolled: false,
+      hidden: false,
+      lastScrollPos: typeof window !== 'undefined' && window.pageYOffset
     };
+
+    this.curMenu = React.createRef();
+
+    this.scrollTimer = setInterval(() => this.handleScroll(), 150); // only check for scroll every 150ms for performance
   }
 
   componentDidMount() {
+    window.addEventListener('scroll', () => this.setState({ scrolled: true }));
+    this.height = this.curMenu.current.offsetHeight;
     scrollSpy.update();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', () =>
+      this.setState({ scrolled: true })
+    );
+    clearInterval(this.scrollTimer);
   }
 
   handleClickOutside = () => {
     this.setState({ open: false });
   };
 
+  handleScroll() {
+    const SCROLL_TRIGGER_DELTA = 5;
+    const curScrollPos = typeof window !== 'undefined' && window.pageYOffset;
+    if (
+      this.state.scrolled &&
+      Math.abs(curScrollPos - this.state.lastScrollPos) >= SCROLL_TRIGGER_DELTA
+    ) {
+      // scrolled, and for more than the delta
+      const shouldHide = // eslint-disable-next-line
+        curScrollPos > this.state.lastScrollPos && curScrollPos > this.height;
+      this.setState({
+        scrolled: false, // reset scroll
+        hidden: shouldHide,
+        lastScrollPos: curScrollPos
+      });
+    } else {
+      this.setState({ scrolled: false });
+    }
+  }
+
   render() {
     return (
       <ComponentContainer
         onClick={() => this.setState(prevState => ({ open: !prevState.open }))}
+        x={this.state.hidden}
+        ref={this.curMenu}
       >
         <MenuBackground open={this.state.open} />
         <MenuIconContainer>

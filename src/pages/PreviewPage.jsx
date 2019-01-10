@@ -1,6 +1,9 @@
 /* --- Packages and Components --- */
 import React from 'react';
 import styled from 'styled-components';
+import Zoom from 'react-reveal/Zoom';
+import Fade from 'react-reveal/Fade';
+import withReveal from 'react-reveal/withReveal';
 
 import { mediaSize } from '../data/siteTools';
 import { previewPageData } from '../data/siteData';
@@ -60,40 +63,49 @@ const PageDesc = styled.div`
   `};
 `;
 
-const SubHeader = styled.div`
-  font-size: 2vw;
-  font-weight: 500;
-  margin-bottom: 2vw;
-  margin-top: 3vw;
+const SubHeader = withReveal(
+  styled.div`
+    font-size: 2vw;
+    font-weight: 500;
+    margin-bottom: 2vw;
+    margin-top: 3vw;
 
-  ${mediaSize.tablet`
+    ${mediaSize.tablet`
     font-size: 3.5vw;
     margin-bottom: 4vw;
     margin-top: 7vw;
   `};
 
-  ${mediaSize.phone`
+    ${mediaSize.phone`
     font-size: 5vw;
   `};
-`;
+  `,
+  <Fade bottom distance="10vw" />
+);
 
 const LookBackContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
   height: 25vw;
   margin: 5vw 0;
   font-size: 1.5vw;
+
+  & > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+
+    ${mediaSize.phone`
+      flex-direction: column;
+    `};
+  }
 
   ${mediaSize.tablet`
     font-size: 2vw;
   `};
 
   ${mediaSize.phone`
-    flex-direction: column;
-    height: auto;
     font-size: 3.5vw;
+    height: auto;
   `};
 `;
 
@@ -162,28 +174,48 @@ const CategoriesContainer = styled.div`
   grid-area: categories;
   position: relative;
 
-  display: inline-flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  left: -5vw;
+  & div.react-reveal-inner-container {
+    width: 100%;
+    height: 100%;
 
-  ${mediaSize.phone`
-    flex-wrap: wrap;
-    left: 0;
-    justify-content: space-around;
-
-    & > div:first-child {
-      right: -6vw;
-    }
-
-    & > div:last-child {
-      left: -10vw;
-      bottom: 10vw;
-    }
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 
     & > div {
-      padding: 2vw 0;
+      ${mediaSize.tablet`
+        width: 20%;
+        height: 100%;
+      `};
     }
+  }
+
+  ${mediaSize.phone`
+
+
+
+    left: 5vw;
+
+    & div.react-reveal-inner-container {
+      left: 0;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      & > div:first-child {
+        right: -6vw;
+      }
+
+      & > div:last-child {
+        left: -10vw;
+        bottom: 10vw;
+      }
+
+      & > div {
+        padding: 2vw 0;
+      }
+    }
+
+
   `};
 `;
 
@@ -244,102 +276,121 @@ class PreviewPage extends React.Component {
     return (
       <PageContainer className="section" id="event">
         <ContentContainer>
-          <Header>{previewPageData.header}</Header>
-          <PageDesc>
-            {previewPageData.previewDesc.map(paragraph => (
-              <div>{paragraph}</div>
-            ))}
-          </PageDesc>
+          <Fade bottom cascade>
+            <Header>{previewPageData.header}</Header>
+            <PageDesc>
+              {previewPageData.previewDesc.map(paragraph => (
+                <div>{paragraph}</div>
+              ))}
+            </PageDesc>
+          </Fade>
 
           <SubHeader>{previewPageData.lastYear.header}</SubHeader>
           <LookBackContainer>
-            {previewPageData.lastYear.statBubbles.map((bubble, i) => {
-              const isEvenOffset = i % 2 === 0;
-              const rotationOffset = Math.random() * (10 - -10) + -10;
-              const mobileTopOffset = i;
-              const phoneBubbleOffset = isEvenOffset
-                ? Math.random() * (15 - 0) + 0
-                : Math.random() * (87 - 83) + 83;
-              const bubbleOffset = isEvenOffset
-                ? Math.random() * (10 - 5) + 5
-                : Math.random() * (0 - -10) + -10;
+            <Zoom cascade duration={1500}>
+              <div>
+                {previewPageData.lastYear.statBubbles.map((bubble, i) => {
+                  const isEvenOffset = i % 2 === 0;
+                  const rotationOffset = Math.random() * (10 - -10) + -10;
+                  const mobileTopOffset = i;
+                  const phoneBubbleOffset = isEvenOffset
+                    ? Math.random() * (15 - 0) + 0
+                    : Math.random() * (87 - 83) + 83;
+                  const bubbleOffset = isEvenOffset
+                    ? Math.random() * (10 - 5) + 5
+                    : Math.random() * (0 - -10) + -10;
 
-              return (
-                <StatBubbleContainer
-                  offset={bubbleOffset}
-                  mobileTopOffset={mobileTopOffset}
-                  mobileOffset={phoneBubbleOffset}
-                >
-                  <div>
-                    <FloatingBubble
-                      size="20vw"
-                      backgroundColor={bubble.backgroundColor}
-                      color={bubble.color}
-                      rotate={rotationOffset}
+                  return (
+                    <StatBubbleContainer
+                      offset={bubbleOffset}
+                      mobileTopOffset={mobileTopOffset}
+                      mobileOffset={phoneBubbleOffset}
                     >
-                      {bubble.contents}
-                    </FloatingBubble>
-                  </div>
-                </StatBubbleContainer>
-              );
-            })}
+                      <div>
+                        <FloatingBubble
+                          size="20vw"
+                          backgroundColor={bubble.backgroundColor}
+                          color={bubble.color}
+                          rotate={rotationOffset}
+                        >
+                          {bubble.contents}
+                        </FloatingBubble>
+                      </div>
+                    </StatBubbleContainer>
+                  );
+                })}
+              </div>
+            </Zoom>
           </LookBackContainer>
 
           <SubHeader>{previewPageData.thisYear.header}</SubHeader>
-          <SneakPeekContainer>
-            {previewPageData.thisYear.statCounters.map(counter => (
-              <StatCounterContainer
-                gridArea={counter.gridArea}
-                prefix={counter.textAbove}
-                color={counter.color}
-              >
-                <StatCounter
-                  countStart={counter.start}
-                  countEnd={counter.end}
-                  countDuration={3}
-                  size="6vw"
-                  suffix={counter.suffix}
+          <Fade bottom>
+            <SneakPeekContainer>
+              {previewPageData.thisYear.statCounters.map(counter => (
+                <StatCounterContainer
+                  gridArea={counter.gridArea}
+                  prefix={counter.textAbove}
+                  color={counter.color}
                 >
-                  <span>{counter.subtitle}</span>
-                </StatCounter>
-              </StatCounterContainer>
-            ))}
-            <CategoriesContainer>
-              {previewPageData.thisYear.categories.map((categoryBubble, i) => {
-                const isEvenOffset = i % 2 === 0;
-                const rotationOffset = Math.random() * (10 - -10) + -10;
-                const mobileTopOffset =
-                  isEvenOffset &&
-                  i + 1 !== previewPageData.thisYear.categories.length
-                    ? 0
-                    : -2;
-                const bubbleOffset = isEvenOffset
-                  ? Math.random() * (60 - 48) + 48
-                  : Math.random() * (17 - 5) + 5;
-
-                const phoneBubbleOffset = Math.random() * (10 - -10) + -10;
-
-                return (
-                  <StatBubbleContainer
-                    offset={bubbleOffset}
-                    mobileTopOffset={mobileTopOffset}
-                    mobileOffset={phoneBubbleOffset}
+                  <StatCounter
+                    countStart={counter.start}
+                    countEnd={counter.end}
+                    countDuration={3}
+                    size="6vw"
+                    suffix={counter.suffix}
                   >
-                    <div>
-                      <FloatingBubble
-                        size="13vw"
-                        backgroundColor={categoryBubble.backgroundColor}
-                        color={categoryBubble.color}
-                        rotate={rotationOffset}
-                      >
-                        {categoryBubble.contents}
-                      </FloatingBubble>
-                    </div>
-                  </StatBubbleContainer>
-                );
-              })}
-            </CategoriesContainer>
-          </SneakPeekContainer>
+                    <span>{counter.subtitle}</span>
+                  </StatCounter>
+                </StatCounterContainer>
+              ))}
+              <CategoriesContainer>
+                <Zoom cascade>
+                  <div className="react-reveal-inner-container">
+                    {previewPageData.thisYear.categories.map(
+                      (categoryBubble, i) => {
+                        const isEvenOffset = i % 2 === 0;
+                        const rotationOffset = Math.random() * (10 - -10) + -10;
+                        const mobileTopOffset =
+                          isEvenOffset &&
+                          i + 1 !== previewPageData.thisYear.categories.length
+                            ? 0
+                            : -2;
+                        const bubbleOffset = isEvenOffset
+                          ? Math.random() * (60 - 48) + 48
+                          : Math.random() * (17 - 5) + 5;
+
+                        const phoneBubbleOffset =
+                          Math.random() * (10 - -10) + -10;
+
+                        return (
+                          <div>
+                            <StatBubbleContainer
+                              offset={bubbleOffset}
+                              mobileTopOffset={mobileTopOffset}
+                              mobileOffset={phoneBubbleOffset}
+                            >
+                              <div>
+                                <FloatingBubble
+                                  size="13vw"
+                                  backgroundColor={
+                                    categoryBubble.backgroundColor
+                                  }
+                                  color={categoryBubble.color}
+                                  rotate={rotationOffset}
+                                >
+                                  {categoryBubble.contents}
+                                </FloatingBubble>
+                              </div>
+                            </StatBubbleContainer>
+                          </div>
+                        );
+                      }
+                    )}
+                  </div>
+                </Zoom>
+              </CategoriesContainer>
+            </SneakPeekContainer>
+          </Fade>
         </ContentContainer>
         <ShapeContainer src={AbstractShape2} />
       </PageContainer>
