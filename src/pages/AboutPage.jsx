@@ -2,6 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
+import isMobile from 'react-device-detect';
 
 import { mediaSize } from '../data/siteTools';
 
@@ -9,6 +10,7 @@ import { aboutPageData } from '../data/siteData';
 
 /* --- Images --- */
 import AboutImg from '../static/img/about_1.png';
+import MandyTestimonialPic from '../static/img/mandy_testimonial_pic.jpg';
 
 /* --- Styles --- */
 const PageContainer = styled.div`
@@ -36,9 +38,9 @@ const ContentContainer = styled.div`
   ${mediaSize.tablet`
     padding-top: 5vh;
     width: 80vw;
-    height: 90vh;
+    height: 95vh;
     grid-template-columns: auto;
-    grid-template-rows: 1fr 3fr 1fr;
+    grid-template-rows: 1fr 10fr 1fr;
     grid-row-gap: 4vw;
     grid-template-areas:
       'main'
@@ -128,15 +130,26 @@ const TestimonialContainer = styled.div`
   font-size: 1.3vw;
 
   & > div {
-    color: #9c9797;
-    width: 100%;
+    display: grid;
+    grid-template-columns: 4vw auto;
+    grid-column-gap: 1vw;
+    grid-template-rows: 5.5vw 2vw 2vw;
+    grid-template-areas:
+      'quote quote'
+      'pic name'
+      'pic desc';
+
+    ${mediaSize.tablet`
+      height: auto;
+      display: inline-block;
+    `};
   }
 
   ${mediaSize.tablet`
     top: 0; right: 0;
-    justify-self: center;
-    font-size: 3vw;
     margin-bottom: 0;
+
+    font-size: 3vw;
     text-align: center;
   `};
 
@@ -146,23 +159,60 @@ const TestimonialContainer = styled.div`
 `;
 
 const TestimonialQuote = styled.div`
-  margin-bottom: 1em;
-  //text-align: justify;
+  grid-area: quote;
+  font-style: italic;
 
   ${mediaSize.tablet`
-    text-align: justify;
+    margin-bottom: 2vw;
   `};
 `;
 
 const TestimonialAuthorName = styled.div`
-  font-style: italic;
-  //text-align: right;
+  grid-area: name;
+  align-self: end;
+  font-weight: 600;
 `;
 
 const TestimonialAuthorDesc = styled.div`
-  font-weight: 300;
-  font-style: italic;
-  //text-align: center;
+  grid-area: desc;
+  align-self: start;
+
+  ${mediaSize.tablet`
+    margin-bottom: 2vw;
+  `};
+`;
+
+const TestimonialAuthorImg = styled.div`
+  grid-area: pic;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.4);
+  }
+
+  & > img {
+    border-radius: 50%;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  ${mediaSize.tablet`
+    width: 10vw;
+    height: 10vw;
+    margin: auto;
+  `};
+
+  ${mediaSize.phone`
+    width: 15vw;
+    height: 15vw;
+  `};
 `;
 
 /* --- Component --- */
@@ -188,17 +238,20 @@ class AboutPage extends React.Component {
           </MainContainer>
 
           <TestimonialContainer>
-            <Fade right cascade>
+            <Fade right={!isMobile} bottom={isMobile}>
               <div>
                 <TestimonialQuote>
                   &quot;{aboutPageData.testimonials[0].authorQuote}&quot;
                 </TestimonialQuote>
                 <TestimonialAuthorName>
-                  - {aboutPageData.testimonials[0].authorName}
+                  {aboutPageData.testimonials[0].authorName}
                 </TestimonialAuthorName>
                 <TestimonialAuthorDesc>
                   {aboutPageData.testimonials[0].authorDesc}
                 </TestimonialAuthorDesc>
+                <TestimonialAuthorImg>
+                  <img src={MandyTestimonialPic} alt="Mandy Meindersma" />
+                </TestimonialAuthorImg>
               </div>
             </Fade>
           </TestimonialContainer>

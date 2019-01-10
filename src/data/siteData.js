@@ -58,7 +58,7 @@ export const aboutPageData = {
   testimonials: [
     {
       authorName: 'Mandy Meindersma',
-      authorDesc: 'University of Alberta CS, Equithon 2018 Category Winner',
+      authorDesc: 'Equithon 2018 Category Winner',
       authorQuote:
         'I was able to meet three amazing badass women who helped me grow and made me a better person. We all found our own strengths and we made something amazing together.'
     },
