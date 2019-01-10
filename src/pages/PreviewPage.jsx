@@ -183,40 +183,29 @@ const CategoriesContainer = styled.div`
     flex-direction: row;
     flex-wrap: nowrap;
 
+    ${mediaSize.phone`
+      left: 0;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    `}
+
     & > div {
       ${mediaSize.tablet`
         width: 20%;
         height: 100%;
       `};
+
+      ${mediaSize.phone`
+        width: auto;
+        height: auto;
+
+        &:last-child > div {
+          bottom: 7vw;
+          right: 5vw;
+        }
+      `};
     }
   }
-
-  ${mediaSize.phone`
-
-
-
-    left: 5vw;
-
-    & div.react-reveal-inner-container {
-      left: 0;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      & > div:first-child {
-        right: -6vw;
-      }
-
-      & > div:last-child {
-        left: -10vw;
-        bottom: 10vw;
-      }
-
-      & > div {
-        padding: 2vw 0;
-      }
-    }
-
-
-  `};
 `;
 
 const StatBubbleContainer = styled.div`
@@ -232,13 +221,14 @@ const StatBubbleContainer = styled.div`
     transform: translateX(-50%) translateZ(0);
 
     ${mediaSize.phone`
-      top: ${props => `calc(${props.mobileTopOffset} * -8vw)`};
+      padding: 2vw 0;
+      top: ${props => `calc(${props.mobileTopOffset} * -7vw)`};
       transform: ${props => `translateX(calc(-50% + ${props.mobileOffset}%))`};
     `};
   }
 
   ${mediaSize.phone`
-    width: 50%;
+    left: 10vw;
   `};
 `;
 
@@ -261,7 +251,7 @@ const ShapeContainer = styled.img`
     max-height: 220vw;
     max-width: 220vw;
     bottom: -10vw;
-    right: -20vw;
+    right: -25vw;
   `};
 `;
 

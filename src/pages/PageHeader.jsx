@@ -50,9 +50,17 @@ const BrandText = styled.span`
   display: inline-block;
   margin-top: 2px;
   font-weight: 550;
-  font-size: 3vh;
+  font-size: 1.5vw;
   line-height: 6vh;
   color: #a16beb;
+
+  ${mediaSize.tablet`
+    font-size: 3.5vw;
+  `};
+
+  ${mediaSize.phone`
+    font-size: 5.5vw;
+  `};
 `;
 
 const LinksContainer = styled.div`
@@ -60,6 +68,7 @@ const LinksContainer = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
+  font-size: 0.8vw;
 
   & > * {
     margin-top: 4px;
@@ -97,7 +106,7 @@ const ActionButton = styled(GenericButton)`
   `};
 
   ${mediaSize.phone`
-    font-size: 3vmin;
+    font-size: 3.5vmin;
   `};
 `;
 
@@ -182,7 +191,9 @@ class PageHeader extends React.Component {
               text={headerData.actionButton.text}
               backgroundColor="#66adef"
               color="#fff"
-              click={() => {}}
+              click={() => {
+                window.open(headerData.actionButton.link);
+              }}
               outline
             />
           </LinksContainer>
