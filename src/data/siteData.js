@@ -26,7 +26,7 @@ export const siteStructure = {
 
 export const siteButtons = {
   contactButton: { text: 'Contact', link: 'mailto:hello@equithon.org' },
-  applyButton: { text: 'Apply', link: 'www.my.equithon.org' },
+  applyButton: { text: 'Apply', link: 'http://www.my.equithon.org' },
   signupButton: {
     text: 'Stay Posted',
     link:
@@ -41,14 +41,14 @@ export const mobileMenuData = {
 export const headerData = {
   logoSrc: '',
   links: siteStructure.sections,
-  actionButton: siteButtons.applyButton
+  actionButton: siteButtons.contactButton
 };
 
 export const mainPageData = {
   header: 'Be a part of the change.',
   actionText:
     'Join us in working towards social equity at Equithon on May 1-3, 2018.',
-  actionButton: siteButtons.applyButton
+  actionButton: siteButtons.contactButton
 };
 
 export const aboutPageData = {
