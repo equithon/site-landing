@@ -67,16 +67,24 @@ const PageHeader = withReveal(
 );
 
 const QandAContainer = styled.div`
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
   & > div {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    width: 45%;
+
+    ${mediaSize.tablet`
+      width: 100%;
+    `};
+
+    ${mediaSize.phone`
+    `};
   }
 `;
 
 const FAQAccordion = styled(GenericAccordion)`
-  width: 45%;
+  width: 100%;
 
   & > div.label {
     font-size: 1.5vw;
@@ -104,13 +112,6 @@ const FAQAccordion = styled(GenericAccordion)`
       font-size: 4vw;
     `};
   }
-
-  ${mediaSize.tablet`
-    width: 100%;
-  `};
-
-  ${mediaSize.phone`
-  `};
 `;
 
 const AdditionalQuestionsContainer = styled.div`
