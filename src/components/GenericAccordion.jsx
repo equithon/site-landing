@@ -10,20 +10,24 @@ import CaretIcon from '../static/img/caret.png';
 /* --- Styles --- */
 const ComponentContainer = styled.div`
   position: relative;
+  height: auto;
   padding: 2vw 0 3vw 0;
 
   color: #555657;
   transition: color 0.5s ease-in-out;
 
-  &:hover,
-  &.selected {
+  &:hover {
     filter: ${props => (props.collapsible ? 'brightness(20%)' : 'none')};
   }
 `;
 
 const AccordionLabel = styled.div`
   cursor: pointer;
-  height: ${props => (props.collapsible ? '25%' : 'auto')};
+  height: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 
   & div.label-container {
     display: inline-flex;
@@ -35,22 +39,18 @@ const AccordionLabel = styled.div`
   }
 
   & div.caret {
-    display: ${props => (props.collapsible ? 'inline-flex' : 'none')};
-    align-items: center;
+    display: ${props => (props.collapsible ? 'inline' : 'none')};
     position: relative;
     vertical-align: top;
     width: 1vw;
     height: 100%;
-    margin-left: 10px;
 
     ${mediaSize.tablet`
       width: 1.5vw;
-      margin-left: 15px;
     `};
 
     ${mediaSize.phone`
       width: 2vw;
-      margin-left: 15px;
     `};
 
     & img {
@@ -68,6 +68,20 @@ const AccordionContents = styled.div`
   transition: max-height 0.5s ease-in-out;
 
   max-height: ${props => (props.selected ? '10vw' : '0')};
+  overflow: hidden;
+
+  & div.contents {
+    font-size: 1.3vw;
+    font-weight: 400;
+
+    ${mediaSize.tablet`
+      font-size: 3vw;
+    `};
+
+    ${mediaSize.phone`
+      font-size: 4vw;
+    `};
+  }
 
   ${mediaSize.tablet`
     max-height: ${props => (props.selected ? '20vw' : '0')};
@@ -119,7 +133,7 @@ class GenericAccordion extends React.Component {
         <AccordionContents
           selected={this.state.open || !this.props.collapsible}
         >
-          {this.props.children}
+          <div className="contents">{this.props.children}</div>
         </AccordionContents>
       </ComponentContainer>
     );
