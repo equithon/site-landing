@@ -1,6 +1,7 @@
 /* --- Packages and Components --- */
 import React from 'react';
 import styled from 'styled-components';
+import Fade from 'react-reveal/Fade';
 
 import { mediaSize } from '../data/siteTools';
 
@@ -178,20 +179,28 @@ class AboutPage extends React.Component {
           <AboutImgContainer src={AboutImg} />
 
           <MainContainer>
-            <MainHeader>{aboutPageData.header}</MainHeader>
-            <MainDesc>{aboutPageData.desc}</MainDesc>
+            <Fade right cascade>
+              <div>
+                <MainHeader>{aboutPageData.header}</MainHeader>
+                <MainDesc>{aboutPageData.desc}</MainDesc>
+              </div>
+            </Fade>
           </MainContainer>
 
           <TestimonialContainer>
-            <TestimonialQuote>
-              &quot;{aboutPageData.testimonials[0].authorQuote}&quot;
-            </TestimonialQuote>
-            <TestimonialAuthorName>
-              - {aboutPageData.testimonials[0].authorName}
-            </TestimonialAuthorName>
-            <TestimonialAuthorDesc>
-              {aboutPageData.testimonials[0].authorDesc}
-            </TestimonialAuthorDesc>
+            <Fade right cascade>
+              <div>
+                <TestimonialQuote>
+                  &quot;{aboutPageData.testimonials[0].authorQuote}&quot;
+                </TestimonialQuote>
+                <TestimonialAuthorName>
+                  - {aboutPageData.testimonials[0].authorName}
+                </TestimonialAuthorName>
+                <TestimonialAuthorDesc>
+                  {aboutPageData.testimonials[0].authorDesc}
+                </TestimonialAuthorDesc>
+              </div>
+            </Fade>
           </TestimonialContainer>
         </ContentContainer>
       </PageContainer>

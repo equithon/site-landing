@@ -1,6 +1,8 @@
 /* --- Packages and Components --- */
 import React from 'react';
 import styled from 'styled-components';
+import Fade from 'react-reveal/Fade';
+import withReveal from 'react-reveal/withReveal';
 import { isMobile } from 'react-device-detect';
 
 import { mediaSize } from '../data/siteTools';
@@ -33,14 +35,15 @@ const ContentContainer = styled.div`
   `};
 `;
 
-const PageHeader = styled.div`
-  font-size: 2.5vw;
-  font-weight: 500;
-  color: ${props => props.theme.offBlack};
-  position: relative;
-  display: inline-block;
+const PageHeader = withReveal(
+  styled.div`
+    font-size: 2.5vw;
+    font-weight: 500;
+    color: ${props => props.theme.offBlack};
+    position: relative;
+    display: inline-block;
 
-  ${'' /* &:after {
+    ${'' /* &:after {
     color: black;
     mix-blend-mode: difference;
     content: '${props => props.title}';
@@ -50,22 +53,26 @@ const PageHeader = styled.div`
     z-index: -1;
   } */}
 
-  ${mediaSize.tablet`
+    ${mediaSize.tablet`
     font-size: 5vw;
     margin-bottom: 20px;
   `};
 
-  ${mediaSize.phone`
+    ${mediaSize.phone`
     font-size: 7vw;
     margin-bottom: 30px;
   `};
-`;
+  `,
+  <Fade bottom />
+);
 
 const QandAContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  & > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 `;
 
 const FAQAccordion = styled(GenericAccordion)`
@@ -165,15 +172,17 @@ class FAQPage extends React.Component {
             {FAQPageData.header}
           </PageHeader>
           <QandAContainer>
-            {FAQPageData.faqs.map(qa => (
-              <FAQAccordion
-                className="accordion question"
-                label={qa.question}
-                collapsible={isMobile}
-              >
-                <div className="contents">{qa.answer}</div>
-              </FAQAccordion>
-            ))}
+            <Fade bottom>
+              {FAQPageData.faqs.map(qa => (
+                <FAQAccordion
+                  className="accordion question"
+                  label={qa.question}
+                  collapsible={isMobile}
+                >
+                  <div className="contents">{qa.answer}</div>
+                </FAQAccordion>
+              ))}
+            </Fade>
           </QandAContainer>
           <AdditionalQuestionsContainer>
             <div>{FAQPageData.FAQAction.actionText}</div>
