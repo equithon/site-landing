@@ -8,11 +8,9 @@ import { mainPageData } from '../site/siteData';
 
 import GenericButton from '../components/GenericButton';
 
-
 /* --- Images --- */
 import HeroImg from '../static/img/MainPage/hero_rounded.png';
 import AbstractShape1 from '../static/img/shapes/main_about_middle_left@2x.png';
-
 
 /* --- Styles --- */
 const PageContainer = styled.div`
@@ -179,7 +177,6 @@ const ShapeContainer = styled.img`
     bottom: -15vw;
   `};
 `;
-
 
 /* --- Component --- */
 class MainPage extends React.Component {
