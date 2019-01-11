@@ -192,7 +192,10 @@ class PageHeader extends React.Component {
               backgroundColor="#66adef"
               color="#fff"
               click={() => {
-                window.open(headerData.actionButton.link);
+                window.open(
+                  headerData.actionButton.link,
+                  headerData.actionButton.location
+                );
               }}
               outline
             />

@@ -203,7 +203,10 @@ class MainPage extends React.Component {
                 backgroundColor="#66adef"
                 color="#fff"
                 click={() => {
-                  window.open(mainPageData.actionButton.link);
+                  window.open(
+                    mainPageData.actionButton.link,
+                    mainPageData.actionButton.location
+                  );
                 }}
               />
             </MainButtonContainer>

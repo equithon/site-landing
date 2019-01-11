@@ -25,12 +25,21 @@ export const siteStructure = {
 };
 
 export const siteButtons = {
-  contactButton: { text: 'Contact', link: 'mailto:hello@equithon.org' },
-  applyButton: { text: 'Apply', link: 'https://www.my.equithon.org' },
+  contactButton: {
+    text: 'Contact',
+    link: 'mailto:hello@equithon.org',
+    location: '_self'
+  },
+  applyButton: {
+    text: 'Apply',
+    link: 'https://www.my.equithon.org',
+    location: '_self'
+  },
   signupButton: {
     text: 'Stay Posted',
     link:
-      'https://www.google.com/search?q=this+should+sign+the+user+up+for+a+mailing+list&oq=this+should+sign+the+user+up+for+a+mailing+list&aqs=chrome..69i57.5475j0j1&sourceid=chrome&ie=UTF-8'
+      'https://www.google.com/search?q=this+should+sign+the+user+up+for+a+mailing+list&oq=this+should+sign+the+user+up+for+a+mailing+list&aqs=chrome..69i57.5475j0j1&sourceid=chrome&ie=UTF-8',
+    location: '_blank'
   }
 };
 
@@ -184,7 +193,8 @@ export const sponsorsPageData = {
     actionText: 'Interested in sponsoring?',
     link: {
       text: 'Shoot us an email.',
-      to: 'mailto: hello@equithon.org'
+      to:
+        'mailto: hello@equithon.org?subject=Equithon Sponsorship/Partnership Inquiry'
     }
   },
   sponsors: [
