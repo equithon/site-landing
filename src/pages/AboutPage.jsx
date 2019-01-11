@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
 import isMobile from 'react-device-detect';
 
-import { mediaSize } from '../data/siteTools';
+import { mediaSize } from '../site/siteTools';
 
-import { aboutPageData } from '../data/siteData';
+import { aboutPageData } from '../site/siteData';
 
 /* --- Images --- */
 import AboutImg from '../static/img/about_1.png';

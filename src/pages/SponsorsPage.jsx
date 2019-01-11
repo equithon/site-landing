@@ -2,11 +2,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
-import Zoom from 'react-reveal/Zoom';
 import withReveal from 'react-reveal/withReveal';
 
-import { mediaSize } from '../data/siteTools';
-import { sponsorsPageData } from '../data/siteData';
+import { mediaSize } from '../site/siteTools';
+import { sponsorsPageData } from '../site/siteData';
 
 /* --- Images --- */
 import AbstractShapeSponsor from '../static/img/shapes/sponsor_interested@2x.png';
@@ -35,28 +34,30 @@ const PageHeader = withReveal(
     display: inline-block;
 
     ${mediaSize.tablet`
-    font-size: 5vw;
-    margin-bottom: 20px;
-  `};
+      font-size: 5vw;
+      margin-bottom: 20px;
+    `};
 
     ${mediaSize.phone`
-    font-size: 7vw;
-    margin-bottom: 30px;
-    color: ${props => props.theme.offBlack};
-  `};
+      font-size: 7vw;
+      margin-bottom: 30px;
+      color: ${props => props.theme.offBlack};
+    `};
   `,
   <Fade bottom />
 );
 
 const SubHeader = withReveal(
   styled.div`
-    font-size: 1.5vw;
-    font-weight: 500;
     width: 40vw;
     height: 40vw;
+
     display: flex;
     margin: auto;
+
     text-align: center;
+    font-size: 1.5vw;
+    font-weight: 500;
     color: ${props => props.theme.offBlack};
 
     & > span {
@@ -75,7 +76,7 @@ const SubHeader = withReveal(
     height: 35vw;
   `};
   `,
-  <Zoom />
+  <Fade bottom />
 );
 
 const SponsorUsPleaseContainer = styled.div`
@@ -173,17 +174,19 @@ class SponsorsPage extends React.Component {
             <span>{sponsorsPageData.sponsorUsBlurb}</span>
           </SubHeader>
           <SponsorUsPleaseContainer>
-            <Zoom>
+            <Fade bottom>
               <div className="action-text">
                 {sponsorsPageData.sponsorAction.actionText}
               </div>
-              <a
-                href={sponsorsPageData.sponsorAction.link.to}
-                className="action-link"
-              >
-                {sponsorsPageData.sponsorAction.link.text}
-              </a>
-            </Zoom>
+              <div>
+                <a
+                  href={sponsorsPageData.sponsorAction.link.to}
+                  className="action-link"
+                >
+                  {sponsorsPageData.sponsorAction.link.text}
+                </a>
+              </div>
+            </Fade>
             <ShapeContainer>
               <img
                 src={AbstractShapeSponsor}

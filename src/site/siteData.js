@@ -26,7 +26,7 @@ export const siteStructure = {
 
 export const siteButtons = {
   contactButton: { text: 'Contact', link: 'mailto:hello@equithon.org' },
-  applyButton: { text: 'Apply', link: 'http://www.my.equithon.org' },
+  applyButton: { text: 'Apply', link: 'https://www.my.equithon.org' },
   signupButton: {
     text: 'Stay Posted',
     link:
@@ -47,7 +47,7 @@ export const headerData = {
 export const mainPageData = {
   header: 'Be a part of the change.',
   actionText:
-    'Join us in working towards social equity at Equithon on May 1-3, 2018.',
+    'Join us in working towards social equity at Equithon on May 3-5, 2019.',
   actionButton: siteButtons.contactButton
 };
 

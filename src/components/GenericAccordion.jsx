@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { mediaSize } from '../data/siteTools';
+import { mediaSize } from '../site/siteTools';
 
 /* --- Images --- */
 import CaretIcon from '../static/img/caret.png';

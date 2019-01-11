@@ -11,7 +11,7 @@ import styled from 'styled-components';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 
-import { mediaSize } from '../data/siteTools';
+import { mediaSize } from '../site/siteTools';
 
 /* --- Styles --- */
 const CounterContainer = styled.span`

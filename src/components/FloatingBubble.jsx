@@ -8,7 +8,7 @@ import React from 'react';
 import styled from 'styled-components';
 // import posed from 'react-pose';
 
-import { mediaSize } from '../data/siteTools';
+import { mediaSize } from '../site/siteTools';
 
 /* --- Styles --- */
 const ComponentContainer = styled.div`
