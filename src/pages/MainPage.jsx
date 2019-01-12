@@ -3,13 +3,13 @@ import React from 'react';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
 
-import { mediaSize } from '../data/siteTools';
-import { mainPageData } from '../data/siteData';
+import { mediaSize } from '../site/siteTools';
+import { mainPageData } from '../site/siteData';
 
 import GenericButton from '../components/GenericButton';
 
 /* --- Images --- */
-import HeroImg from '../static/img/HeroImage_1.png';
+import HeroImg from '../static/img/MainPage/hero_rounded.png';
 import AbstractShape1 from '../static/img/shapes/main_about_middle_left@2x.png';
 
 /* --- Styles --- */
@@ -203,7 +203,10 @@ class MainPage extends React.Component {
                 backgroundColor="#66adef"
                 color="#fff"
                 click={() => {
-                  window.open(mainPageData.actionButton.link);
+                  window.open(
+                    mainPageData.actionButton.link,
+                    mainPageData.actionButton.location
+                  );
                 }}
               />
             </MainButtonContainer>

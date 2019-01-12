@@ -5,10 +5,10 @@ import posed from 'react-pose';
 import onClickOutside from 'react-onclickoutside';
 import { Link, scrollSpy } from 'react-scroll';
 
-import { mediaSize } from '../data/siteTools';
-import { mobileMenuData } from '../data/siteData';
+import { mediaSize } from '../site/siteTools';
+import { mobileMenuData } from '../site/siteData';
+import { mobileMenuAnimations } from '../site/siteAnimations';
 
-/* --- Images --- */
 /* --- Styles --- */
 const ComponentContainer = styled.div`
   width: 10vw;
@@ -61,18 +61,7 @@ const MenuBackground = styled.div`
   `}
 `;
 
-const MenuContentsAnimConfig = {
-  entering: {
-    staggerChildren: 150,
-    staggerDirection: -1
-  },
-  entered: {
-    staggerChildren: 150,
-    staggerDirection: -1
-  }
-};
-
-const MenuContents = styled(posed.div(MenuContentsAnimConfig))`
+const MenuContents = styled(posed.div(mobileMenuAnimations.containerConfig))`
   position: absolute;
   z-index: 102;
   right: ${props =>
@@ -80,18 +69,7 @@ const MenuContents = styled(posed.div(MenuContentsAnimConfig))`
   bottom: 100%;
 `;
 
-const MenuLinkAnimConfig = {
-  entering: {
-    y: '100%',
-    opacity: 0
-  },
-  entered: {
-    y: '0%',
-    opacity: 1
-  }
-};
-
-const MenuSiteLinkDiv = styled(posed.div(MenuLinkAnimConfig))`
+const MenuSiteLinkDiv = styled(posed.div(mobileMenuAnimations.indivLinkConfig))`
   display: block;
   font-weight: 500;
   cursor: pointer;

@@ -5,8 +5,8 @@ import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
 import withReveal from 'react-reveal/withReveal';
 
-import { mediaSize } from '../data/siteTools';
-import { previewPageData } from '../data/siteData';
+import { mediaSize } from '../site/siteTools';
+import { previewPageData } from '../site/siteData';
 
 import StatCounter from '../components/StatCounter';
 import FloatingBubble from '../components/FloatingBubble';

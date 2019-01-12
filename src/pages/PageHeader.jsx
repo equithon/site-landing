@@ -3,13 +3,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link, scrollSpy, animateScroll } from 'react-scroll';
 
-import { mediaSize } from '../data/siteTools';
+import { mediaSize } from '../site/siteTools';
 
 import GenericButton from '../components/GenericButton';
 
 /* --- Images & Other Assets --- */
 import Favicon from '../static/img/logo_tiny.png';
-import { headerData } from '../data/siteData';
+import { headerData } from '../site/siteData';
 
 /* --- Styles --- */
 const PageContainer = styled.header`
@@ -192,7 +192,10 @@ class PageHeader extends React.Component {
               backgroundColor="#66adef"
               color="#fff"
               click={() => {
-                window.open(headerData.actionButton.link);
+                window.open(
+                  headerData.actionButton.link,
+                  headerData.actionButton.location
+                );
               }}
               outline
             />

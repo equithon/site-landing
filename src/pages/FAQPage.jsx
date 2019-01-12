@@ -5,8 +5,8 @@ import Fade from 'react-reveal/Fade';
 import withReveal from 'react-reveal/withReveal';
 import { isMobile } from 'react-device-detect';
 
-import { mediaSize } from '../data/siteTools';
-import { FAQPageData } from '../data/siteData';
+import { mediaSize } from '../site/siteTools';
+import { FAQPageData } from '../site/siteData';
 
 import GenericAccordion from '../components/GenericAccordion';
 /* --- Images --- */
