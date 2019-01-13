@@ -20,7 +20,7 @@ const PageContainer = styled.div`
 `;
 
 const ContentContainer = styled.div`
-  padding: 10vh 0;
+  padding: 10vh 0 0 0;
   width: 80vw;
   height: auto;
   margin: auto;

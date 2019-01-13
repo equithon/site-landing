@@ -53,6 +53,8 @@ export const headerData = {
   actionButton: siteButtons.contactButton
 };
 
+export const footerdata = {};
+
 export const mainPageData = {
   header: 'Be a part of the change.',
   actionText:

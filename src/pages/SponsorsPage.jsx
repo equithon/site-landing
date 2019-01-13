@@ -190,7 +190,7 @@ class SponsorsPage extends React.Component {
             <ShapeContainer>
               <img
                 src={AbstractShapeSponsor}
-                alt="An abstract blob shaped like a bubble!"
+                alt="An abstract blob shaped like a bubble."
               />
             </ShapeContainer>
           </SponsorUsPleaseContainer>
