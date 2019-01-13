@@ -5,10 +5,10 @@ import posed from 'react-pose';
 import onClickOutside from 'react-onclickoutside';
 import { Link, scrollSpy } from 'react-scroll';
 
-import { mediaSize } from '../data/siteTools';
-import { mobileMenuData } from '../data/siteData';
+import { mediaSize } from '../site/siteTools';
+import { mobileMenuData } from '../site/siteData';
+import { mobileMenuAnimations } from '../site/siteAnimations';
 
-/* --- Images --- */
 /* --- Styles --- */
 const ComponentContainer = styled.div`
   width: 10vw;
@@ -16,7 +16,7 @@ const ComponentContainer = styled.div`
 
   position: fixed;
   bottom: 3em;
-  right: 3em;
+  right: ${props => (props.shouldHide ? '-70%' : '3em')};
   z-index: 100;
 
   color: white;
@@ -25,12 +25,14 @@ const ComponentContainer = styled.div`
   box-shadow: 2px 2px 1px 2px rgba(154, 113, 209, 0.6);
   border-radius: 50%;
 
+  transition: right 0.5s cubic-bezier(0.87, -0.41, 0.19, 1.44);
+
   ${mediaSize.phone`
     width: 14vw;
     height: 14vw;
     line-height: 14vw;
     bottom: 2em;
-    right: 2em;
+    right: ${props => (props.shouldHide ? '-70%' : '2em')};
   `}
 `;
 
@@ -38,7 +40,7 @@ const MenuBackground = styled.div`
   width: 200vw;
   height: 200vw;
   opacity: ${props => (props.open ? 0.975 : 1)};
-  background-color: ${props => props.theme.darkerPurple};
+  background-color: #a16beb;
   border-radius: 50%;
   position: absolute;
   z-index: 101;
@@ -59,18 +61,7 @@ const MenuBackground = styled.div`
   `}
 `;
 
-const MenuContentsAnimConfig = {
-  entering: {
-    staggerChildren: 150,
-    staggerDirection: -1
-  },
-  entered: {
-    staggerChildren: 150,
-    staggerDirection: -1
-  }
-};
-
-const MenuContents = styled(posed.div(MenuContentsAnimConfig))`
+const MenuContents = styled(posed.div(mobileMenuAnimations.containerConfig))`
   position: absolute;
   z-index: 102;
   right: ${props =>
@@ -78,18 +69,7 @@ const MenuContents = styled(posed.div(MenuContentsAnimConfig))`
   bottom: 100%;
 `;
 
-const MenuLinkAnimConfig = {
-  entering: {
-    y: '100%',
-    opacity: 0
-  },
-  entered: {
-    y: '0%',
-    opacity: 1
-  }
-};
-
-const MenuSiteLinkDiv = styled(posed.div(MenuLinkAnimConfig))`
+const MenuSiteLinkDiv = styled(posed.div(mobileMenuAnimations.indivLinkConfig))`
   display: block;
   font-weight: 500;
   cursor: pointer;
@@ -163,24 +143,62 @@ class MobileMenu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      open: false,
+      scrolled: false,
+      hidden: false,
+      lastScrollPos: typeof window !== 'undefined' && window.pageYOffset
     };
+
+    this.curMenu = React.createRef();
+
+    this.scrollTimer = setInterval(() => this.handleScroll(), 150); // only check for scroll every 150ms for performance
   }
 
   componentDidMount() {
+    window.addEventListener('scroll', () => this.setState({ scrolled: true }));
+    this.height = this.curMenu.current.offsetHeight;
     scrollSpy.update();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', () =>
+      this.setState({ scrolled: true })
+    );
+    clearInterval(this.scrollTimer);
   }
 
   handleClickOutside = () => {
     this.setState({ open: false });
   };
 
+  handleScroll() {
+    const SCROLL_TRIGGER_DELTA = 5;
+    const curScrollPos = typeof window !== 'undefined' && window.pageYOffset;
+    if (
+      this.state.scrolled &&
+      Math.abs(curScrollPos - this.state.lastScrollPos) >= SCROLL_TRIGGER_DELTA
+    ) {
+      // scrolled, and for more than the delta
+      const shouldHide = // eslint-disable-next-line
+        curScrollPos > this.state.lastScrollPos && curScrollPos > this.height;
+      this.setState({
+        scrolled: false, // reset scroll
+        hidden: shouldHide,
+        lastScrollPos: curScrollPos
+      });
+    } else {
+      this.setState({ scrolled: false });
+    }
+  }
+
   render() {
     return (
       <ComponentContainer
         onClick={() => this.setState(prevState => ({ open: !prevState.open }))}
+        shouldHide={this.state.hidden}
+        ref={this.curMenu}
       >
-        <MenuBackground open={this.state.open} />
+        <MenuBackground open={this.state.open && !this.state.hidden} />
         <MenuIconContainer>
           <MenuIcon>
             <MenuIconBar

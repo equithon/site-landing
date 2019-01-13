@@ -25,12 +25,21 @@ export const siteStructure = {
 };
 
 export const siteButtons = {
-  contactButton: { text: 'Contact', link: 'mailto:hello@equithon.org' },
-  applyButton: { text: 'Apply', link: 'www.my.equithon.org' },
+  contactButton: {
+    text: 'Contact',
+    link: 'mailto:hello@equithon.org',
+    location: '_self'
+  },
+  applyButton: {
+    text: 'Apply',
+    link: 'https://www.my.equithon.org',
+    location: '_self'
+  },
   signupButton: {
     text: 'Stay Posted',
     link:
-      'https://www.google.com/search?q=this+should+sign+the+user+up+for+a+mailing+list&oq=this+should+sign+the+user+up+for+a+mailing+list&aqs=chrome..69i57.5475j0j1&sourceid=chrome&ie=UTF-8'
+      'https://www.google.com/search?q=this+should+sign+the+user+up+for+a+mailing+list&oq=this+should+sign+the+user+up+for+a+mailing+list&aqs=chrome..69i57.5475j0j1&sourceid=chrome&ie=UTF-8',
+    location: '_blank'
   }
 };
 
@@ -41,7 +50,7 @@ export const mobileMenuData = {
 export const headerData = {
   logoSrc: '',
   links: siteStructure.sections,
-  actionButton: siteButtons.applyButton
+  actionButton: siteButtons.contactButton
 };
 
 export const footerdata = {};
@@ -49,8 +58,8 @@ export const footerdata = {};
 export const mainPageData = {
   header: 'Be a part of the change.',
   actionText:
-    'Join us in working towards social equity at Equithon on May 1-3, 2018.',
-  actionButton: siteButtons.applyButton
+    'Join us in working towards social equity at Equithon on May 3-5, 2019.',
+  actionButton: siteButtons.contactButton
 };
 
 export const aboutPageData = {
@@ -60,7 +69,7 @@ export const aboutPageData = {
   testimonials: [
     {
       authorName: 'Mandy Meindersma',
-      authorDesc: 'University of Alberta CS, Equithon 2018 Category Winner',
+      authorDesc: 'Equithon 2018 Category Winner',
       authorQuote:
         'I was able to meet three amazing badass women who helped me grow and made me a better person. We all found our own strengths and we made something amazing together.'
     },
@@ -186,7 +195,8 @@ export const sponsorsPageData = {
     actionText: 'Interested in sponsoring?',
     link: {
       text: 'Shoot us an email.',
-      to: 'mailto: hello@equithon.org'
+      to:
+        'mailto: hello@equithon.org?subject=Equithon Sponsorship/Partnership Inquiry'
     }
   },
   sponsors: [
@@ -242,7 +252,7 @@ export const FAQPageData = {
     {
       question: 'what',
       answer:
-        'You’ll get the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks.'
+        "You’ll get the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make this question is intentionally written to overflow, we shouldn't have an answer as long as this a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks."
     },
     {
       question: 'What exactly do you do at Equithon?',
@@ -255,7 +265,8 @@ export const FAQPageData = {
         'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks.'
     },
     {
-      question: 'What exactly do you do at Equithon?',
+      question:
+        'What exactly do you do at Eqpgjwegpw epgjweogwegow epg wejgweog pwejgpwje pg jwegwpeuithon?',
       answer:
         'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 other team members will create a technical project that solves an issue in one of our 5 project tracks.'
     },

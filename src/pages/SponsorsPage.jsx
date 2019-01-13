@@ -1,9 +1,11 @@
 /* --- Packages and Components --- */
 import React from 'react';
 import styled from 'styled-components';
+import Fade from 'react-reveal/Fade';
+import withReveal from 'react-reveal/withReveal';
 
-import { mediaSize } from '../data/siteTools';
-import { sponsorsPageData } from '../data/siteData';
+import { mediaSize } from '../site/siteTools';
+import { sponsorsPageData } from '../site/siteData';
 
 /* --- Images --- */
 import AbstractShapeSponsor from '../static/img/shapes/sponsor_interested@2x.png';
@@ -23,51 +25,59 @@ const ContentContainer = styled.div`
   margin: auto;
 `;
 
-const PageHeader = styled.div`
-  font-size: 2.5vw;
-  font-weight: 500;
-  color: white;
-  position: relative;
-  display: inline-block;
+const PageHeader = withReveal(
+  styled.div`
+    font-size: 2.5vw;
+    font-weight: 500;
+    color: white;
+    position: relative;
+    display: inline-block;
 
-  ${mediaSize.tablet`
-    font-size: 5vw;
-    margin-bottom: 20px;
-  `};
+    ${mediaSize.tablet`
+      font-size: 5vw;
+      margin-bottom: 20px;
+    `};
 
-  ${mediaSize.phone`
-    font-size: 7vw;
-    margin-bottom: 30px;
-    color: ${props => props.theme.offBlack};
-  `};
-`;
+    ${mediaSize.phone`
+      font-size: 7vw;
+      margin-bottom: 30px;
+      color: ${props => props.theme.offBlack};
+    `};
+  `,
+  <Fade bottom />
+);
 
-const SubHeader = styled.div`
-  font-size: 1.5vw;
-  font-weight: 500;
-  width: 40vw;
-  height: 40vw;
-  display: flex;
-  margin: auto;
-  text-align: center;
-  color: ${props => props.theme.offBlack};
+const SubHeader = withReveal(
+  styled.div`
+    width: 40vw;
+    height: 40vw;
 
-  & > span {
+    display: flex;
     margin: auto;
-  }
 
-  ${mediaSize.tablet`
+    text-align: center;
+    font-size: 1.5vw;
+    font-weight: 500;
+    color: ${props => props.theme.offBlack};
+
+    & > span {
+      margin: auto;
+    }
+
+    ${mediaSize.tablet`
     font-size: 2.5vw;
     width: 50vw;
     height: 65vw;
   `};
 
-  ${mediaSize.phone`
+    ${mediaSize.phone`
     font-size: 4vw;
     width: 70vw;
     height: 35vw;
   `};
-`;
+  `,
+  <Fade bottom />
+);
 
 const SponsorUsPleaseContainer = styled.div`
   width: 40vw;
@@ -76,7 +86,7 @@ const SponsorUsPleaseContainer = styled.div`
 
   color: white;
 
-  & > div.action-text {
+  & div.action-text {
     font-weight: 500;
     padding-bottom: 5px;
     font-size: 1.5vw;
@@ -90,7 +100,7 @@ const SponsorUsPleaseContainer = styled.div`
     `};
   }
 
-  & > a {
+  & a.action-link {
     color: white;
     font-size: 1.3vw;
 
@@ -164,12 +174,19 @@ class SponsorsPage extends React.Component {
             <span>{sponsorsPageData.sponsorUsBlurb}</span>
           </SubHeader>
           <SponsorUsPleaseContainer>
-            <div className="action-text">
-              {sponsorsPageData.sponsorAction.actionText}
-            </div>
-            <a href={sponsorsPageData.sponsorAction.link.to}>
-              {sponsorsPageData.sponsorAction.link.text}
-            </a>
+            <Fade bottom>
+              <div className="action-text">
+                {sponsorsPageData.sponsorAction.actionText}
+              </div>
+              <div>
+                <a
+                  href={sponsorsPageData.sponsorAction.link.to}
+                  className="action-link"
+                >
+                  {sponsorsPageData.sponsorAction.link.text}
+                </a>
+              </div>
+            </Fade>
             <ShapeContainer>
               <img
                 src={AbstractShapeSponsor}
