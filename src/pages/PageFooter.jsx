@@ -67,6 +67,7 @@ const LogoContainer = styled.div`
   width: 8vw;
   height: 8vw;
   text-align: center;
+  cursor: pointer;
 
   & > img {
     max-height: 100%;
@@ -98,6 +99,7 @@ const IconsContainer = styled.div`
   & > img.icons {
     max-width: 2vw;
     max-height: 2vw;
+    cursor: pointer;
 
     ${mediaSize.tablet`
       max-width: 3vw;
@@ -171,30 +173,46 @@ class PageFooter extends React.Component {
           </LogoContainer>
 
           <IconsContainer>
-            <img className="icons" src={InstaIcon} alt="Contact Icon." />
-            <img className="icons" src={FacebookIcon} alt="Contact Icon." />
-            <img className="icons" src={LinkedInIcon} alt="Contact Icon." />
-            <img className="icons" src={TwitterIcon} alt="Contact Icon." />
-            <img className="icons" src={GithubIcon} alt="Contact Icon." />
-            <img className="icons" src={EmailIcon} alt="Contact Icon." />
-            {/* <a className="imageIcons" href="https://www.instagram.com/equithon/?hl=en" >
-              <img className="imageIcons" src={InstaIcon} alt="Contact Icon." />
-              </a>
-              <a className="imageIcons" href="https://www.facebook.com/UWEquithon/">
-              <img className="imageIcons" src={FacebookIcon} alt="Contact Icon." />
-              </a>
-              <a className="imageIcons" href="https://www.linkedin.com/company/waterlooequithon/" >
-              <img className="imageIcons" src={LinkedInIcon} alt="Contact Icon." />
-              </a>
-              <a className="imageIcons" href="https://twitter.com/uwequithon?lang=en">
-              <img className="imageIcons" src={TwitterIcon} alt="Contact Icon." />
-              </a>
-              <a className="imageIcons" href="https://github.com/equithon">
-              <img className="imageIcons" src={GithubIcon} alt="Contact Icon." />
-              </a>
-              <a className="imageIcons" href={sponsorsPageData.sponsorAction.link.to}>
-              <img className="imageIcons" src={EmailIcon} alt="Contact Icon."/>
-            </a> */}
+            {/* eslint-disable */}
+            <img
+              className="icons"
+              src={InstaIcon}
+              alt="Contact Icon."
+              onClick={() => window.open('https://www.instagram.com/equithon')}
+            />
+            <img
+              className="icons"
+              src={FacebookIcon}
+              alt="Contact Icon."
+              onClick={() => window.open('https://www.instagram.com/equithon')}
+            />
+            <img
+              className="icons"
+              src={LinkedInIcon}
+              alt="Contact Icon."
+              onClick={() =>
+                window.open('https://www.linkedin.com/company/waterlooequithon')
+              }
+            />
+            <img
+              className="icons"
+              src={TwitterIcon}
+              alt="Contact Icon."
+              onClick={() => window.open('https://twitter.com/uwequithon')}
+            />
+            <img
+              className="icons"
+              src={GithubIcon}
+              alt="Contact Icon."
+              onClick={() => window.open('https://github.com/equithon')}
+            />
+            <img
+              className="icons"
+              src={EmailIcon}
+              alt="Contact Icon."
+              onClick={() => window.open('mailto:hello@equithon.org')}
+            />
+            {/* eslint-enable */}
           </IconsContainer>
 
           <CopyrightContainer>
