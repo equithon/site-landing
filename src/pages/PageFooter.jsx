@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { animateScroll } from 'react-scroll';
 
-import { mediaSize } from '../data/siteTools';
+import { mediaSize } from '../site/siteTools';
 
 /* --- Images --- */
 import BackgroundShape from '../static/img/shapes/footer_bg@2x.png';
