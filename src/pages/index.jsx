@@ -3,8 +3,8 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { MobileView } from 'react-device-detect';
 
-import { GlobalStyle } from '../data/siteTools';
-import { siteColors } from '../data/siteData';
+import { GlobalStyle } from '../site/siteTools';
+import { siteColors } from '../site/siteData';
 
 import MobileMenu from '../components/MobileMenu';
 import HelmetHeader from '../components/HelmetHeader';
