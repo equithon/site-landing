@@ -1,86 +1,158 @@
 /* --- Packages and Components --- */
 import React from 'react';
 import styled from 'styled-components';
-import { Link, scrollSpy, animateScroll } from 'react-scroll';
-import { sponsorsPageData } from '../data/siteData';
+import { animateScroll } from 'react-scroll';
+
+import { mediaSize } from '../data/siteTools';
 
 /* --- Images --- */
-import Background from '../static/img/shapes/footer_bg@2x.png';
+import BackgroundShape from '../static/img/shapes/footer_bg@2x.png';
 import LogoWhite from '../static/img/logo_white.png';
-import Insta from '../static/img/icons/instagram.png';
+import InstaIcon from '../static/img/icons/instagram.png';
 import EmailIcon from '../static/img/icons/email.png';
-import Facebook from '../static/img/icons/facebook.png';
-import Github from '../static/img/icons/github.png';
-import LinkedIn from '../static/img/icons/linkedin.png';
-import Twitter from '../static/img/icons/twitter.png';
-import { mediaSize } from '../data/siteTools';
+import FacebookIcon from '../static/img/icons/facebook.png';
+import GithubIcon from '../static/img/icons/github.png';
+import LinkedInIcon from '../static/img/icons/linkedin.png';
+import TwitterIcon from '../static/img/icons/twitter.png';
+
 /* --- Styles --- */
-const PageContainer = styled.div``;
+const PageContainer = styled.div`
+  width: 100vw;
+  height: 45vw;
+  margin: 0;
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+
+  background-image: url(${BackgroundShape});
+  background-size: cover; /* <------ */
+  background-repeat: no-repeat;
+  background-position: center center;
+`;
 
 const ContentContainer = styled.div`
-  position: relative;
-  top: -25vw;
-  width: 100vw;
-  height: 1vw;
+  padding: 0;
+  padding-top: 18vw;
+  margin: auto;
+  width: 50vw;
 
-  &.backgroundImg {
-    max-height: 35vw;
-  }
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 12vw 3vw 3vw 2vw;
+  grid-template-areas:
+    'logo'
+    'icons'
+    'links'
+    'copyright';
 
-  & .imageLogo {
-    position: relative;
-    display: block;
-    width: 3.7vw;
+  justify-items: center;
+
+  ${mediaSize.tablet`
+    padding-top: 21vw;
+    width: 90vw;
+    grid-template-columns: auto auto;
+    grid-template-rows: 10vw 5vw;
+    grid-template-areas:
+      'logo icons'
+      'copyright links';
+  `};
+
+  ${mediaSize.phone`
+
+  `};
+`;
+
+const LogoContainer = styled.div`
+  grid-area: logo;
+  width: 8vw;
+  height: 8vw;
+  text-align: center;
+
+  & > img {
+    max-height: 100%;
+    max-width: 100%;
     margin: auto;
-    z-index: 2;
-    top: 35vw;
+    vertical-align: middle;
   }
 
-  & .imageIcons {
-    display: block;
-    position: relative;
-    width: 1.4vw;
-    margin: auto;
+  ${mediaSize.tablet`
+    justify-self: start;
+    align-self: center;
+    text-align: left;
+    width: 8vw;
+    height: 8vw;
+  `};
+
+  ${mediaSize.phone`
+
+  `};
+`;
+
+const IconsContainer = styled.div`
+  grid-area: icons;
+  width: 35%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  & > img.icons {
+    max-width: 2vw;
+    max-height: 2vw;
+
+    ${mediaSize.tablet`
+      max-width: 3vw;
+      max-height: 3vw;
+    `};
   }
 
-  & .equithonCopyright {
-    display: block;
-    margin: auto;
-    font-family: 'SF Pro Display', serif;
-    font-weight: lighter;
-    font-size: 0.7vw;
-    width: 10vw;
-    text-align: center;
-    color: white;
-    position: relative;
-    top: 32vw;
-  }
+  ${mediaSize.tablet`
+    justify-self: end;
+    align-self: end;
+    width: 50%;
+
+  `};
+
+  ${mediaSize.phone`
+
+  `};
+`;
+
+const LinksContainer = styled.div`
+  grid-area: links;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
   & a {
-    font-family: 'SF Pro Display', serif;
-    font-weight: lighter;
-    font-size: 0.7vw;
     color: white;
   }
 
-  & .centerDiv {
-    display: block;
-    margin: auto;
-    text-align: center;
-  }
   ${mediaSize.tablet`
-  
-    
-  
-    & .imageLogo{
-      width: 3.7vw;
-      margin: 0;
-      left: 5vw;
-      z-index: 2;
-      top: 35vw;
-    }
+    justify-self: end;
+    align-self: center;
+    width: 35vw;
+    font-size: 2vw;
+  `};
 
-`};
+  ${mediaSize.phone`
+
+  `};
+`;
+
+const CopyrightContainer = styled.div`
+  grid-area: copyright;
+  color: white;
+
+  ${mediaSize.tablet`
+    justify-self: start;
+    align-self: center;
+    font-size: 2vw;
+  `};
+
+  ${mediaSize.phone`
+
+  `};
 `;
 
 /* --- Component --- */
@@ -94,102 +166,63 @@ class PageFooter extends React.Component {
     return (
       <PageContainer>
         <ContentContainer>
-          <img
-            className="imageLogo"
-            src={LogoWhite}
-            onClick={() => animateScroll.scrollToTop()}
-          />
-          <a
-            className="imageIcons"
-            href="https://www.instagram.com/equithon/?hl=en"
-          >
-            <img
-              className="imageIcons"
-              src={Insta}
-              style={{ top: '36.1vw', left: '-5vw' }}
-            />
-          </a>
-          <a className="imageIcons" href="https://www.facebook.com/UWEquithon/">
-            <img
-              className="imageIcons"
-              src={Facebook}
-              style={{ top: '34.7vw', left: '-3vw' }}
-            />
-          </a>
-          <a
-            className="imageIcons"
-            href="https://www.linkedin.com/company/waterlooequithon/"
-          >
-            <img
-              className="imageIcons"
-              src={LinkedIn}
-              style={{ width: '1.6vw', top: '33.2vw', left: '-1vw' }}
-            />
-          </a>
-          <a
-            className="imageIcons"
-            href="https://twitter.com/uwequithon?lang=en"
-          >
-            <img
-              className="imageIcons"
-              src={Twitter}
-              style={{ top: '31.7vw', left: '1vw' }}
-            />
-          </a>
-          <a className="imageIcons" href="https://github.com/equithon">
-            <img
-              className="imageIcons"
-              src={Github}
-              style={{ top: '30.4vw', left: '3vw', width: '1.2vw' }}
-            />
-          </a>
-          <a
-            className="imageIcons"
-            href={sponsorsPageData.sponsorAction.link.to}
-          >
-            <img
-              className="imageIcons"
-              src={EmailIcon}
-              style={{ top: '29.2vw', left: '5vw', width: '1.3vw' }}
-            />
-          </a>
-          <label className="equithonCopyright">© Equithon 2018</label>
-          <a
-            className="centerDiv"
-            href="https://abc.xyz/investor/other/google-code-of-conduct/"
-            style={{
-              position: 'relative',
-              top: '29.3vw',
-              width: '5vw',
-              left: '-4vw'
-            }}
-          >
-            Code of Conduct
-          </a>
-          <a
-            className="centerDiv"
-            href="https://www.apple.com/ca/apple-events/"
-            style={{ position: 'relative', top: '28.5vw', width: '3vw' }}
-          >
-            Press
-          </a>
-          <a
-            className="centerDiv"
-            href="https://www.facebook.com/legal/FB_Work_Privacy"
-            style={{
-              position: 'relative',
-              top: '27.67vw',
-              width: '5vw',
-              left: '4vw'
-            }}
-          >
-            Privacy Policy
-          </a>
-          <img
-            src={Background}
-            className="backgroundImg"
-            style={{ maxHeight: '35vw' }}
-          />
+          <LogoContainer onClick={() => animateScroll.scrollToTop()}>
+            <img className="imageLogo" src={LogoWhite} alt="Equithon logo." />
+          </LogoContainer>
+
+          <IconsContainer>
+            <img className="icons" src={InstaIcon} alt="Contact Icon." />
+            <img className="icons" src={FacebookIcon} alt="Contact Icon." />
+            <img className="icons" src={LinkedInIcon} alt="Contact Icon." />
+            <img className="icons" src={TwitterIcon} alt="Contact Icon." />
+            <img className="icons" src={GithubIcon} alt="Contact Icon." />
+            <img className="icons" src={EmailIcon} alt="Contact Icon." />
+            {/* <a className="imageIcons" href="https://www.instagram.com/equithon/?hl=en" >
+              <img className="imageIcons" src={InstaIcon} alt="Contact Icon." />
+              </a>
+              <a className="imageIcons" href="https://www.facebook.com/UWEquithon/">
+              <img className="imageIcons" src={FacebookIcon} alt="Contact Icon." />
+              </a>
+              <a className="imageIcons" href="https://www.linkedin.com/company/waterlooequithon/" >
+              <img className="imageIcons" src={LinkedInIcon} alt="Contact Icon." />
+              </a>
+              <a className="imageIcons" href="https://twitter.com/uwequithon?lang=en">
+              <img className="imageIcons" src={TwitterIcon} alt="Contact Icon." />
+              </a>
+              <a className="imageIcons" href="https://github.com/equithon">
+              <img className="imageIcons" src={GithubIcon} alt="Contact Icon." />
+              </a>
+              <a className="imageIcons" href={sponsorsPageData.sponsorAction.link.to}>
+              <img className="imageIcons" src={EmailIcon} alt="Contact Icon."/>
+            </a> */}
+          </IconsContainer>
+
+          <CopyrightContainer>
+            <div className="equithonCopyright">© Equithon 2018</div>
+          </CopyrightContainer>
+
+          <LinksContainer>
+            <a
+              className="centerDiv"
+              href="https://abc.xyz/investor/other/google-code-of-conduct/"
+            >
+              Code of Conduct
+            </a>
+
+            <a
+              className="centerDiv"
+              href="https://www.apple.com/ca/apple-events/"
+            >
+              Press
+            </a>
+
+            <a
+              className="centerDiv"
+              href="https://www.facebook.com/legal/FB_Work_Privacy"
+            >
+              Privacy Policy
+            </a>
+          </LinksContainer>
         </ContentContainer>
       </PageContainer>
     );
