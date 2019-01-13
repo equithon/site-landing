@@ -44,6 +44,8 @@ export const headerData = {
   actionButton: siteButtons.applyButton
 };
 
+export const footerdata = {};
+
 export const mainPageData = {
   header: 'Be a part of the change.',
   actionText:
