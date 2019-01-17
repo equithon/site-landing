@@ -102,27 +102,32 @@ class GenericButton extends React.Component {
     super(props);
     this.state = {
       inputContents: '',
-      captchaToken: ''
+      captchaToken: '',
+      submitState: 0
     };
     this.handleSubmit = props.submit;
   }
 
   render() {
+    let subtitle = this.props.subtitle;
+    if (this.state.submitState < 0) subtitle = this.props.submitError;
+    if (this.state.submitState > 0) subtitle = this.props.submitSuccess;
     return (
       <ComponentContainer className={this.props.className}>
-        <GoogleReCaptchaProvider reCaptchaKey="6Ld4c4oUAAAAANRAWIebARKihGGzPkTjzz4iuIXu">
+        {/* <GoogleReCaptchaProvider reCaptchaKey="6Ld4c4oUAAAAANRAWIebARKihGGzPkTjzz4iuIXu">
           <GoogleReCaptcha
             onVerify={token => this.setState({ captchaToken: token })}
           />
-        </GoogleReCaptchaProvider>
-        <div>{this.props.subtitle}</div>
+        </GoogleReCaptchaProvider> */}
+        <div>{subtitle}</div>
         <form
           onSubmit={e => {
             e.preventDefault();
-            this.handleSubmit(
+            const submitReturn = this.handleSubmit(
               this.state.inputContents,
               this.state.captchaToken
             );
+            this.setState({ submitState: submitReturn ? 1 : -1 });
           }}
         >
           <InputBox

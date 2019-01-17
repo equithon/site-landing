@@ -64,5 +64,7 @@ typings/
 .cache/
 public/
 
+# secret stuffs
+secretConfig.js
 
 yarn-error.log

@@ -2,11 +2,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
+import firebase from '@firebase/app';
+import '@firebase/firestore';
 
 import { mediaSize } from '../site/siteTools';
 import { mainPageData } from '../site/siteData';
 
 import GenericInput from '../components/GenericInput';
+
+import firebaseConfig from '../../secretConfig';
 
 /* --- Images --- */
 import HeroImg from '../static/img/MainPage/hero_rounded.png';
@@ -193,8 +197,33 @@ class MainPage extends React.Component {
     super(props);
     this.state = {};
 
+    if (!firebase.apps.length) {
+      firebase.initializeApp({
+        apiKey: 'AIzaSyBqfsxK5YJ44FRi_8mJtR3HiorXKtYzKM0',
+        authDomain: 'equithon-platform-2019.firebaseapp.com',
+        databaseURL: 'https://equithon-platform-2019.firebaseio.com',
+        projectId: 'equithon-platform-2019',
+        storageBucket: 'equithon-platform-2019.appspot.com',
+        messagingSenderId: '740846697122'
+      });
+    }
+    let db = firebase.firestore();
+
     this.signUpForMailingList = (email, token) => {
-      console.log(`signing ${email} up for mailing list! token is ${token}`);
+      console.log(`signing ${email} up for mailing list!`);
+      // TODO: FIX THIS
+      let addSuccess = true;
+      db.collection('mailinglist')
+        .add({ email })
+        .then(docRef => {
+          console.log('Document written with ID: ', docRef.id);
+        })
+        .catch(error => {
+          console.error('Error adding document: ', error);
+          addSuccess = true;
+        });
+      console.log(addSuccess);
+      return addSuccess;
     };
   }
 
@@ -228,6 +257,8 @@ class MainPage extends React.Component {
                 color="#fff"
                 submit={this.signUpForMailingList}
                 subtitle="Stay updated by signing up for our mailing list."
+                submitSuccess="Thanks! You've been signed up 😁"
+                submitError="An error occurred. Please try again."
                 placeholderText="Your Email"
                 buttonText="Sign Up"
               />
