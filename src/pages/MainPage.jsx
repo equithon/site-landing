@@ -10,7 +10,7 @@ import { mainPageData } from '../site/siteData';
 
 import GenericInput from '../components/GenericInput';
 
-import firebaseConfig from '../../secretConfig';
+// import firebaseConfig from '../../secretConfig';
 
 /* --- Images --- */
 import HeroImg from '../static/img/MainPage/hero_rounded.png';
@@ -184,10 +184,7 @@ const ShapeContainer = styled.img`
   `};
 
   ${mediaSize.phone`
-    max-height: 60vw;
-    max-width: 60vw;
-    left: -5vw;
-    bottom: -20vw;
+    display: none;
   `};
 `;
 
@@ -207,10 +204,10 @@ class MainPage extends React.Component {
         messagingSenderId: '740846697122'
       });
     }
-    let db = firebase.firestore();
+    let db = firebase.firestore(); // eslint-disable-line
 
-    this.signUpForMailingList = (email, token) => {
-      console.log(`signing ${email} up for mailing list!`);
+    this.signUpForMailingList = email => {
+      // eslint-disable-line
       // TODO: FIX THIS
       let addSuccess = true;
       db.collection('mailinglist')
@@ -222,7 +219,6 @@ class MainPage extends React.Component {
           console.error('Error adding document: ', error);
           addSuccess = true;
         });
-      console.log(addSuccess);
       return addSuccess;
     };
   }
@@ -240,18 +236,6 @@ class MainPage extends React.Component {
             </HeaderTextContainer>
             <ActionTextContainer>{mainPageData.actionText}</ActionTextContainer>
             <MainActionContainer>
-              {/* <ActionButton
-                text={mainPageData.actionButton.text}
-                backgroundColor="#66adef"
-                color="#fff"
-                click={() => {
-                  window.open(
-                mainPageData.actionButton.link,
-                mainPageData.actionButton.location
-                  );
-                }}
-              /> */}
-
               <MailingListSignupInput
                 backgroundColor="#66adef"
                 color="#fff"

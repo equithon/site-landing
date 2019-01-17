@@ -212,6 +212,7 @@ const TestimonialAuthorImg = styled.div`
   ${mediaSize.phone`
     width: 15vw;
     height: 15vw;
+    margin-bottom: 10vw;
   `};
 `;
 
