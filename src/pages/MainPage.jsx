@@ -215,8 +215,6 @@ class MainPage extends React.Component {
     let db = firebase.firestore(); // eslint-disable-line
 
     this.signUpForMailingList = email => {
-      // eslint-disable-line
-      // TODO: FIX THIS
       let addSuccess = true;
       db.collection('mailinglist')
         .add({ email })
@@ -225,7 +223,8 @@ class MainPage extends React.Component {
         })
         .catch(error => {
           console.error('Error adding document: ', error);
-          addSuccess = true;
+          // TODO: FIX THIS, it's async so it won't work for now
+          addSuccess = false;
         });
       return addSuccess;
     };
@@ -245,10 +244,10 @@ class MainPage extends React.Component {
             <ActionTextContainer>{mainPageData.actionText}</ActionTextContainer>
             <MainActionContainer>
               <MailingListSignupInput
-                backgroundColor="#66adef"
+                backgroundColor="#4B97E0"
                 color="#fff"
                 submit={this.signUpForMailingList}
-                subtitle="Stay updated by signing up for our mailing list."
+                submitText="Stay updated by signing up for our mailing list."
                 submitSuccess="Thanks! You've been signed up 😁"
                 submitError="An error occurred. Please try again."
                 placeholderText="Your Email"

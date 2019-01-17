@@ -179,6 +179,7 @@ class FAQPage extends React.Component {
                   className="accordion question"
                   label={qa.question}
                   collapsible={isMobile}
+                  key={qa.question}
                 >
                   <div className="contents">{qa.answer}</div>
                 </FAQAccordion>

@@ -90,7 +90,7 @@ const HeaderSiteLink = styled(Link)`
   `}
 
   &.active-link, :hover {
-    color: #66adef;
+    color: ${props => props.theme.secondary};
   }
 `;
 
@@ -189,7 +189,7 @@ class PageHeader extends React.Component {
             ))}
             <ActionButton
               text={headerData.actionButton.text}
-              backgroundColor="#66adef"
+              backgroundColor="#4B97E0"
               color="#fff"
               click={() => {
                 window.open(

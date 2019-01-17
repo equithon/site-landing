@@ -275,7 +275,7 @@ class PreviewPage extends React.Component {
             <Header>{previewPageData.header}</Header>
             <PageDesc>
               {previewPageData.previewDesc.map(paragraph => (
-                <div>{paragraph}</div>
+                <div key={paragraph}>{paragraph}</div>
               ))}
             </PageDesc>
           </Fade>
@@ -300,6 +300,7 @@ class PreviewPage extends React.Component {
                       offset={bubbleOffset}
                       mobileTopOffset={mobileTopOffset}
                       mobileOffset={phoneBubbleOffset}
+                      key={bubble.contents}
                     >
                       <div>
                         <FloatingBubble
@@ -326,6 +327,7 @@ class PreviewPage extends React.Component {
                   gridArea={counter.gridArea}
                   prefix={counter.textAbove}
                   color={counter.color}
+                  key={counter.subtitle}
                 >
                   <StatCounter
                     countStart={counter.start}
@@ -363,6 +365,7 @@ class PreviewPage extends React.Component {
                               offset={bubbleOffset}
                               mobileTopOffset={mobileTopOffset}
                               mobileOffset={phoneBubbleOffset}
+                              key={categoryBubble.contents}
                             >
                               <div>
                                 <FloatingBubble

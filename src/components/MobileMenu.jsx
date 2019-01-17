@@ -90,7 +90,7 @@ const MenuSiteLinkDiv = styled(posed.div(mobileMenuAnimations.indivLinkConfig))`
 const MenuSiteLink = styled(Link)`
   &.active-link,
   :hover {
-    color: #66adef;
+    color: ${props => props.theme.secondary};
   }
 `;
 

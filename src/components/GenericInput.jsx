@@ -11,10 +11,12 @@ import { mediaSize } from '../site/siteTools';
 /* --- Styles --- */
 const ComponentContainer = styled.div`
   & > div {
+    position: relative;
     color: rgb(135, 135, 135);
     font-weight: 400;
     font-size: 1em;
     margin-bottom: 0.75vw;
+    height: 1.5em;
 
     ${mediaSize.tablet`
       font-size: 0.85em;
@@ -33,6 +35,26 @@ const ComponentContainer = styled.div`
     display: flex;
     flex-direction: row;
   }
+`;
+
+const Subtitle = styled.span`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: ${props => (props.show ? '1' : '0')};
+  visibility: ${props => (props.show ? 'visible' : 'hidden')};
+  transition: all 0.25s ease-in-out;
+
+  ${'' /* eslint-disable */}
+  color: ${props =>
+    props.success
+      ? props.theme.secondary
+      : props.error
+      ? props.theme.error
+      : props.theme.offBlack};
+
+  ${'' /* eslint-enable */}
 `;
 
 const InputBox = styled.input`
@@ -108,10 +130,16 @@ class GenericButton extends React.Component {
     this.handleSubmit = props.submit;
   }
 
+  showSubmitState(success) {
+    const newSubmitState = success ? 1 : -1;
+    setTimeout(() => {
+      // show state for 2 seconds, then fade back
+      this.setState({ submitState: newSubmitState });
+      setTimeout(() => this.setState({ submitState: 0 }), 2000);
+    }, 200);
+  }
+
   render() {
-    let { subtitle } = this.props;
-    if (this.state.submitState < 0) subtitle = this.props.submitError;
-    if (this.state.submitState > 0) subtitle = this.props.submitSuccess;
     return (
       <ComponentContainer className={this.props.className}>
         {/* <GoogleReCaptchaProvider reCaptchaKey="6Ld4c4oUAAAAANRAWIebARKihGGzPkTjzz4iuIXu">
@@ -119,7 +147,17 @@ class GenericButton extends React.Component {
             onVerify={token => this.setState({ captchaToken: token })}
           />
         </GoogleReCaptchaProvider> */}
-        <div>{subtitle}</div>
+        <div>
+          <Subtitle show={this.state.submitState < 0} error>
+            {this.props.submitError}
+          </Subtitle>
+          <Subtitle show={this.state.submitState > 0} success>
+            {this.props.submitSuccess}
+          </Subtitle>
+          <Subtitle show={this.state.submitState === 0}>
+            {this.props.submitText}
+          </Subtitle>
+        </div>
         <form
           onSubmit={e => {
             e.preventDefault();
@@ -127,7 +165,8 @@ class GenericButton extends React.Component {
               this.state.inputContents,
               this.state.captchaToken
             );
-            this.setState({ submitState: submitReturn ? 1 : -1 });
+            this.setState({ inputContents: '' });
+            this.showSubmitState(submitReturn);
           }}
         >
           <InputBox
@@ -135,6 +174,7 @@ class GenericButton extends React.Component {
             onChange={e => this.setState({ inputContents: e.target.value })}
             color={this.props.backgroundColor}
             type="email"
+            value={this.state.inputContents}
           />
           <InputButton
             backgroundColor={this.props.backgroundColor}
