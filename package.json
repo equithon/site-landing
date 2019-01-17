@@ -17,6 +17,7 @@
     "react-countup": "^4.0.0",
     "react-device-detect": "^1.6.1",
     "react-dom": "^16.7.0",
+    "react-google-recaptcha-v3": "^0.1.5",
     "react-hamburger-menu": "^1.1.1",
     "react-helmet": "^5.2.0",
     "react-onclickoutside": "^6.7.1",

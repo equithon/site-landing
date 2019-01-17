@@ -6,7 +6,7 @@ import Fade from 'react-reveal/Fade';
 import { mediaSize } from '../site/siteTools';
 import { mainPageData } from '../site/siteData';
 
-import GenericButton from '../components/GenericButton';
+import GenericInput from '../components/GenericInput';
 
 /* --- Images --- */
 import HeroImg from '../static/img/MainPage/hero_rounded.png';
@@ -127,31 +127,40 @@ const ActionTextContainer = styled.div`
 
   ${mediaSize.phone`
     font-size: 4vw;
+    margin-bottom: 4vw;
   `};
 `;
 
-const MainButtonContainer = styled.div`
+const MainActionContainer = styled.div`
   grid-area: button;
   align-self: start;
 
   ${mediaSize.tablet`
-    justify-self: center;
+    align-self: center;
+    justify-self:center;
+    width: 70%;
+  `};
+
+  ${mediaSize.phone`
+    width: 85%;
   `};
 `;
 
-const ActionButton = styled(GenericButton)`
+const MailingListSignupInput = styled(GenericInput)`
   height: 3vw;
+  width: 80%;
   font-weight: 500;
   font-size: 2vmin;
 
   ${mediaSize.tablet`
     font-size: 2.5vmin;
     height: 8vw;
+    width: 100%;
   `};
 
   ${mediaSize.phone`
-    height: 12vw;
-    font-size: 5vmin;
+    height: 10vw;
+    font-size: 3.5vmin;
   `};
 `;
 
@@ -166,7 +175,7 @@ const ShapeContainer = styled.img`
   ${mediaSize.tablet`
     max-height: 50vw;
     max-width: 50vw;
-    left: -14vw;
+    left: -20vw;
     bottom: -12vw;
   `};
 
@@ -174,7 +183,7 @@ const ShapeContainer = styled.img`
     max-height: 60vw;
     max-width: 60vw;
     left: -5vw;
-    bottom: -15vw;
+    bottom: -20vw;
   `};
 `;
 
@@ -183,6 +192,10 @@ class MainPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+
+    this.signUpForMailingList = (email, token) => {
+      console.log(`signing ${email} up for mailing list! token is ${token}`);
+    };
   }
 
   render() {
@@ -197,19 +210,28 @@ class MainPage extends React.Component {
               </Header>
             </HeaderTextContainer>
             <ActionTextContainer>{mainPageData.actionText}</ActionTextContainer>
-            <MainButtonContainer>
-              <ActionButton
+            <MainActionContainer>
+              {/* <ActionButton
                 text={mainPageData.actionButton.text}
                 backgroundColor="#66adef"
                 color="#fff"
                 click={() => {
                   window.open(
-                    mainPageData.actionButton.link,
-                    mainPageData.actionButton.location
+                mainPageData.actionButton.link,
+                mainPageData.actionButton.location
                   );
                 }}
+              /> */}
+
+              <MailingListSignupInput
+                backgroundColor="#66adef"
+                color="#fff"
+                submit={this.signUpForMailingList}
+                subtitle="Stay updated by signing up for our mailing list."
+                placeholderText="Your Email"
+                buttonText="Sign Up"
               />
-            </MainButtonContainer>
+            </MainActionContainer>
           </ContentContainer>
         </Fade>
         <ShapeContainer src={AbstractShape1} />
