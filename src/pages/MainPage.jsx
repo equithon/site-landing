@@ -184,10 +184,7 @@ const ShapeContainer = styled.img`
   `};
 
   ${mediaSize.phone`
-    max-height: 60vw;
-    max-width: 60vw;
-    left: -5vw;
-    bottom: -20vw;
+    display: none;
   `};
 `;
 

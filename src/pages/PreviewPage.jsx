@@ -30,6 +30,10 @@ const ContentContainer = styled.div`
   margin: auto;
 
   color: ${props => props.theme.offBlack};
+
+  ${mediaSize.phone`
+    padding: 20vw 0;
+  `};
 `;
 
 const Header = styled.div`
