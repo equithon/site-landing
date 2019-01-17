@@ -84,11 +84,11 @@ const AccordionContents = styled.div`
   }
 
   ${mediaSize.tablet`
-    max-height: ${props => (props.selected ? '20vw' : '0')};
+    max-height: ${props => (props.selected ? '30vw' : '0')};
   `};
 
   ${mediaSize.phone`
-    max-height: ${props => (props.selected ? '25vw' : '0')};
+    max-height: ${props => (props.selected ? '40vw' : '0')};
   `};
 `;
 
@@ -99,7 +99,7 @@ class GenericAccordion extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: props.openByDefault || false
+      open: false
     };
   }
 

@@ -49,6 +49,7 @@ const ContentContainer = styled.div`
   `};
 
   ${mediaSize.phone`
+    height: 180vw;
     grid-template-rows: 1fr 3fr 1fr;
   `};
 `;

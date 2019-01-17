@@ -42,7 +42,7 @@ const ContentContainer = styled.div`
     'button hero';
 
   ${mediaSize.tablet`
-    padding-top: 15vh;
+    padding-top: 25vw;
     height: 80vh;
 
     grid-template-columns: auto;
@@ -55,7 +55,7 @@ const ContentContainer = styled.div`
   `};
 
   ${mediaSize.phone`
-    height: 70vh;
+    height: 130vw;
     grid-template-rows: 5fr 1fr 1fr 1fr;
   `};
 `;
