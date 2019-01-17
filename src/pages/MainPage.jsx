@@ -22,6 +22,14 @@ const PageContainer = styled.div`
   height: 100vh;
   margin: 0;
   box-sizing: border-box;
+
+  ${mediaSize.tablet`
+    height: 130vw;
+  `};
+
+  ${mediaSize.phone`
+    height: 170vw;
+  `};
 `;
 
 const ContentContainer = styled.div`
@@ -43,7 +51,7 @@ const ContentContainer = styled.div`
 
   ${mediaSize.tablet`
     padding-top: 25vw;
-    height: 80vh;
+    height: 90vw;
 
     grid-template-columns: auto;
     grid-template-rows: 6fr 2fr 1fr 1fr;

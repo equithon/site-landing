@@ -15,7 +15,7 @@ import MandyTestimonialPic from '../static/img/mandy_testimonial_pic.jpg';
 /* --- Styles --- */
 const PageContainer = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: auto;
   margin: 0;
   box-sizing: border-box;
 `;
@@ -38,7 +38,7 @@ const ContentContainer = styled.div`
   ${mediaSize.tablet`
     padding-top: 5vh;
     width: 80vw;
-    height: 95vh;
+    height: 150vw;
     grid-template-columns: auto;
     grid-template-rows: 1fr 10fr 1fr;
     grid-row-gap: 4vw;
