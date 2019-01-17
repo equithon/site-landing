@@ -57,39 +57,40 @@ export const FAQPageData = {
         'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 other team members will create a technical project that solves an issue in one of our 5 project tracks.'
     },
     {
-      question: 'What do I have to do to participate?',
+      question:
+        'Save the date! Equithon will be held on May 3-5, 2019 at the University of Waterloo. ',
       answer:
         'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 other team members will create a technical project that solves an issue in one of our 5 project tracks.'
     },
     {
-      question: 'How many people can be part of the same team?',
+      question: "Who's able to attend?",
       answer:
-        'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks.'
+        'As long as you’re currently enrolled in a Canadian post-secondary institution or a local Kitchener-Waterloo high school, we’d love to see you at the event as a hacker! If you’re not, don’t worry - you’ll have the chance to share your knowledge as a mentor or volunteer.'
     },
     {
-      question: 'what',
+      question: 'What categories will Equithon be covering this year?',
       answer:
-        'You’ll get the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks.'
+        "Equithon's 5 categories, or tracks, for 2019 are Economic Disparity, Female Empowerment, Mental Health, Mobility Rights, and Physical Accessibility. Participants will get a chance to create a project that contributes meaningfully to one of these fields, and more information regarding each category will be posted on our social media platforms in the coming weeks!"
     },
     {
-      question: 'What exactly do you do at Equithon?',
+      question: 'How is Equithon different from other hackathons?',
       answer:
-        'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 other team members will create a technical project that solves an issue in one of our 5 project tracks.'
+        'Equithon is one of its kind in the hackathon community! We are a non-overnight hackathon and our categories are targeted specifically at tackling today’s most pressing social equity issues.'
     },
     {
-      question: "What's going to be happening?",
+      question: 'What if I’ve never been to a hackathon before?',
       answer:
-        'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks.'
+        'Equithon is open to hackers with varying levels of experience. Our workshops will be tailored based on competency levels and we will also be hosting mentors from different industries to guide you and your ideas throughout the hackathon!'
     },
     {
-      question: 'What exactly do you do at Equithon?',
+      question: 'When will applications open for 2019?',
       answer:
-        'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 other team members will create a technical project that solves an issue in one of our 5 project tracks.'
+        'Applications will be live later this term. Be sure to subscribe to our mailing list and/or follow us on our social media platforms to stay updated!'
     },
     {
-      question: "What's going to be happening?",
+      question: "I'm interested! Where can I find more information?",
       answer:
-        'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks.'
+        'Subscribe to our mailing list and follow us on Instagram, Twitter, LinkedIn, and Facebook for more updates! Feel free to reach out to us at hello@equithon.org if you have any further questions.'
     }
   ]
 };
