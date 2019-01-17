@@ -123,7 +123,7 @@ const SneakPeekContainer = styled.div`
     'statCategories categories categories';
 
   ${mediaSize.tablet`
-      font-size: 2vw;
+    font-size: 2vw;
   `};
 
   ${mediaSize.phone`
@@ -131,6 +131,7 @@ const SneakPeekContainer = styled.div`
 
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 3fr;
+    grid-column-gap: 3vw;
     grid-template-areas:
       'statAttendees statDuration'
       'statCategories statGoal'

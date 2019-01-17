@@ -240,27 +240,27 @@ export const FAQPageData = {
         'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 other team members will create a technical project that solves an issue in one of our 5 project tracks.'
     },
     {
-      question: 'What do I have to do to participate?',
+      question: "Who's able to attend?",
       answer:
-        'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 other team members will create a technical project that solves an issue in one of our 5 project tracks.'
+        'As long as you’re currently enrolled in a Canadian post-secondary institution or a local high school, we’d love to see you at the event as a hacker! If you’re not, don’t worry - you have the chance to share your knowledge as a mentor or volunteer.'
     },
     {
-      question: 'How many people can be part of the same team?',
+      question: "What if I've never been to a hackathon before?",
       answer:
         'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks.'
     },
     {
-      question: 'what',
+      question: 'What are the tracks at Equithon this year?',
       answer:
-        "You’ll get the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make this question is intentionally written to overflow, we shouldn't have an answer as long as this a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks."
+        'You’ll get the chance to make a diffeeg as this a diffeet the chance to make a diffeet the chance to make a diffeet the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks.'
     },
     {
-      question: 'What exactly do you do at Equithon?',
+      question: 'How is Equithon different from other hackathons?',
       answer:
         'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 other team members will create a technical project that solves an issue in one of our 5 project tracks.'
     },
     {
-      question: "What's going to be happening?",
+      question: 'I want to apply!',
       answer:
         'You’ll get the chance to make a difference in the world! Over the course of a 36 hours, you and up to 3 team members will create a technical project that soes an issue in one of our 5 project tracks.'
     },

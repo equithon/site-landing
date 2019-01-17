@@ -2,11 +2,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
+import firebase from '@firebase/app';
+import '@firebase/firestore';
 
 import { mediaSize } from '../site/siteTools';
 import { mainPageData } from '../site/siteData';
 
-import GenericButton from '../components/GenericButton';
+import GenericInput from '../components/GenericInput';
+
+import firebaseConfig from '../../secretConfig';
 
 /* --- Images --- */
 import HeroImg from '../static/img/MainPage/hero_rounded.png';
@@ -127,31 +131,40 @@ const ActionTextContainer = styled.div`
 
   ${mediaSize.phone`
     font-size: 4vw;
+    margin-bottom: 4vw;
   `};
 `;
 
-const MainButtonContainer = styled.div`
+const MainActionContainer = styled.div`
   grid-area: button;
   align-self: start;
 
   ${mediaSize.tablet`
-    justify-self: center;
+    align-self: center;
+    justify-self:center;
+    width: 70%;
+  `};
+
+  ${mediaSize.phone`
+    width: 85%;
   `};
 `;
 
-const ActionButton = styled(GenericButton)`
+const MailingListSignupInput = styled(GenericInput)`
   height: 3vw;
+  width: 80%;
   font-weight: 500;
   font-size: 2vmin;
 
   ${mediaSize.tablet`
     font-size: 2.5vmin;
     height: 8vw;
+    width: 100%;
   `};
 
   ${mediaSize.phone`
-    height: 12vw;
-    font-size: 5vmin;
+    height: 10vw;
+    font-size: 3.5vmin;
   `};
 `;
 
@@ -166,7 +179,7 @@ const ShapeContainer = styled.img`
   ${mediaSize.tablet`
     max-height: 50vw;
     max-width: 50vw;
-    left: -14vw;
+    left: -20vw;
     bottom: -12vw;
   `};
 
@@ -174,7 +187,7 @@ const ShapeContainer = styled.img`
     max-height: 60vw;
     max-width: 60vw;
     left: -5vw;
-    bottom: -15vw;
+    bottom: -20vw;
   `};
 `;
 
@@ -183,6 +196,35 @@ class MainPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+
+    if (!firebase.apps.length) {
+      firebase.initializeApp({
+        apiKey: 'AIzaSyBqfsxK5YJ44FRi_8mJtR3HiorXKtYzKM0',
+        authDomain: 'equithon-platform-2019.firebaseapp.com',
+        databaseURL: 'https://equithon-platform-2019.firebaseio.com',
+        projectId: 'equithon-platform-2019',
+        storageBucket: 'equithon-platform-2019.appspot.com',
+        messagingSenderId: '740846697122'
+      });
+    }
+    let db = firebase.firestore();
+
+    this.signUpForMailingList = (email, token) => {
+      console.log(`signing ${email} up for mailing list!`);
+      // TODO: FIX THIS
+      let addSuccess = true;
+      db.collection('mailinglist')
+        .add({ email })
+        .then(docRef => {
+          console.log('Document written with ID: ', docRef.id);
+        })
+        .catch(error => {
+          console.error('Error adding document: ', error);
+          addSuccess = true;
+        });
+      console.log(addSuccess);
+      return addSuccess;
+    };
   }
 
   render() {
@@ -197,19 +239,30 @@ class MainPage extends React.Component {
               </Header>
             </HeaderTextContainer>
             <ActionTextContainer>{mainPageData.actionText}</ActionTextContainer>
-            <MainButtonContainer>
-              <ActionButton
+            <MainActionContainer>
+              {/* <ActionButton
                 text={mainPageData.actionButton.text}
                 backgroundColor="#66adef"
                 color="#fff"
                 click={() => {
                   window.open(
-                    mainPageData.actionButton.link,
-                    mainPageData.actionButton.location
+                mainPageData.actionButton.link,
+                mainPageData.actionButton.location
                   );
                 }}
+              /> */}
+
+              <MailingListSignupInput
+                backgroundColor="#66adef"
+                color="#fff"
+                submit={this.signUpForMailingList}
+                subtitle="Stay updated by signing up for our mailing list."
+                submitSuccess="Thanks! You've been signed up 😁"
+                submitError="An error occurred. Please try again."
+                placeholderText="Your Email"
+                buttonText="Sign Up"
               />
-            </MainButtonContainer>
+            </MainActionContainer>
           </ContentContainer>
         </Fade>
         <ShapeContainer src={AbstractShape1} />
