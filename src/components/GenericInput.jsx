@@ -1,10 +1,10 @@
 /* --- Packages and Components --- */
 import React from 'react';
 import styled from 'styled-components';
-import {
-  GoogleReCaptchaProvider,
-  GoogleReCaptcha
-} from 'react-google-recaptcha-v3';
+// import {
+//   GoogleReCaptchaProvider,
+//   GoogleReCaptcha
+// } from 'react-google-recaptcha-v3';
 import { mediaSize } from '../site/siteTools';
 
 /* --- Images --- */
@@ -109,7 +109,7 @@ class GenericButton extends React.Component {
   }
 
   render() {
-    let subtitle = this.props.subtitle;
+    let { subtitle } = this.props;
     if (this.state.submitState < 0) subtitle = this.props.submitError;
     if (this.state.submitState > 0) subtitle = this.props.submitSuccess;
     return (
