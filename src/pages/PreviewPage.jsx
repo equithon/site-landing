@@ -300,7 +300,6 @@ class PreviewPage extends React.Component {
                       offset={bubbleOffset}
                       mobileTopOffset={mobileTopOffset}
                       mobileOffset={phoneBubbleOffset}
-                      key={bubble.contents}
                     >
                       <div>
                         <FloatingBubble
