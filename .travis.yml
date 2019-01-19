@@ -1,27 +1,36 @@
 notifications:
   email: false
-  slack:
-    secure: K+dfT4X8mAQPXFDQLGBPCkMZf0PU2QF3m+cdb7G/MU9FrOe6XtpU8nCaaDR+jB1p119liKLbMnOyk2BWoWDp4pglAwoler52BOQwkX/jyf33c2M5juVoNUnyy4H7Z2jXm+uohX9TILfXbYtFFto3CSIiTHfjx82Dmm0n7XgIwB3KbrFnTStAfumjFDarj/VYQ2Pr1AuaO/DH2WnFTehlUM/DvuxS5qMORTxG1m6dhZfaqzPxggin489TMVg+m3co9MHQ/3ODIyI88urHDEdiBYDvaNschP5neFN6mrIDu71NsUxDvmopgmCJCKn9IrC7v/JYvzcvFICFs0X7u7rkIZIJRHDThZcV4rHqzzKet4KeUSbDcwKGqo7tDX/b38+9RLrgvVn8jjnppJb4pZg8JYjrvhs8RX0eoIxQMSRUf6xPF2hoK/nfc1qRKwGonQ/qjNu5tLbxO/Fq1wlIKvyrLRNxHJyRbkOwFROhZaXiof2E0TDvQ4ml6QFP05NF9/lCu2eajTbkNLB9FTB/TnCikV3+CObAOgtqZEhK3KYvq2D1+KPPgX39GXOztVTPf/pkp/wfUs/RJcQ1H0kxm+ZzMmaLu2QE7Uq2zk8dntVRLGKKhViqETsBvz183g67YVLyh++1rgJQfiNF7mbT5UjwT7MPqdUFNTxygufTXrPOUtc=
+
 language: node_js
 node_js:
-- node
+ - "node"
+
 cache:
   directories:
-  - node_modules
+    - 'node_modules'
+    - 'public'
+
+before_script:
+    - npm install
+
 stages:
-- lint
-- build
-- test
-- name: deploy
-  if: branch = master
+  - lint
+  - test
+  - name: build
+    if: branch = staging OR branch = master
+  - name: deploy
+    if: branch = staging OR branch = master
+
 jobs:
   include:
-  - stage: lint
-    script: "./deploy"
-  - stage: build
-    script: "./compile"
-  - stage: test
-    name: Visual Regression Tests
-    script: "./deploy"
-  - stage: deploy
-    script: "./deploy"
+    - stage: lint
+      script: ./.travisci/lint
+    - stage: build
+      script: ./.travisci/build
+    - stage: test
+      name: "Visual Regression Tests"
+      script: ./.travisci/visual-test
+      name: "Unit Tests"
+      script: ./.travisci/unit-test
+    - stage: deploy
+      script: ./.travisci/deploy

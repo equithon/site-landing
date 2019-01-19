@@ -57,6 +57,14 @@ typings/
 # dotenv environment variables file
 .env
 
+# Firebase cache files
+.firebase/
+
+.DS_Store
 .cache/
-public
+public/
+
+# secret stuffs
+secretConfig.js
+
 yarn-error.log

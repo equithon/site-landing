@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -e
+
+
+if [ $TRAVIS_BRANCH == "staging" ]; then
+  echo "Deplying to Firebase [STAGING]..."
+  firebase use staging
+  firebase deploy --only hosting:staging --token $FIREBASE_TOKEN --non-interactive
+  echo "Deployment to Firebase complete. Site is live at equithon-platform-2019-staging.firebaseapp.com"
+
+elif [ $TRAVIS_BRANCH == "master" ]; then
+  echo "Deplying to Firebase [PRODUCTION]..."
+  firebase use prod
+  firebase deploy --only hosting:prod --token $FIREBASE_TOKEN --non-interactive
+  echo "Deployment to Firebase complete. Site is live at equithon.org"
+fi

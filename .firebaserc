@@ -3,22 +3,20 @@
     "prod": "equithon-platform-2019",
     "staging": "equithon-platform-2019-staging"
   },
-  "targets": [
-    { "prod": {
-        "hosting": {
-          "main": [
-            "equithon-platform-2019"
-          ]
-        }
+  "targets": {
+    "equithon-platform-2019": {
+      "hosting": {
+        "prod": [
+          "equithon-platform-2019"
+        ]
       }
     },
-    { "staging": {
-        "hosting": {
-          "main": [
-            "equithon-platform-2019-staging"
-          ]
-        }
+    "equithon-platform-2019-staging": {
+      "hosting": {
+        "staging": [
+          "equithon-platform-2019-staging"
+        ]
       }
     }
-  ]
+  }
 }
