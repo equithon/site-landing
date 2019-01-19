@@ -16,9 +16,11 @@ const ComponentContainer = styled.div`
   color: #555657;
   transition: color 0.5s ease-in-out;
 
-  &:hover {
-    filter: ${props => (props.collapsible ? 'brightness(20%)' : 'none')};
-  }
+  ${mediaSize.tablet`
+    &:hover {
+      filter: brightness(20%);
+    }
+  `};
 `;
 
 const AccordionLabel = styled.div`
@@ -39,7 +41,7 @@ const AccordionLabel = styled.div`
   }
 
   & div.caret {
-    display: ${props => (props.collapsible ? 'inline' : 'none')};
+    display: none;
     position: relative;
     vertical-align: top;
     width: 1vw;
@@ -47,6 +49,7 @@ const AccordionLabel = styled.div`
 
     ${mediaSize.tablet`
       width: 1.5vw;
+      display: inline;
     `};
 
     ${mediaSize.phone`
@@ -67,7 +70,7 @@ const AccordionLabel = styled.div`
 const AccordionContents = styled.div`
   transition: max-height 0.5s ease-in-out;
 
-  max-height: ${props => (props.selected ? '10vw' : '0')};
+  max-height: 50vw;
   overflow: hidden;
 
   & div.contents {
@@ -109,7 +112,6 @@ class GenericAccordion extends React.Component {
         className={`${this.props.className} ${
           this.state.open ? 'selected' : ''
         }`}
-        collapsible={this.props.collapsible}
         show={this.state.open}
       >
         <AccordionLabel
@@ -118,7 +120,6 @@ class GenericAccordion extends React.Component {
           }
           className="label"
           selected={this.state.open}
-          collapsible={this.props.collapsible}
         >
           {' '}
           {/* eslint-disable-line */}
@@ -130,9 +131,7 @@ class GenericAccordion extends React.Component {
             />
           </div>
         </AccordionLabel>
-        <AccordionContents
-          selected={this.state.open || !this.props.collapsible}
-        >
+        <AccordionContents selected={this.state.open}>
           <div className="contents">{this.props.children}</div>
         </AccordionContents>
       </ComponentContainer>

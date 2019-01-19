@@ -69,8 +69,10 @@ const InputBox = styled.input`
   color: ${props => props.theme.offBlack};
   font-size: inherit;
   transition: all 0.3s ease 0s;
-  &:focus {
-    outline: 0;
+
+  &:focus,
+  &.filled {
+    outline: none;
     border: 2px solid ${props => props.color};
   }
 
@@ -102,8 +104,20 @@ const InputButton = styled.button`
   color: ${props => props.color};
   background-color: rgb(136, 136, 136);
 
-  &:hover {
+  &.filled {
     background-color: ${props => props.backgroundColor};
+  }
+
+  &:hover {
+    filter: brightness(90%);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    margin-left: -2em;
   }
 
   ${mediaSize.tablet`
@@ -175,10 +189,12 @@ class GenericButton extends React.Component {
             color={this.props.backgroundColor}
             type="email"
             value={this.state.inputContents}
+            className={this.state.inputContents.length > 0 ? 'filled' : ''}
           />
           <InputButton
             backgroundColor={this.props.backgroundColor}
             color={this.props.color}
+            className={this.state.inputContents.length > 0 ? 'filled' : ''}
           >
             {this.props.buttonText}
           </InputButton>

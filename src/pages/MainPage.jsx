@@ -43,7 +43,7 @@ const ContentContainer = styled.div`
   display: grid;
   grid-column-gap: 3vw;
   grid-template-columns: 6fr 4fr;
-  grid-template-rows: 4fr 1fr 3fr;
+  grid-template-rows: 4fr 1fr 4fr;
   grid-template-areas:
     'header hero'
     'action hero'
@@ -216,16 +216,19 @@ class MainPage extends React.Component {
 
     this.signUpForMailingList = email => {
       let addSuccess = true;
-      db.collection('mailinglist')
-        .add({ email })
-        .then(docRef => {
-          console.log('Document written with ID: ', docRef.id);
-        })
-        .catch(error => {
-          console.error('Error adding document: ', error);
-          // TODO: FIX THIS, it's async so it won't work for now
-          addSuccess = false;
-        });
+
+      if (email.length) {
+        db.collection('mailinglist')
+          .add({ email })
+          .then(docRef => {
+            console.log('Document written with ID: ', docRef.id);
+          })
+          .catch(error => {
+            console.error('Error adding document: ', error);
+            // TODO: FIX THIS, it's async so it won't work for now
+            addSuccess = false;
+          });
+      }
       return addSuccess;
     };
   }
@@ -247,9 +250,9 @@ class MainPage extends React.Component {
                 backgroundColor="#4B97E0"
                 color="#fff"
                 submit={this.signUpForMailingList}
-                submitText="Stay updated by signing up for our mailing list."
-                submitSuccess="Thanks! You've been signed up 😁"
-                submitError="An error occurred. Please try again."
+                submitText="Stay updated by signing up for our mailing list 📫"
+                submitSuccess="Thanks! You've been signed up 🎉"
+                submitError="An error occurred 😢 Please try again."
                 placeholderText="Your Email"
                 buttonText="Sign Up"
               />

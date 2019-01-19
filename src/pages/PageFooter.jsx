@@ -100,6 +100,11 @@ const IconsContainer = styled.div`
     max-width: 2vw;
     max-height: 2vw;
     cursor: pointer;
+    transition: all 250ms linear;
+
+    &:hover {
+      filter: brightness(80%);
+    }
 
     ${mediaSize.tablet`
       max-width: 3vw;
@@ -121,7 +126,7 @@ const IconsContainer = styled.div`
 
 const LinksContainer = styled.div`
   grid-area: links;
-  width: 50%;
+  width: 20em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
