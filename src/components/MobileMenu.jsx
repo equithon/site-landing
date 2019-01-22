@@ -1,13 +1,14 @@
 /* --- Packages and Components --- */
 import React from 'react';
 import styled from 'styled-components';
+import posed from 'react-pose';
 import onClickOutside from 'react-onclickoutside';
 import { Link, scrollSpy } from 'react-scroll';
 
-import { mediaSize } from '../data/siteTools';
-import { mobileMenuData } from '../data/siteData';
+import { mediaSize } from '../site/siteTools';
+import { mobileMenuData } from '../site/siteData';
+import { mobileMenuAnimations } from '../site/siteAnimations';
 
-/* --- Images --- */
 /* --- Styles --- */
 const ComponentContainer = styled.div`
   width: 10vw;
@@ -15,19 +16,23 @@ const ComponentContainer = styled.div`
 
   position: fixed;
   bottom: 3em;
-  right: 3em;
+  right: ${props => (props.shouldHide ? '-70%' : '3em')};
   z-index: 100;
 
   color: white;
   text-align: center;
   line-height: 10vw;
+  box-shadow: 2px 2px 1px 2px rgba(154, 113, 209, 0.6);
+  border-radius: 50%;
+
+  transition: right 0.5s cubic-bezier(0.87, -0.41, 0.19, 1.44);
 
   ${mediaSize.phone`
     width: 14vw;
     height: 14vw;
     line-height: 14vw;
     bottom: 2em;
-    right: 2em;
+    right: ${props => (props.shouldHide ? '-70%' : '2em')};
   `}
 `;
 
@@ -35,7 +40,7 @@ const MenuBackground = styled.div`
   width: 200vw;
   height: 200vw;
   opacity: ${props => (props.open ? 0.975 : 1)};
-  background-color: #854dd0;
+  background-color: #a16beb;
   border-radius: 50%;
   position: absolute;
   z-index: 101;
@@ -56,7 +61,7 @@ const MenuBackground = styled.div`
   `}
 `;
 
-const MenuContents = styled.div`
+const MenuContents = styled(posed.div(mobileMenuAnimations.containerConfig))`
   position: absolute;
   z-index: 102;
   right: ${props =>
@@ -64,7 +69,7 @@ const MenuContents = styled.div`
   bottom: 100%;
 `;
 
-const MenuSiteLink = styled(Link)`
+const MenuSiteLinkDiv = styled(posed.div(mobileMenuAnimations.indivLinkConfig))`
   display: block;
   font-weight: 500;
   cursor: pointer;
@@ -76,15 +81,17 @@ const MenuSiteLink = styled(Link)`
   font-size: 4vw;
   cursor: pointer;
 
-  &.active-link,
-  :hover {
-    color: #66adef;
-  }
-
   ${mediaSize.phone`
     font-size: 6vw;
     line-height: 170%;
   `}
+`;
+
+const MenuSiteLink = styled(Link)`
+  &.active-link,
+  :hover {
+    color: ${props => props.theme.secondary};
+  }
 `;
 
 const MenuIconContainer = styled.div`
@@ -115,7 +122,7 @@ const MenuIconBar = styled.div`
 
   // https://codepen.io/sergioandrade/pen/onkub maybe implement later?
 
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.5s ease;
   &.top-bar {
     // translate is mismatched
     transform: ${props =>
@@ -136,24 +143,62 @@ class MobileMenu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      open: false,
+      scrolled: false,
+      hidden: false,
+      lastScrollPos: typeof window !== 'undefined' && window.pageYOffset
     };
+
+    this.curMenu = React.createRef();
+
+    this.scrollTimer = setInterval(() => this.handleScroll(), 150); // only check for scroll every 150ms for performance
   }
 
   componentDidMount() {
+    window.addEventListener('scroll', () => this.setState({ scrolled: true }));
+    this.height = this.curMenu.current.offsetHeight;
     scrollSpy.update();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', () =>
+      this.setState({ scrolled: true })
+    );
+    clearInterval(this.scrollTimer);
   }
 
   handleClickOutside = () => {
     this.setState({ open: false });
   };
 
+  handleScroll() {
+    const SCROLL_TRIGGER_DELTA = 5;
+    const curScrollPos = typeof window !== 'undefined' && window.pageYOffset;
+    if (
+      this.state.scrolled &&
+      Math.abs(curScrollPos - this.state.lastScrollPos) >= SCROLL_TRIGGER_DELTA
+    ) {
+      // scrolled, and for more than the delta
+      const shouldHide = // eslint-disable-next-line
+        curScrollPos > this.state.lastScrollPos && curScrollPos > this.height;
+      this.setState({
+        scrolled: false, // reset scroll
+        hidden: shouldHide,
+        lastScrollPos: curScrollPos
+      });
+    } else {
+      this.setState({ scrolled: false });
+    }
+  }
+
   render() {
     return (
       <ComponentContainer
         onClick={() => this.setState(prevState => ({ open: !prevState.open }))}
+        shouldHide={this.state.hidden}
+        ref={this.curMenu}
       >
-        <MenuBackground open={this.state.open} />
+        <MenuBackground open={this.state.open && !this.state.hidden} />
         <MenuIconContainer>
           <MenuIcon>
             <MenuIconBar
@@ -168,21 +213,27 @@ class MobileMenu extends React.Component {
           </MenuIcon>
         </MenuIconContainer>
         {this.state.open ? (
-          <MenuContents offset={this.menuBar.offsetLeft}>
+          <MenuContents
+            offset={this.menuBar.offsetLeft}
+            pose="entered"
+            initialPose="entering"
+          >
             {mobileMenuData.links.map((link, i) => (
-              <MenuSiteLink
-                className="mobile-menu-link"
-                to={link.scrollTo}
-                activeClass="active-link"
-                spy
-                smooth
-                duration={750}
-                key={link.scrollTo}
-                offset={i}
-                onClick={() => this.setState({ open: false })}
-              >
-                {link.name}
-              </MenuSiteLink>
+              <MenuSiteLinkDiv>
+                <MenuSiteLink
+                  className="mobile-menu-link"
+                  to={link.scrollTo}
+                  activeClass="active-link"
+                  spy
+                  smooth
+                  duration={750}
+                  key={link.scrollTo}
+                  offset={i}
+                  onClick={() => this.setState({ open: false })}
+                >
+                  {link.name}
+                </MenuSiteLink>
+              </MenuSiteLinkDiv>
             ))}
           </MenuContents>
         ) : null}

@@ -1,21 +1,35 @@
 /* --- Packages and Components --- */
 import React from 'react';
 import styled from 'styled-components';
-import { mediaSize } from '../data/siteTools';
-import { mainPageData } from '../data/siteData';
+import Fade from 'react-reveal/Fade';
+import firebase from '@firebase/app';
+import '@firebase/firestore';
 
-import GenericButton from '../components/GenericButton';
+import { mediaSize } from '../site/siteTools';
+import { mainPageData } from '../site/siteData';
+
+import GenericInput from '../components/GenericInput';
+
+// import firebaseConfig from '../../secretConfig';
 
 /* --- Images --- */
-import HeroImg from '../static/img/hero.png';
+import HeroImg from '../static/img/MainPage/hero_rounded.png';
+import AbstractShape1 from '../static/img/shapes/main_about_middle_left@2x.png';
 
 /* --- Styles --- */
 const PageContainer = styled.div`
   width: 100vw;
   height: 100vh;
   margin: 0;
-  background-color: white;
   box-sizing: border-box;
+
+  ${mediaSize.tablet`
+    height: 130vw;
+  `};
+
+  ${mediaSize.phone`
+    height: 170vw;
+  `};
 `;
 
 const ContentContainer = styled.div`
@@ -24,20 +38,20 @@ const ContentContainer = styled.div`
   height: 80vh;
   margin: auto;
 
-  color: #46484a;
+  color: ${props => props.theme.offBlack};
 
   display: grid;
   grid-column-gap: 3vw;
   grid-template-columns: 6fr 4fr;
-  grid-template-rows: 4fr 1fr 3fr;
+  grid-template-rows: 4fr 1fr 4fr;
   grid-template-areas:
     'header hero'
     'action hero'
     'button hero';
 
   ${mediaSize.tablet`
-    padding-top: 15vh;
-    height: 80vh;
+    padding-top: 25vw;
+    height: 90vw;
 
     grid-template-columns: auto;
     grid-template-rows: 6fr 2fr 1fr 1fr;
@@ -49,7 +63,7 @@ const ContentContainer = styled.div`
   `};
 
   ${mediaSize.phone`
-    height: 60vh;
+    height: 130vw;
     grid-template-rows: 5fr 1fr 1fr 1fr;
   `};
 `;
@@ -124,30 +138,61 @@ const ActionTextContainer = styled.div`
   `};
 
   ${mediaSize.phone`
+    font-size: 4vw;
+    margin-bottom: 4vw;
   `};
 `;
 
-const MainButtonContainer = styled.div`
+const MainActionContainer = styled.div`
   grid-area: button;
   align-self: start;
 
   ${mediaSize.tablet`
-    justify-self: center;
+    align-self: center;
+    justify-self:center;
+    width: 70%;
+  `};
+
+  ${mediaSize.phone`
+    width: 85%;
   `};
 `;
 
-const ActionButton = styled(GenericButton)`
-  height: 6vh;
+const MailingListSignupInput = styled(GenericInput)`
+  height: 3vw;
+  width: 80%;
   font-weight: 500;
   font-size: 2vmin;
 
   ${mediaSize.tablet`
     font-size: 2.5vmin;
+    height: 8vw;
+    width: 100%;
   `};
 
   ${mediaSize.phone`
-    height: 5vh;
-    font-size: 3vmin;
+    height: 10vw;
+    font-size: 3.5vmin;
+  `};
+`;
+
+const ShapeContainer = styled.img`
+  position: absolute;
+  bottom: -15vw;
+  left: -20px;
+  max-width: 30vw;
+  max-height: 30vw;
+  z-index: -1;
+
+  ${mediaSize.tablet`
+    max-height: 50vw;
+    max-width: 50vw;
+    left: -20vw;
+    bottom: -12vw;
+  `};
+
+  ${mediaSize.phone`
+    display: none;
   `};
 `;
 
@@ -156,28 +201,65 @@ class MainPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+
+    if (!firebase.apps.length) {
+      firebase.initializeApp({
+        apiKey: 'AIzaSyBqfsxK5YJ44FRi_8mJtR3HiorXKtYzKM0',
+        authDomain: 'equithon-platform-2019.firebaseapp.com',
+        databaseURL: 'https://equithon-platform-2019.firebaseio.com',
+        projectId: 'equithon-platform-2019',
+        storageBucket: 'equithon-platform-2019.appspot.com',
+        messagingSenderId: '740846697122'
+      });
+    }
+    let db = firebase.firestore(); // eslint-disable-line
+
+    this.signUpForMailingList = email => {
+      let addSuccess = true;
+
+      if (email.length) {
+        db.collection('mailinglist')
+          .add({ email })
+          .then(docRef => {
+            console.log('Document written with ID: ', docRef.id);
+          })
+          .catch(error => {
+            console.error('Error adding document: ', error);
+            // TODO: FIX THIS, it's async so it won't work for now
+            addSuccess = false;
+          });
+      }
+      return addSuccess;
+    };
   }
 
   render() {
     return (
       <PageContainer className="section" id="main">
-        <ContentContainer>
-          <HeroImgContainer src={HeroImg} alt="A person thinking." />
-          <HeaderTextContainer>
-            <Header shadowText={mainPageData.mainText.split(' ').splice(-1)}>
-              {mainPageData.mainText}
-            </Header>
-          </HeaderTextContainer>
-          <ActionTextContainer>{mainPageData.actionText}</ActionTextContainer>
-          <MainButtonContainer>
-            <ActionButton
-              text={mainPageData.actionButton.text}
-              backgroundColor="#66adef"
-              color="#fff"
-              click={() => {}}
-            />
-          </MainButtonContainer>
-        </ContentContainer>
+        <Fade bottom distance="5vw">
+          <ContentContainer>
+            <HeroImgContainer src={HeroImg} alt="A person thinking." />
+            <HeaderTextContainer>
+              <Header shadowText={mainPageData.header.split(' ').splice(-1)}>
+                {mainPageData.header}
+              </Header>
+            </HeaderTextContainer>
+            <ActionTextContainer>{mainPageData.actionText}</ActionTextContainer>
+            <MainActionContainer>
+              <MailingListSignupInput
+                backgroundColor="#4B97E0"
+                color="#fff"
+                submit={this.signUpForMailingList}
+                submitText="Stay updated by signing up for our mailing list 📫"
+                submitSuccess="Thanks! You've been signed up 🎉"
+                submitError="An error occurred 😢 Please try again."
+                placeholderText="Your Email"
+                buttonText="Sign Up"
+              />
+            </MainActionContainer>
+          </ContentContainer>
+        </Fade>
+        <ShapeContainer src={AbstractShape1} />
       </PageContainer>
     );
   }
