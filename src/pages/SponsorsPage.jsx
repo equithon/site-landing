@@ -7,6 +7,8 @@ import withReveal from 'react-reveal/withReveal';
 import { mediaSize } from '../site/siteTools';
 import { sponsorsPageData } from '../site/siteData';
 
+import ScrollingSponsorPane from '../components/ScrollingSponsorPane';
+
 /* --- Images --- */
 import AbstractShapeSponsor from '../static/img/shapes/sponsor_interested@2x.png';
 
@@ -47,36 +49,22 @@ const PageHeader = withReveal(
   <Fade bottom />
 );
 
-const SubHeader = withReveal(
+const SponsorPaneContainer = withReveal(
   styled.div`
-    width: 40vw;
-    height: 40vw;
-
-    display: flex;
-    margin: auto;
-
-    text-align: center;
-    font-size: 1.5vw;
-    font-weight: 500;
-    color: ${props => props.theme.offBlack};
-
-    & > span {
-      margin: auto;
-    }
+    width: 80vw;
+    height: 70vw;
 
     ${mediaSize.tablet`
-    font-size: 2.5vw;
     width: 50vw;
     height: 65vw;
   `};
 
     ${mediaSize.phone`
-    font-size: 4vw;
     width: 70vw;
     height: 35vw;
   `};
   `,
-  <Fade bottom />
+  <Fade />
 );
 
 const SponsorUsPleaseContainer = styled.div`
@@ -170,9 +158,11 @@ class SponsorsPage extends React.Component {
       <PageContainer className="section" id="sponsors">
         <ContentContainer>
           <PageHeader>{sponsorsPageData.header}</PageHeader>
-          <SubHeader>
-            <span>{sponsorsPageData.sponsorUsBlurb}</span>
-          </SubHeader>
+
+          <SponsorPaneContainer>
+            <ScrollingSponsorPane />
+          </SponsorPaneContainer>
+
           <SponsorUsPleaseContainer>
             <Fade bottom>
               <div className="action-text">
