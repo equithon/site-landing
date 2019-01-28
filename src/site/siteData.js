@@ -244,7 +244,7 @@ export const sponsorsPageData = {
       link: 'www.facebook.com',
       imgSrc: require('../static/img/sponsors/logos/logo_flipp.png'),
       color: '#fff',
-      backgroundColor: '#00c6d7',
+      backgroundColor: '#28c0d2',
       x: 20,
       y: 470,
       vy: 0.1

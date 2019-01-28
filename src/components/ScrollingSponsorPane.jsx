@@ -5,21 +5,73 @@ import styled from 'styled-components';
 import { sponsorsPageData } from '../site/siteData';
 import { mediaSize, displaySizes } from '../site/siteTools';
 
+/*
+  CANT USE STYLED COMPONENTS
+  HERE AS THE CONSTANTLY CHANGING CLASSNAMES
+  WHEN THE COMPONENT RE-RENDERS MAKES THE ANIMATION
+  HORRIFYINGLY SLOW, IF ANYONE KNOWS A SOLUTION
+  PLEASE LET ME KNOW LOL
+*/
+
+const Bubble = styled.div`
+  position: absolute;
+  display: flex;
+  width: ${props => `${props.size}px`};
+  height: ${props => `${props.size}px`};
+
+  border-radius: 50%;
+  background-color: ${props => props.color};
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+  will-change: transform;
+  cursor: pointer;
+  z-index: 1;
+
+  &:hover > div {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+`;
+
+const Logo = styled.img`
+  margin: auto;
+  max-width: 60%;
+  max-height: 60%;
+`;
+
+const SubtitleContainer = styled.div`
+  position: absolute;
+  bottom: -2em;
+  left: 50%;
+  transform: translate(-50%, -10px);
+  opacity: 0;
+  transition: all 500ms ease-in-out;
+  border-radius: 10px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  padding: 5px 1vw;
+  white-space: nowrap;
+  background-color: #fff;
+  color: #666565;
+  will-change: transform;
+  z-index: 2;
+
+  ${mediaSize.tablet`
+    bottom: -2.5em;
+
+`};
+`;
+
 const ComponentContainer = styled.div`
   position: relative;
   width: 100vw;
   height: 100%;
-
-  overflow-x: hidden;
-
-  font-size: 2vw;
+  font-size: 1vw;
 
   ${mediaSize.tablet`
   font-size: 2vw;
 `};
 
   ${mediaSize.phone`
-  font-size: 2vw;
+  font-size: 4vw;
 `};
 `;
 
@@ -155,35 +207,21 @@ class ScrollingSponsorPane extends React.Component {
         }}
       >
         {this.state.bubbles.map(bubble => {
-          const bubbleStyles = {
-            position: 'absolute',
-            display: 'flex',
-
-            width: `${bubble.size}px`,
-            height: `${bubble.size}px`,
-            borderRadius: '50%',
-            backgroundColor: bubble.backgroundColor,
-            boxShadow: '0px 1px 5px rgba(0, 0, 0, 0.3)',
-
-            transform: `translate(${bubble.x}px, ${bubble.y}px)`,
-            willChange: 'transform'
+          const transformMovementStyle = {
+            transform: `translate(${bubble.x}px, ${bubble.y}px)`
           };
-          const innerNameStyles = {
-            margin: 'auto',
-            maxWidth: '70%',
-            maxHeight: '70%'
-          };
+
           const SponsorBubble = (
-            <div
+            <Bubble
               key={bubble.name} // eslint-disable-line
-              style={bubbleStyles}
+              style={transformMovementStyle}
+              size={bubble.size}
+              color={bubble.backgroundColor}
+              onClick={() => window.open(bubble.link, '_blank')}
             >
-              <img
-                src={bubble.imgSrc}
-                style={innerNameStyles}
-                alt={`Logo of ${bubble.name}`}
-              />
-            </div>
+              <Logo src={bubble.imgSrc} alt={bubble.name} />
+              <SubtitleContainer>{bubble.name}</SubtitleContainer>
+            </Bubble>
           );
 
           return SponsorBubble;
