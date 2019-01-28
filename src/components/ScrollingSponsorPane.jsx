@@ -3,11 +3,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { sponsorsPageData } from '../data/siteData';
-// import FloatingBubble from "./FloatingBubble";
 
 const ComponentContainer = styled.div`
-  width: 100%;
+  position: relative;
+
+  width: 100vw;
   height: 100%;
+
+  overflow-x: hidden;
 `;
 
 class ScrollingSponsorPane extends React.Component {
@@ -50,26 +53,33 @@ class ScrollingSponsorPane extends React.Component {
     this.paneHeight = this.pane.clientHeight;
     this.paneWidth = this.pane.clientWidth;
     this.windowWidth = typeof window !== 'undefined' && window.innerWidth;
-    this.placeBubbles();
+    this.placeAllBubbles();
     this.animateBubbles = this.animateBubbles.bind(this);
     requestAnimationFrame(this.animateBubbles); // eslint-disable-line
   }
 
-  placeBubbles() {
+  placeBubble(bubble, otherBubbles, offscreen = false) {
+    const newBubble = bubble;
+    let invalidPos = true;
+    do {
+      newBubble.x = offscreen
+        ? Math.random() * (this.paneWidth + 500 - this.paneWidth) +
+          this.paneWidth
+        : Math.random() * (this.paneWidth * 1.5);
+      newBubble.y = Math.random() * (this.paneHeight - bubble.size);
+      invalidPos = this.constructor.bubblesWillCollide(bubble, otherBubbles);
+    } while (invalidPos);
+
+    return newBubble;
+  }
+
+  placeAllBubbles() {
     const bubblesLeft = this.state.bubbles;
     const placedBubbles = [];
     while (bubblesLeft.length) {
       const chosenBubble = bubblesLeft.pop();
-      let invalidPos = true;
-      do {
-        chosenBubble.x = Math.random() * (this.paneWidth * 1.5);
-        chosenBubble.y = Math.random() * (this.paneHeight - chosenBubble.size);
-        invalidPos = this.constructor.bubblesWillCollide(
-          chosenBubble,
-          placedBubbles
-        );
-      } while (invalidPos);
-      placedBubbles.push(chosenBubble);
+      const placedBubble = this.placeBubble(chosenBubble, placedBubbles);
+      placedBubbles.push(placedBubble);
     }
 
     this.setState({ bubbles: placedBubbles });
@@ -78,7 +88,7 @@ class ScrollingSponsorPane extends React.Component {
   calculateNewBubblePositions() {
     this.setState(prevState => {
       const newBubbles = prevState.bubbles.map(bubble => {
-        const newBubble = { ...bubble };
+        let newBubble = { ...bubble };
         const oldY = newBubble.y;
 
         newBubble.vy += Math.random() * (0.01 - -0.01) + -0.01; // eslint-disable-line
@@ -87,7 +97,7 @@ class ScrollingSponsorPane extends React.Component {
         newBubble.y += newBubble.vy; // eslint-disable-line
 
         if (newBubble.x < -400)
-          newBubble.x += this.windowWidth + newBubble.size * 2; // eslint-disable-line
+          newBubble = this.placeBubble(bubble, prevState.bubbles, true); // eslint-disable-line
 
         // only update y if new position does not collide
         const invalidPos =
@@ -100,9 +110,9 @@ class ScrollingSponsorPane extends React.Component {
           newBubble.vy *= -2; // simulate 'bouncing' off another bubble
           newBubble.y += newBubble.vy; // eslint-disable-line
         }
-
         return newBubble;
       });
+
       return { bubbles: newBubbles };
     });
   }
@@ -121,21 +131,35 @@ class ScrollingSponsorPane extends React.Component {
           this.pane = elem;
         }}
       >
-        {this.state.bubbles.map((bubble, i) => (
-          <div
-            key={i} // eslint-disable-line
-            style={{
-              width: `${bubble.size}px`,
-              height: `${bubble.size}px`,
-              borderRadius: '50%',
-              backgroundColor: bubble.backgroundColor,
-              position: 'absolute',
-              transform: `translate(${bubble.x}px, ${bubble.y}px)`,
-              boxShadow: '0px 1px 5px rgba(0, 0, 0, 0.3)',
-              willChange: 'transform'
-            }}
-          />
-        ))}
+        {this.state.bubbles.map(bubble => {
+          const bubbleStyles = {
+            position: 'absolute',
+            display: 'flex',
+
+            width: `${bubble.size}px`,
+            height: `${bubble.size}px`,
+            borderRadius: '50%',
+            backgroundColor: bubble.backgroundColor,
+            boxShadow: '0px 1px 5px rgba(0, 0, 0, 0.3)',
+
+            transform: `translate(${bubble.x}px, ${bubble.y}px)`,
+            willChange: 'transform'
+          };
+          const innerNameStyles = {
+            margin: 'auto',
+            color: bubble.color
+          };
+          const SponsorBubble = (
+            <div
+              key={bubble.name} // eslint-disable-line
+              style={bubbleStyles}
+            >
+              <div style={innerNameStyles}>{bubble.name}</div>
+            </div>
+          );
+
+          return SponsorBubble;
+        })}
       </ComponentContainer>
     );
   }

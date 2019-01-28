@@ -23,12 +23,13 @@ const PageContainer = styled.div`
 
 const ContentContainer = styled.div`
   padding: 10vw 0;
-  width: 80vw;
+  width: 100vw;
   margin: auto;
 `;
 
 const PageHeader = withReveal(
   styled.div`
+    padding-left: 10vw;
     font-size: 2.5vw;
     font-weight: 500;
     color: white;
@@ -51,8 +52,8 @@ const PageHeader = withReveal(
 
 const SponsorPaneContainer = withReveal(
   styled.div`
-    width: 80vw;
-    height: 70vw;
+    width: 100vw;
+    height: 50vw;
 
     ${mediaSize.tablet`
     width: 50vw;
