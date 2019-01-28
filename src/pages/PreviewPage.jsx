@@ -133,7 +133,7 @@ const SneakPeekContainer = styled.div`
   ${mediaSize.phone`
     font-size: 4vw;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 40vw 40vw;
     grid-template-rows: 1fr 1fr 3fr;
     grid-column-gap: 3vw;
     grid-template-areas:
