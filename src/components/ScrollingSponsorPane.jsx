@@ -2,15 +2,25 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { sponsorsPageData } from '../data/siteData';
+import { sponsorsPageData } from '../site/siteData';
+import { mediaSize, displaySizes } from '../site/siteTools';
 
 const ComponentContainer = styled.div`
   position: relative;
-
   width: 100vw;
   height: 100%;
 
   overflow-x: hidden;
+
+  font-size: 2vw;
+
+  ${mediaSize.tablet`
+  font-size: 2vw;
+`};
+
+  ${mediaSize.phone`
+  font-size: 2vw;
+`};
 `;
 
 class ScrollingSponsorPane extends React.Component {
@@ -44,14 +54,13 @@ class ScrollingSponsorPane extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      bubbles: sponsorsPageData.sponsorBubbles
-    };
+    this.state = { bubbles: sponsorsPageData.sponsorBubbles };
   }
 
   componentDidMount() {
     this.paneHeight = this.pane.clientHeight;
     this.paneWidth = this.pane.clientWidth;
+    console.log(this.paneWidth);
     this.windowWidth = typeof window !== 'undefined' && window.innerWidth;
     this.placeAllBubbles();
     this.animateBubbles = this.animateBubbles.bind(this);
@@ -61,13 +70,27 @@ class ScrollingSponsorPane extends React.Component {
   placeBubble(bubble, otherBubbles, offscreen = false) {
     const newBubble = bubble;
     let invalidPos = true;
+    let largestPossibleX = this.paneWidth;
     do {
-      newBubble.x = offscreen
-        ? Math.random() * (this.paneWidth + 500 - this.paneWidth) +
-          this.paneWidth
-        : Math.random() * (this.paneWidth * 1.5);
+      let newPossibleX = offscreen
+        ? Math.random() * (largestPossibleX - this.paneWidth) + this.paneWidth
+        : Math.random() * largestPossibleX;
+      if (this.paneWidth < displaySizes.phone) {
+        newPossibleX = offscreen
+          ? Math.random() * (largestPossibleX * 2 - this.paneWidth) +
+            this.paneWidth
+          : Math.random() * (largestPossibleX * 2);
+      } else if (this.paneWidth < displaySizes.tablet) {
+        newPossibleX = offscreen
+          ? Math.random() * (largestPossibleX * 1.5 - this.paneWidth) +
+            this.paneWidth
+          : Math.random() * (largestPossibleX * 1.5);
+      }
+
+      newBubble.x = newPossibleX;
       newBubble.y = Math.random() * (this.paneHeight - bubble.size);
       invalidPos = this.constructor.bubblesWillCollide(bubble, otherBubbles);
+      largestPossibleX += 1; // increase bounds for possible placement of bubble if current possibilities are not working
     } while (invalidPos);
 
     return newBubble;
@@ -147,14 +170,19 @@ class ScrollingSponsorPane extends React.Component {
           };
           const innerNameStyles = {
             margin: 'auto',
-            color: bubble.color
+            maxWidth: '70%',
+            maxHeight: '70%'
           };
           const SponsorBubble = (
             <div
               key={bubble.name} // eslint-disable-line
               style={bubbleStyles}
             >
-              <div style={innerNameStyles}>{bubble.name}</div>
+              <img
+                src={bubble.imgSrc}
+                style={innerNameStyles}
+                alt={`Logo of ${bubble.name}`}
+              />
             </div>
           );
 

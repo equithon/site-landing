@@ -297,6 +297,7 @@ class PreviewPage extends React.Component {
 
                   return (
                     <StatBubbleContainer
+                      key={bubble.desc}
                       offset={bubbleOffset}
                       mobileTopOffset={mobileTopOffset}
                       mobileOffset={phoneBubbleOffset}
@@ -359,12 +360,11 @@ class PreviewPage extends React.Component {
                           Math.random() * (10 - -10) + -10;
 
                         return (
-                          <div>
+                          <div key={categoryBubble.name}>
                             <StatBubbleContainer
                               offset={bubbleOffset}
                               mobileTopOffset={mobileTopOffset}
                               mobileOffset={phoneBubbleOffset}
-                              key={categoryBubble.contents}
                             >
                               <div>
                                 <FloatingBubble

@@ -53,16 +53,17 @@ const PageHeader = withReveal(
 const SponsorPaneContainer = withReveal(
   styled.div`
     width: 100vw;
-    height: 50vw;
+    height: 40vw;
+    padding: 5vw 0;
 
     ${mediaSize.tablet`
-    width: 50vw;
-    height: 65vw;
+    width: 100vw;
+    height: 110vw;
   `};
 
     ${mediaSize.phone`
-    width: 70vw;
-    height: 35vw;
+    width: 100vw;
+    height: 140vw;
   `};
   `,
   <Fade />

@@ -65,14 +65,14 @@ class FloatingBubble extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', () => this.setState({ scrolled: true })); // eslint-disable-line
+    // window.addEventListener('scroll', this.saveStateToLocalStorage.bind(this)); // eslint-disable-line
   }
 
   componentWillUnmount() {
-    window.removeEventListener(
-      'scroll',
-      () => this.setState({ scrolled: true }) // eslint-disable-line
-    );
+    // window.removeEventListener(
+    //   'scroll',
+    //   () => this.setState({ scrolled: true }) // eslint-disable-line
+    // );
     // clearInterval(this.scrollTimer);
   }
 
