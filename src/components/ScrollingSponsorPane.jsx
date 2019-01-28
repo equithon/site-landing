@@ -211,7 +211,7 @@ class ScrollingSponsorPane extends React.Component {
             transform: `translate(${bubble.x}px, ${bubble.y}px)`
           };
 
-          const SponsorBubble = (
+          return (
             <Bubble
               key={bubble.name} // eslint-disable-line
               style={transformMovementStyle}
@@ -223,8 +223,6 @@ class ScrollingSponsorPane extends React.Component {
               <SubtitleContainer>{bubble.name}</SubtitleContainer>
             </Bubble>
           );
-
-          return SponsorBubble;
         })}
       </ComponentContainer>
     );
@@ -232,81 +230,3 @@ class ScrollingSponsorPane extends React.Component {
 }
 
 export default ScrollingSponsorPane;
-
-/*
-
-
-
-import React from 'react';
-import styled from 'styled-components';
-
-import { mediaSize } from '../data/siteTools';
-import FloatingBubble from '../components/FloatingBubble';
-
-
-
-const ComponentContainer = styled.div`
-  width: 100%;
-  height: 100%;
-`;
-
-const ContentContainer = styled.div`
-
-`;
-
-const Bubble = styled.div`
-  display: inline-block;
-  position: relative;
-  width: 2em;
-  height: 2em;
-  border-radius: 50%;
-  background-color: black;
-  left: ${props => props.posX}px;
-  top: ${props => props.posY}px;
-`
-
-
-class ScrollingSponsorPane extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      bubbles: [
-        { name: "Facebook", logoSrc: "fb_log.png", posX: 0, posY: 0, tier: 2 },
-        { name: "Google", logoSrc: "fb_log.png", posX: 20, posY: 40, tier: 2 },
-        { name: "UWaterloo", logoSrc: "fb_log.png", posX: 12, posY: 94, tier: 2 },
-        { name: "Feridun", logoSrc: "fb_log.png", posX: 0, posY: 40, tier: 2 },
-      ]
-    };
-
-    setInterval(() => this.floatBubbles(), 20);
-  }
-
-  floatBubbles() {
-    console.log('floating bubbles');
-    const newBubbles = this.state.bubbles.map((bubble, i) => {
-      bubble.posX -= 1;
-      if(bubble.posX < -100) bubble.posX = 100;
-      return bubble;
-    });
-    console.log(newBubbles);
-    this.setState({bubbles: newBubbles});
-  }
-
-  render() {
-    return (
-      <ComponentContainer className={this.props.className}>
-        {this.state.bubbles.map(bubble =>
-          <Bubble key={bubble.name} posX={bubble.posX} posY={bubble.posY}>test</Bubble>
-        )}
-      </ComponentContainer>
-    );
-  }
-
-}
-
-
-export default ScrollingSponsorPane;
-
-
-
-*/

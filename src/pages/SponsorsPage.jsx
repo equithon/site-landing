@@ -66,7 +66,7 @@ const SponsorPaneContainer = withReveal(
     height: 140vw;
   `};
   `,
-  <Fade />
+  <Fade duration={2000} />
 );
 
 const SponsorUsPleaseContainer = styled.div`

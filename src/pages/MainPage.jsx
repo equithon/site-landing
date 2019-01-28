@@ -236,7 +236,7 @@ class MainPage extends React.Component {
   render() {
     return (
       <PageContainer className="section" id="main">
-        <Fade bottom distance="5vw">
+        <Fade>
           <ContentContainer>
             <HeroImgContainer src={HeroImg} alt="A person thinking." />
             <HeaderTextContainer>

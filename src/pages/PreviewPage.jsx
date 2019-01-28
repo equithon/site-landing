@@ -84,7 +84,7 @@ const SubHeader = withReveal(
     font-size: 5vw;
   `};
   `,
-  <Fade bottom distance="10vw" />
+  <Fade />
 );
 
 const LookBackContainer = styled.div`
@@ -271,7 +271,7 @@ class PreviewPage extends React.Component {
     return (
       <PageContainer className="section" id="event">
         <ContentContainer>
-          <Fade bottom cascade>
+          <Fade cascade>
             <Header>{previewPageData.header}</Header>
             <PageDesc>
               {previewPageData.previewDesc.map(paragraph => (
@@ -320,7 +320,7 @@ class PreviewPage extends React.Component {
           </LookBackContainer>
 
           <SubHeader>{previewPageData.thisYear.header}</SubHeader>
-          <Fade bottom>
+          <Fade>
             <SneakPeekContainer>
               {previewPageData.thisYear.statCounters.map(counter => (
                 <StatCounterContainer
@@ -341,7 +341,7 @@ class PreviewPage extends React.Component {
                 </StatCounterContainer>
               ))}
               <CategoriesContainer>
-                <Zoom cascade>
+                <Zoom cascade duration={1500}>
                   <div className="react-reveal-inner-container">
                     {previewPageData.thisYear.categories.map(
                       (categoryBubble, i) => {
