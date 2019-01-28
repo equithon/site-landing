@@ -112,7 +112,7 @@ export const sponsorsPageData = {
       size: sponsorBubbleTiers.diamond,
       link: 'www.facebook.com',
       imgSrc: 'fb_logo.jpg',
-      backgroundColor: '#2d2d2d',
+      backgroundColor: '#8a32a8',
       x: 1050,
       y: 100,
       vy: 0.1
@@ -122,7 +122,7 @@ export const sponsorsPageData = {
       size: sponsorBubbleTiers.diamond,
       link: 'www.facebook.com',
       imgSrc: 'fb_logo.jpg',
-      backgroundColor: '#2d2d2d',
+      backgroundColor: '#9d9393',
       x: 1050,
       y: 100,
       vy: 0.1
@@ -132,7 +132,7 @@ export const sponsorsPageData = {
       size: sponsorBubbleTiers.diamond,
       link: 'www.facebook.com',
       imgSrc: 'fb_logo.jpg',
-      backgroundColor: '#2d2d2d',
+      backgroundColor: '#3b9a2b',
       x: 1050,
       y: 100,
       vy: 0.1
@@ -152,7 +152,7 @@ export const sponsorsPageData = {
       size: sponsorBubbleTiers.diamond,
       link: 'www.facebook.com',
       imgSrc: 'fb_logo.jpg',
-      backgroundColor: '#2d2d2d',
+      backgroundColor: '#60b7cf',
       x: 1050,
       y: 100,
       vy: 0.1
@@ -162,7 +162,7 @@ export const sponsorsPageData = {
       size: sponsorBubbleTiers.diamond,
       link: 'www.facebook.com',
       imgSrc: 'fb_logo.jpg',
-      backgroundColor: '#2d2d2d',
+      backgroundColor: '#8ed0ec',
       x: 1050,
       y: 100,
       vy: 0.1
@@ -172,7 +172,7 @@ export const sponsorsPageData = {
       size: sponsorBubbleTiers.diamond,
       link: 'www.facebook.com',
       imgSrc: 'fb_logo.jpg',
-      backgroundColor: '#2d2d2d',
+      backgroundColor: '#0d8b1a',
       x: 1050,
       y: 100,
       vy: 0.1
@@ -182,7 +182,67 @@ export const sponsorsPageData = {
       size: sponsorBubbleTiers.diamond,
       link: 'www.facebook.com',
       imgSrc: 'fb_logo.jpg',
-      backgroundColor: '#2d2d2d',
+      backgroundColor: '#8453d4',
+      x: 1050,
+      y: 100,
+      vy: 0.1
+    },
+    {
+      name: 'D2L',
+      size: sponsorBubbleTiers.diamond,
+      link: 'www.facebook.com',
+      imgSrc: 'fb_logo.jpg',
+      backgroundColor: '#d49153',
+      x: 1050,
+      y: 100,
+      vy: 0.1
+    },
+    {
+      name: 'kik',
+      size: sponsorBubbleTiers.diamond,
+      link: 'www.facebook.com',
+      imgSrc: 'fb_logo.jpg',
+      backgroundColor: '#36c243',
+      x: 1050,
+      y: 100,
+      vy: 0.1
+    },
+    {
+      name: 'Wealthsimple',
+      size: sponsorBubbleTiers.silver,
+      link: 'www.facebook.com',
+      imgSrc: 'fb_logo.jpg',
+      backgroundColor: '#eec531',
+      x: 1050,
+      y: 100,
+      vy: 0.1
+    },
+    {
+      name: 'Borrowell',
+      size: sponsorBubbleTiers.bronze,
+      link: 'www.facebook.com',
+      imgSrc: 'fb_logo.jpg',
+      backgroundColor: '#977cc4',
+      x: 1050,
+      y: 100,
+      vy: 0.1
+    },
+    {
+      name: 'CIBC',
+      size: sponsorBubbleTiers.gold,
+      link: 'www.facebook.com',
+      imgSrc: 'fb_logo.jpg',
+      backgroundColor: '#d53859',
+      x: 1050,
+      y: 100,
+      vy: 0.1
+    },
+    {
+      name: 'Tribalscale',
+      size: sponsorBubbleTiers.silver,
+      link: 'www.facebook.com',
+      imgSrc: 'fb_logo.jpg',
+      backgroundColor: '#3750b9',
       x: 1050,
       y: 100,
       vy: 0.1

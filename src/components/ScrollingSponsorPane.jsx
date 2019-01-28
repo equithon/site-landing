@@ -50,7 +50,7 @@ class ScrollingSponsorPane extends React.Component {
     this.paneHeight = this.pane.clientHeight;
     this.paneWidth = this.pane.clientWidth;
     this.windowWidth = typeof window !== 'undefined' && window.innerWidth;
-    // this.placeBubbles();
+    this.placeBubbles();
     this.animateBubbles = this.animateBubbles.bind(this);
     requestAnimationFrame(this.animateBubbles); // eslint-disable-line
   }
@@ -60,9 +60,9 @@ class ScrollingSponsorPane extends React.Component {
     const placedBubbles = [];
     while (bubblesLeft.length) {
       const chosenBubble = bubblesLeft.pop();
-      let invalidPos = false;
+      let invalidPos = true;
       do {
-        chosenBubble.x = Math.random() * this.paneWidth;
+        chosenBubble.x = Math.random() * (this.paneWidth * 1.5);
         chosenBubble.y = Math.random() * (this.paneHeight - chosenBubble.size);
         invalidPos = this.constructor.bubblesWillCollide(
           chosenBubble,
@@ -86,7 +86,8 @@ class ScrollingSponsorPane extends React.Component {
         newBubble.x -= Math.random() * (0.4 - 0.3) + 0.3; // eslint-disable-line
         newBubble.y += newBubble.vy; // eslint-disable-line
 
-        if (newBubble.x < newBubble.size * -2) newBubble.x = this.windowWidth; // eslint-disable-line
+        if (newBubble.x < -400)
+          newBubble.x += this.windowWidth + newBubble.size * 2; // eslint-disable-line
 
         // only update y if new position does not collide
         const invalidPos =
