@@ -84,7 +84,7 @@ const SubHeader = withReveal(
     font-size: 5vw;
   `};
   `,
-  <Fade bottom distance="10vw" />
+  <Fade />
 );
 
 const LookBackContainer = styled.div`
@@ -133,7 +133,7 @@ const SneakPeekContainer = styled.div`
   ${mediaSize.phone`
     font-size: 4vw;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 40vw 40vw;
     grid-template-rows: 1fr 1fr 3fr;
     grid-column-gap: 3vw;
     grid-template-areas:
@@ -271,7 +271,7 @@ class PreviewPage extends React.Component {
     return (
       <PageContainer className="section" id="event">
         <ContentContainer>
-          <Fade bottom cascade>
+          <Fade cascade>
             <Header>{previewPageData.header}</Header>
             <PageDesc>
               {previewPageData.previewDesc.map(paragraph => (
@@ -297,6 +297,7 @@ class PreviewPage extends React.Component {
 
                   return (
                     <StatBubbleContainer
+                      key={bubble.desc}
                       offset={bubbleOffset}
                       mobileTopOffset={mobileTopOffset}
                       mobileOffset={phoneBubbleOffset}
@@ -319,7 +320,7 @@ class PreviewPage extends React.Component {
           </LookBackContainer>
 
           <SubHeader>{previewPageData.thisYear.header}</SubHeader>
-          <Fade bottom>
+          <Fade>
             <SneakPeekContainer>
               {previewPageData.thisYear.statCounters.map(counter => (
                 <StatCounterContainer
@@ -340,7 +341,7 @@ class PreviewPage extends React.Component {
                 </StatCounterContainer>
               ))}
               <CategoriesContainer>
-                <Zoom cascade>
+                <Zoom cascade duration={1500}>
                   <div className="react-reveal-inner-container">
                     {previewPageData.thisYear.categories.map(
                       (categoryBubble, i) => {
@@ -359,12 +360,11 @@ class PreviewPage extends React.Component {
                           Math.random() * (10 - -10) + -10;
 
                         return (
-                          <div>
+                          <div key={categoryBubble.name}>
                             <StatBubbleContainer
                               offset={bubbleOffset}
                               mobileTopOffset={mobileTopOffset}
                               mobileOffset={phoneBubbleOffset}
-                              key={categoryBubble.contents}
                             >
                               <div>
                                 <FloatingBubble

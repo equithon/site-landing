@@ -114,49 +114,52 @@ const FAQAccordion = styled(GenericAccordion)`
   }
 `;
 
-const AdditionalQuestionsContainer = styled.div`
-  width: 40vw;
-  margin: auto;
-  text-align: center;
+const AdditionalQuestionsContainer = withReveal(
+  styled.div`
+    width: 40vw;
+    margin: auto;
+    text-align: center;
 
-  color: ${props => props.theme.offBlack};
+    color: ${props => props.theme.offBlack};
 
-  & > div {
-    font-weight: 500;
-    padding-bottom: 5px;
+    & > div {
+      font-weight: 500;
+      padding-bottom: 5px;
 
-    font-size: 1.5vw;
+      font-size: 1.5vw;
 
-    ${mediaSize.tablet`
+      ${mediaSize.tablet`
       font-size: 3.5vw;
     `};
 
-    ${mediaSize.phone`
+      ${mediaSize.phone`
       font-size: 5vw;
     `};
-  }
+    }
 
-  & > a {
-    color: ${props => props.theme.offBlack};
-    font-size: 1.3vw;
+    & > a {
+      color: ${props => props.theme.offBlack};
+      font-size: 1.3vw;
 
-    ${mediaSize.tablet`
+      ${mediaSize.tablet`
       font-size: 2.5vw;
     `};
 
-    ${mediaSize.phone`
+      ${mediaSize.phone`
       font-size: 4vw;
     `};
-  }
+    }
 
-  ${mediaSize.tablet`
+    ${mediaSize.tablet`
     width: 60vw;
   `};
 
-  ${mediaSize.phone`
+    ${mediaSize.phone`
     width: 80vw;
   `};
-`;
+  `,
+  <Fade bottom />
+);
 
 /* --- Component --- */
 class FAQPage extends React.Component {

@@ -9,8 +9,8 @@ import { mediaSize } from '../site/siteTools';
 import { aboutPageData } from '../site/siteData';
 
 /* --- Images --- */
-import AboutImg from '../static/img/about_1.png';
-import MandyTestimonialPic from '../static/img/mandy_testimonial_pic.jpg';
+import AboutImg from '../static/img/about/hero.png';
+import MandyTestimonialPic from '../static/img/about/testimonials/mandy_headshot.jpg';
 
 /* --- Styles --- */
 const PageContainer = styled.div`
