@@ -50,7 +50,43 @@ const PageHeader = withReveal(
   <Fade bottom />
 );
 
+/* eslint-disable */
+const CallForSponsorsContainer = withReveal(
+  /* eslint-enable */
+  styled.div`
+    width: 40vw;
+    height: 40vw;
+
+    display: flex;
+    margin: auto;
+
+    text-align: center;
+    font-size: 1.5vw;
+    font-weight: 500;
+    color: ${props => props.theme.offBlack};
+
+    & > span {
+      margin: auto;
+    }
+
+    ${mediaSize.tablet`
+    font-size: 2.5vw;
+    width: 50vw;
+    height: 65vw;
+  `};
+
+    ${mediaSize.phone`
+    font-size: 4vw;
+    width: 70vw;
+    height: 35vw;
+  `};
+  `,
+  <Fade bottom />
+);
+
+/* eslint-disable */
 const SponsorPaneContainer = withReveal(
+  /* eslint-enable */
   styled.div`
     width: 100vw;
     height: 40vw;
@@ -164,6 +200,10 @@ class SponsorsPage extends React.Component {
           <SponsorPaneContainer>
             <ScrollingSponsorPane />
           </SponsorPaneContainer>
+
+          {/* <CallForSponsorsContainer>
+            <span>{sponsorsPageData.sponsorUsBlurb}</span>
+          </CallForSponsorsContainer> */}
 
           <SponsorUsPleaseContainer>
             <Fade bottom>
