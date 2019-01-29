@@ -24,11 +24,14 @@ const Bubble = styled.div`
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
   will-change: transform;
   cursor: pointer;
-  z-index: 1;
 
-  &:hover > div {
-    opacity: 1;
-    transform: translate(-50%, 0);
+  &:hover {
+    z-index: 1000;
+
+    & > div {
+      opacity: 1;
+      transform: translate(-50%, 5px);
+    }
   }
 `;
 
@@ -51,12 +54,10 @@ const SubtitleContainer = styled.div`
   white-space: nowrap;
   background-color: #fff;
   color: #666565;
-  will-change: transform;
-  z-index: 2;
+  will-change: opacity;
 
   ${mediaSize.tablet`
     bottom: -2.5em;
-
 `};
 `;
 
@@ -65,6 +66,7 @@ const ComponentContainer = styled.div`
   width: 100vw;
   height: 100%;
   font-size: 1vw;
+  z-index: 1;
 
   ${mediaSize.tablet`
   font-size: 2vw;

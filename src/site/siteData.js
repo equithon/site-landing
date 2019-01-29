@@ -33,13 +33,13 @@ export const siteButtons = {
   },
   applyButton: {
     text: 'Apply',
-    link: 'https://www.my.equithon.org',
+    link: 'https://https://www.my.equithon.org',
     location: '_self'
   },
   signupButton: {
     text: 'Stay Posted',
     link:
-      'https://www.google.com/search?q=this+should+sign+the+user+up+for+a+mailing+list&oq=this+should+sign+the+user+up+for+a+mailing+list&aqs=chrome..69i57.5475j0j1&sourceid=chrome&ie=UTF-8',
+      'https://https://www.google.com/search?q=this+should+sign+the+user+up+for+a+mailing+list&oq=this+should+sign+the+user+up+for+a+mailing+list&aqs=chrome..69i57.5475j0j1&sourceid=chrome&ie=UTF-8',
     location: '_blank'
   }
 };
@@ -219,7 +219,7 @@ export const sponsorsPageData = {
     {
       name: 'Facebook',
       size: sponsorBubbleTiers.diamond,
-      link: 'www.facebook.com',
+      link: 'https://www.facebook.com',
       imgSrc: require('../static/img/sponsors/logos/logo_facebook.png'),
       color: '#fff',
       backgroundColor: '#3b5998',
@@ -230,7 +230,7 @@ export const sponsorsPageData = {
     {
       name: 'University of Waterloo',
       size: sponsorBubbleTiers.diamond,
-      link: 'www.uwaterloo.com',
+      link: 'https://www.uwaterloo.com',
       imgSrc: require('../static/img/sponsors/logos/logo_uw.png'),
       color: '#fff',
       backgroundColor: '#FFD54F',
@@ -241,7 +241,7 @@ export const sponsorsPageData = {
     {
       name: 'Flipp',
       size: sponsorBubbleTiers.diamond,
-      link: 'www.facebook.com',
+      link: 'https://www.facebook.com',
       imgSrc: require('../static/img/sponsors/logos/logo_flipp.png'),
       color: '#fff',
       backgroundColor: '#28c0d2',
@@ -252,7 +252,7 @@ export const sponsorsPageData = {
     {
       name: 'WiCS',
       size: sponsorBubbleTiers.diamond,
-      link: 'www.wics.com',
+      link: 'https://www.wics.com',
       imgSrc: require('../static/img/sponsors/logos/logo_wics.png'),
       color: '#fff',
       backgroundColor: '#ffd1dc',
@@ -263,7 +263,7 @@ export const sponsorsPageData = {
     {
       name: 'Google',
       size: sponsorBubbleTiers.diamond,
-      link: 'www.google.com',
+      link: 'https://www.google.com',
       imgSrc: require('../static/img/sponsors/logos/logo_google.png'),
       color: '#27cc24',
       backgroundColor: '#fff',
@@ -274,10 +274,10 @@ export const sponsorsPageData = {
     {
       name: 'Stripe',
       size: sponsorBubbleTiers.gold,
-      link: 'www.facebook.com',
+      link: 'https://www.facebook.com',
       imgSrc: require('../static/img/sponsors/logos/logo_stripe.png'),
       color: '#fff',
-      backgroundColor: '#fff',
+      backgroundColor: '#6676de',
       x: 225,
       y: 550,
       vy: 0.1
@@ -285,7 +285,7 @@ export const sponsorsPageData = {
     {
       name: 'Bloomberg',
       size: sponsorBubbleTiers.diamond,
-      link: 'www.facebook.com',
+      link: 'https://www.facebook.com',
       imgSrc: require('../static/img/sponsors/logos/logo_bloomberg.png'),
       color: '#fff',
       backgroundColor: '#fff',
@@ -296,10 +296,10 @@ export const sponsorsPageData = {
     {
       name: 'Datadog',
       size: sponsorBubbleTiers.diamond,
-      link: 'www.facebook.com',
+      link: 'https://www.facebook.com',
       imgSrc: require('../static/img/sponsors/logos/logo_datadog.png'),
       color: '#fff',
-      backgroundColor: '#fff',
+      backgroundColor: '#774aa4',
       x: 1050,
       y: 100,
       vy: 0.1
@@ -307,10 +307,10 @@ export const sponsorsPageData = {
     {
       name: 'Square',
       size: sponsorBubbleTiers.diamond,
-      link: 'www.facebook.com',
+      link: 'https://www.facebook.com',
       imgSrc: require('../static/img/sponsors/logos/logo_square.png'),
       color: '#fff',
-      backgroundColor: '#fff',
+      backgroundColor: '#000',
       x: 1050,
       y: 100,
       vy: 0.1
@@ -318,7 +318,7 @@ export const sponsorsPageData = {
     {
       name: 'Shopify',
       size: sponsorBubbleTiers.diamond,
-      link: 'www.facebook.com',
+      link: 'https://www.facebook.com',
       imgSrc: require('../static/img/sponsors/logos/logo_shopify.png'),
       color: '#fff',
       backgroundColor: '#3b9a2b',
@@ -329,10 +329,10 @@ export const sponsorsPageData = {
     {
       name: 'Microsoft',
       size: sponsorBubbleTiers.diamond,
-      link: 'www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_facebook.png'),
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_microsoft.png'),
       color: '#fff',
-      backgroundColor: '#2d2d2d',
+      backgroundColor: '#fff',
       x: 1050,
       y: 100,
       vy: 0.1
@@ -340,10 +340,10 @@ export const sponsorsPageData = {
     {
       name: 'Dropbox',
       size: sponsorBubbleTiers.diamond,
-      link: 'www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_facebook.png'),
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_dropbox.png'),
       color: '#fff',
-      backgroundColor: '#60b7cf',
+      backgroundColor: '#fff',
       x: 1050,
       y: 100,
       vy: 0.1
@@ -351,10 +351,10 @@ export const sponsorsPageData = {
     {
       name: 'SeatGeek',
       size: sponsorBubbleTiers.diamond,
-      link: 'www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_facebook.png'),
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_seatgeek.png'),
       color: '#fff',
-      backgroundColor: '#8ed0ec',
+      backgroundColor: '#1696f2',
       x: 1050,
       y: 100,
       vy: 0.1
@@ -362,10 +362,10 @@ export const sponsorsPageData = {
     {
       name: 'Loopio',
       size: sponsorBubbleTiers.diamond,
-      link: 'www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_facebook.png'),
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_loopio.png'),
       color: '#fff',
-      backgroundColor: '#0d8b1a',
+      backgroundColor: '#38babe',
       x: 1050,
       y: 100,
       vy: 0.1
@@ -373,10 +373,10 @@ export const sponsorsPageData = {
     {
       name: 'Top Hat',
       size: sponsorBubbleTiers.diamond,
-      link: 'www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_facebook.png'),
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_tophat.png'),
       color: '#fff',
-      backgroundColor: '#8453d4',
+      backgroundColor: '#fff',
       x: 1050,
       y: 100,
       vy: 0.1
@@ -384,10 +384,10 @@ export const sponsorsPageData = {
     {
       name: 'D2L',
       size: sponsorBubbleTiers.diamond,
-      link: 'www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_facebook.png'),
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_d2l.png'),
       color: '#fff',
-      backgroundColor: '#d49153',
+      backgroundColor: '#ffb800',
       x: 1050,
       y: 100,
       vy: 0.1
@@ -395,10 +395,10 @@ export const sponsorsPageData = {
     {
       name: 'kik',
       size: sponsorBubbleTiers.diamond,
-      link: 'www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_facebook.png'),
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_kik.png'),
       color: '#fff',
-      backgroundColor: '#36c243',
+      backgroundColor: '#fff',
       x: 1050,
       y: 100,
       vy: 0.1
@@ -406,10 +406,10 @@ export const sponsorsPageData = {
     {
       name: 'Wealthsimple',
       size: sponsorBubbleTiers.silver,
-      link: 'www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_facebook.png'),
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_wealthsimple.png'),
       color: '#fff',
-      backgroundColor: '#eec531',
+      backgroundColor: '#fcb117',
       x: 1050,
       y: 100,
       vy: 0.1
@@ -417,10 +417,10 @@ export const sponsorsPageData = {
     {
       name: 'Borrowell',
       size: sponsorBubbleTiers.bronze,
-      link: 'www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_facebook.png'),
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_borrowell.png'),
       color: '#fff',
-      backgroundColor: '#977cc4',
+      backgroundColor: '#fff',
       x: 1050,
       y: 100,
       vy: 0.1
@@ -428,10 +428,10 @@ export const sponsorsPageData = {
     {
       name: 'CIBC',
       size: sponsorBubbleTiers.gold,
-      link: 'www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_facebook.png'),
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_cibc.png'),
       color: '#fff',
-      backgroundColor: '#d53859',
+      backgroundColor: '#b00b1c',
       x: 1050,
       y: 100,
       vy: 0.1
@@ -439,10 +439,21 @@ export const sponsorsPageData = {
     {
       name: 'Tribalscale',
       size: sponsorBubbleTiers.silver,
-      link: 'www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_facebook.png'),
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_tribalscale.png'),
       color: '#fff',
-      backgroundColor: '#3750b9',
+      backgroundColor: '#000',
+      x: 1050,
+      y: 100,
+      vy: 0.1
+    },
+    {
+      name: 'heheheh',
+      size: sponsorBubbleTiers.silver,
+      link: 'https://www.alexieyizhe.ne',
+      imgSrc: require('../static/img/sponsors/logos/logo_alex.png'),
+      color: '#fff',
+      backgroundColor: '#ff00cf',
       x: 1050,
       y: 100,
       vy: 0.1
