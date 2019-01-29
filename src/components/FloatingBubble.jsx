@@ -1,6 +1,5 @@
 /*
   FLOATING BUBBLE
-
 */
 
 /* --- Packages and Components --- */
