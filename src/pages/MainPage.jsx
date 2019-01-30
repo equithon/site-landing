@@ -13,7 +13,7 @@ import GenericInput from '../components/GenericInput';
 // import firebaseConfig from '../../secretConfig';
 
 /* --- Images --- */
-import HeroImg from '../static/img/MainPage/hero_rounded.png';
+import HeroImg from '../static/img/main/hero_rounded.png';
 import AbstractShape1 from '../static/img/shapes/main_about_middle_left@2x.png';
 
 /* --- Styles --- */
@@ -236,7 +236,7 @@ class MainPage extends React.Component {
   render() {
     return (
       <PageContainer className="section" id="main">
-        <Fade bottom distance="5vw">
+        <Fade>
           <ContentContainer>
             <HeroImgContainer src={HeroImg} alt="A person thinking." />
             <HeaderTextContainer>

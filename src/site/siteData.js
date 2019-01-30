@@ -1,5 +1,6 @@
 import React from 'react';
 
+/* eslint-disable global-require */
 export const siteColors = {
   offBlack: '#46484a',
   offWhite: '#EFEFEF',
@@ -92,6 +93,7 @@ export const previewPageData = {
     header: 'A Look Back At 2018',
     statBubbles: [
       {
+        desc: 'Gender Representation at Equithon 2018',
         contents: (
           <div>
             <span style={{ fontWeight: 600 }}>58% Female</span>,{' '}
@@ -104,6 +106,7 @@ export const previewPageData = {
         color: 'white'
       },
       {
+        desc: 'Location Presence at Equithon 2018',
         contents: (
           <div>
             Global presence from{' '}
@@ -115,6 +118,7 @@ export const previewPageData = {
         color: 'siteColors.offBlack'
       },
       {
+        desc: 'Hacker Backgrounds at Equithon 2018',
         contents: (
           <div>
             Hackers with{' '}
@@ -159,32 +163,44 @@ export const previewPageData = {
     ],
     categories: [
       {
+        name: 'Physical Accessibility',
         contents: <div style={{ fontWeight: 500 }}>Physical Accessibility</div>,
         backgroundColor: '#E2D4F5',
         color: 'siteColors.offBlack'
       },
       {
+        name: 'Female Empowerment',
         contents: <div style={{ fontWeight: 500 }}>Female Empowerment</div>,
         backgroundColor: '#AE85E6',
         color: 'white'
       },
       {
+        name: 'Economic Disparity',
         contents: <div style={{ fontWeight: 500 }}>Economic Disparity</div>,
         backgroundColor: '#E2D4F5',
         color: 'siteColors.offBlack'
       },
       {
+        name: 'Mobility Rights',
         contents: <div style={{ fontWeight: 500 }}>Mobility Rights</div>,
         backgroundColor: '#E2D4F5',
         color: 'siteColors.offBlack'
       },
       {
+        name: 'Mental Health',
         contents: <div style={{ fontWeight: 500 }}>Mental Health</div>,
         backgroundColor: '#AE85E6',
         color: 'white'
       }
     ]
   }
+};
+
+export const sponsorBubbleTiers = {
+  diamond: 200,
+  gold: 160,
+  silver: 130,
+  bronze: 100
 };
 
 export const sponsorsPageData = {
@@ -199,34 +215,249 @@ export const sponsorsPageData = {
         'mailto: hello@equithon.org?subject=Equithon Sponsorship/Partnership Inquiry'
     }
   },
-  sponsors: [
+  shouldShowSponsorBubbles: false,
+  sponsorBubbles: [
     {
-      name: 'Loopio',
-      link: 'http://loopio.com',
-      tier: 'diamond',
-      backgroundColor: 'blue',
-      color: 'white'
+      name: 'Facebook',
+      size: sponsorBubbleTiers.diamond,
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_facebook.png'),
+      color: '#fff',
+      backgroundColor: '#3b5998',
+      x: 10,
+      y: 20,
+      vy: 0.1
+    },
+    {
+      name: 'University of Waterloo',
+      size: sponsorBubbleTiers.diamond,
+      link: 'https://www.uwaterloo.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_uw.png'),
+      color: '#fff',
+      backgroundColor: '#FFD54F',
+      x: 0,
+      y: 260,
+      vy: -0.1
+    },
+    {
+      name: 'Flipp',
+      size: sponsorBubbleTiers.diamond,
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_flipp.png'),
+      color: '#fff',
+      backgroundColor: '#28c0d2',
+      x: 20,
+      y: 470,
+      vy: 0.1
+    },
+    {
+      name: 'WiCS',
+      size: sponsorBubbleTiers.diamond,
+      link: 'https://www.wics.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_wics.png'),
+      color: '#fff',
+      backgroundColor: '#ffd1dc',
+      x: 230,
+      y: 120,
+      vy: 0.1
+    },
+    {
+      name: 'Google',
+      size: sponsorBubbleTiers.diamond,
+      link: 'https://www.google.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_google.png'),
+      color: '#27cc24',
+      backgroundColor: '#fff',
+      x: 215,
+      y: 345,
+      vy: 0.1
+    },
+    {
+      name: 'Stripe',
+      size: sponsorBubbleTiers.gold,
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_stripe.png'),
+      color: '#fff',
+      backgroundColor: '#6676de',
+      x: 225,
+      y: 550,
+      vy: 0.1
+    },
+    {
+      name: 'Bloomberg',
+      size: sponsorBubbleTiers.diamond,
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_bloomberg.png'),
+      color: '#fff',
+      backgroundColor: '#fff',
+      x: 1050,
+      y: 100,
+      vy: 0.1
+    },
+    {
+      name: 'Datadog',
+      size: sponsorBubbleTiers.diamond,
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_datadog.png'),
+      color: '#fff',
+      backgroundColor: '#774aa4',
+      x: 1050,
+      y: 100,
+      vy: 0.1
+    },
+    {
+      name: 'Square',
+      size: sponsorBubbleTiers.diamond,
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_square.png'),
+      color: '#fff',
+      backgroundColor: '#000',
+      x: 1050,
+      y: 100,
+      vy: 0.1
+    },
+    {
+      name: 'Shopify',
+      size: sponsorBubbleTiers.diamond,
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_shopify.png'),
+      color: '#fff',
+      backgroundColor: '#3b9a2b',
+      x: 1050,
+      y: 100,
+      vy: 0.1
+    },
+    {
+      name: 'Microsoft',
+      size: sponsorBubbleTiers.diamond,
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_microsoft.png'),
+      color: '#fff',
+      backgroundColor: '#fff',
+      x: 1050,
+      y: 100,
+      vy: 0.1
+    },
+    {
+      name: 'Dropbox',
+      size: sponsorBubbleTiers.diamond,
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_dropbox.png'),
+      color: '#fff',
+      backgroundColor: '#fff',
+      x: 1050,
+      y: 100,
+      vy: 0.1
+    },
+    {
+      name: 'SeatGeek',
+      size: sponsorBubbleTiers.diamond,
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_seatgeek.png'),
+      color: '#fff',
+      backgroundColor: '#1696f2',
+      x: 1050,
+      y: 100,
+      vy: 0.1
     },
     {
       name: 'Loopio',
-      link: 'http://loopio.com',
-      tier: 'diamond',
-      backgroundColor: 'blue',
-      color: 'white'
+      size: sponsorBubbleTiers.diamond,
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_loopio.png'),
+      color: '#fff',
+      backgroundColor: '#38babe',
+      x: 1050,
+      y: 100,
+      vy: 0.1
     },
     {
-      name: 'Loopio',
-      link: 'http://loopio.com',
-      tier: 'diamond',
-      backgroundColor: 'blue',
-      color: 'white'
+      name: 'Top Hat',
+      size: sponsorBubbleTiers.diamond,
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_tophat.png'),
+      color: '#fff',
+      backgroundColor: '#fff',
+      x: 1050,
+      y: 100,
+      vy: 0.1
     },
     {
-      name: 'Loopio',
-      link: 'http://loopio.com',
-      tier: 'diamond',
-      backgroundColor: 'blue',
-      color: 'white'
+      name: 'D2L',
+      size: sponsorBubbleTiers.diamond,
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_d2l.png'),
+      color: '#fff',
+      backgroundColor: '#ffb800',
+      x: 1050,
+      y: 100,
+      vy: 0.1
+    },
+    {
+      name: 'kik',
+      size: sponsorBubbleTiers.diamond,
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_kik.png'),
+      color: '#fff',
+      backgroundColor: '#fff',
+      x: 1050,
+      y: 100,
+      vy: 0.1
+    },
+    {
+      name: 'Wealthsimple',
+      size: sponsorBubbleTiers.silver,
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_wealthsimple.png'),
+      color: '#fff',
+      backgroundColor: '#fcb117',
+      x: 1050,
+      y: 100,
+      vy: 0.1
+    },
+    {
+      name: 'Borrowell',
+      size: sponsorBubbleTiers.bronze,
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_borrowell.png'),
+      color: '#fff',
+      backgroundColor: '#fff',
+      x: 1050,
+      y: 100,
+      vy: 0.1
+    },
+    {
+      name: 'CIBC',
+      size: sponsorBubbleTiers.gold,
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_cibc.png'),
+      color: '#fff',
+      backgroundColor: '#b00b1c',
+      x: 1050,
+      y: 100,
+      vy: 0.1
+    },
+    {
+      name: 'Tribalscale',
+      size: sponsorBubbleTiers.silver,
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_tribalscale.png'),
+      color: '#fff',
+      backgroundColor: '#000',
+      x: 1050,
+      y: 100,
+      vy: 0.1
+    },
+    {
+      name: 'heheheh',
+      size: sponsorBubbleTiers.silver,
+      link: 'https://www.alexieyizhe.ne',
+      imgSrc: require('../static/img/sponsors/logos/logo_alex.png'),
+      color: '#fff',
+      backgroundColor: '#ff00cf',
+      x: 1050,
+      y: 100,
+      vy: 0.1
     }
   ]
 };

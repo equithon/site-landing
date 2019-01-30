@@ -7,6 +7,8 @@ import withReveal from 'react-reveal/withReveal';
 import { mediaSize } from '../site/siteTools';
 import { sponsorsPageData } from '../site/siteData';
 
+import ScrollingSponsorPane from '../components/ScrollingSponsorPane';
+
 /* --- Images --- */
 import AbstractShapeSponsor from '../static/img/shapes/sponsor_interested@2x.png';
 
@@ -21,12 +23,13 @@ const PageContainer = styled.div`
 
 const ContentContainer = styled.div`
   padding: 10vw 0;
-  width: 80vw;
+  width: 100vw;
   margin: auto;
 `;
 
 const PageHeader = withReveal(
   styled.div`
+    padding-left: 10vw;
     font-size: 2.5vw;
     font-weight: 500;
     color: white;
@@ -47,7 +50,7 @@ const PageHeader = withReveal(
   <Fade bottom />
 );
 
-const SubHeader = withReveal(
+const CallForSponsorsContainer = withReveal(
   styled.div`
     width: 40vw;
     height: 40vw;
@@ -76,7 +79,26 @@ const SubHeader = withReveal(
     height: 35vw;
   `};
   `,
-  <Fade bottom />
+  <Fade duration={1300} />
+);
+
+const SponsorPaneContainer = withReveal(
+  styled.div`
+    width: 100vw;
+    height: 40vw;
+    padding: 5vw 0;
+
+    ${mediaSize.tablet`
+    width: 100vw;
+    height: 110vw;
+  `};
+
+    ${mediaSize.phone`
+    width: 100vw;
+    height: 140vw;
+  `};
+  `,
+  <Fade duration={2000} />
 );
 
 const SponsorUsPleaseContainer = styled.div`
@@ -170,9 +192,17 @@ class SponsorsPage extends React.Component {
       <PageContainer className="section" id="sponsors">
         <ContentContainer>
           <PageHeader>{sponsorsPageData.header}</PageHeader>
-          <SubHeader>
-            <span>{sponsorsPageData.sponsorUsBlurb}</span>
-          </SubHeader>
+
+          {sponsorsPageData.shouldShowSponsorBubbles ? (
+            <SponsorPaneContainer>
+              <ScrollingSponsorPane />
+            </SponsorPaneContainer>
+          ) : (
+            <CallForSponsorsContainer>
+              <span>{sponsorsPageData.sponsorUsBlurb}</span>
+            </CallForSponsorsContainer>
+          )}
+
           <SponsorUsPleaseContainer>
             <Fade bottom>
               <div className="action-text">

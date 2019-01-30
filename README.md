@@ -4,7 +4,7 @@
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![GitHub license](https://img.shields.io/github/license/equithon/site-main.svg?style=flat-square)](https://github.com/equithon/site-main/blob/master/LICENSE)
 
-**Main site of Equithon 2019, live [here](http://equithon,org)!**
+**Main site of Equithon 2019, live [here](http://equithon.org)!**
 
 ### Setting up
 
@@ -15,6 +15,7 @@
 
 - Execute:
   - `gatsby develop` to view site in development mode with hot reloading enabled.
+  - `npm run lint` to lint the project and verify that it's following coding style.
 
 ### Building for production
 

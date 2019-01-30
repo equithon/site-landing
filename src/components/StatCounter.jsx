@@ -14,7 +14,7 @@ import VisibilitySensor from 'react-visibility-sensor';
 import { mediaSize } from '../site/siteTools';
 
 /* --- Styles --- */
-const CounterContainer = styled.span`
+const CounterContainer = styled.div`
   display: inline-grid;
   grid-template-rows: auto auto;
   grid-template-areas:

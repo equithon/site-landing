@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { mediaSize } from '../site/siteTools';
 
 /* --- Images --- */
-import CaretIcon from '../static/img/caret.png';
+import CaretIcon from '../static/img/faq/caret.png';
 
 /* --- Styles --- */
 const ComponentContainer = styled.div`

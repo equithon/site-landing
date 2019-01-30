@@ -1,0 +1,244 @@
+/* eslint-disable */
+function LogoBubbles(e) {
+    function n() {
+        c.vertShrink = s(1e3, 800, window.innerHeight), c.vertShrink = l(c.vertShrink, 0, 1)
+    }
+
+    function t() {
+        var e = c.container.getBoundingClientRect();
+        (e.bottom < 0 || e.top > window.innerHeight) && 1 == c.playing ? c.playing = !1 : e.bottom > 0 && e.top < window.innerHeight && 0 == c.playing && (c.playing = !0, requestAnimationFrame(function(e) {
+            c.tick(e)
+        }))
+    }
+
+    function o(e) {
+        var n = e.x + e.noiseX + c.scrollX,
+            t = e.y + e.noiseY;
+        t = a(t, c.containerHeight / 2, c.vertShrink * c.maxShrink), n < -200 && (e.x += c.containerWidth);
+        var o = r(e.introProgress) / 20 + .95;
+        o *= e.scale, e.el.style.opacity = r(e.introProgress), e.el.style.transform = "translate(" + n + "px, " + t + "px) scale(" + o + ")"
+    }
+
+    function i(e) {
+        var n = 0,
+            t = 0,
+            o = null;
+        for (n = e.length - 1; n > 0; n -= 1) t = Math.floor(Math.random() * (n + 1)), o = e[n], e[n] = e[t], e[t] = o
+    }
+
+    function r(e) {
+        return e < .5 ? 2 * e * e : (4 - 2 * e) * e - 1
+    }
+
+    function a(e, n, t) {
+        return e * (1 - t) + n * t
+    }
+
+    function s(e, n, t) {
+        return (t - e) / (n - e)
+    }
+
+    function l(e, n, t) {
+        return Math.max(Math.min(e, t), n)
+    }
+    var c = this;
+    for (u in e) c[u] = e[u];
+    c.container = document.querySelector(c.containerSelector), c.noiseT = 0, c.scrollX = 0, c.logos.forEach(function(e, n) {
+        c.logos[n] = {
+            index: n,
+            title: e
+        }
+    }), i(c.logos), c.vertShrink = 0, n(), window.addEventListener("resize", n), c.playing = !1, t(), window.addEventListener("scroll", t), c.logosLoaded = !1;
+    var d = "/img/v3/customers/logos/header-logos" + (Strut.isRetina ? "@2x.png?2" : ".png?2");
+    Strut.load.images(d, function() {
+        c.logosLoaded = !0
+    });
+    for (var u = 0; u < c.bubbles.length; u++) {
+        var f = c.bubbles[u],
+            y = u % c.logos.length;
+        f.scale = f.s || 1;
+        f.seedX = 1e4 * Math.random();
+        f.seedY = 1e4 * Math.random(), f.noiseX = f.noiseY = 0;
+        f.introDelay = Math.random() * c.introDelay, f.introProgress = 0;
+        f.el = document.createElement("div");
+        f.el.className = c.classPrefix + c.logos[y].index;
+        f.tagEl = document.createElement("span");
+        f.tagEl.innerHTML = c.logos[y].title;
+        f.el.appendChild(f.tagEl);
+        o(f);
+        c.container.appendChild(f.el);
+    }
+    c.firstTick = null, c.lastTick = 0, c.tick = function(e) {
+        c.firstTick || (c.firstTick = e), e -= c.firstTick;
+        var n = e - c.lastTick;
+        c.lastTick = e, c.noiseT += n * c.noiseSpeed, c.scrollX -= n * c.scrollSpeed;
+        for (var t = 0; t < c.bubbles.length; t++) {
+            var i = c.bubbles[t];
+            i.noiseX = noise(i.seedX + c.noiseT) * c.noiseScale - c.noiseScale / 2;
+            i.noiseY = noise(i.seedY + c.noiseT) * c.noiseScale - c.noiseScale / 2;
+            c.logosLoaded && i.introProgress < 1 && e > i.introDelay && (i.introProgress = Math.min(1, i.introProgress + n / c.introDuration));
+            o(i);
+        }
+        c.playing && requestAnimationFrame(c.tick)
+    }
+}
+
+
+var bubbles = [{
+        s: .6,
+        x: 1134,
+        y: 45
+    }, {
+        s: .6,
+        x: 1620,
+        y: 271
+    }, {
+        s: .6,
+        x: 1761,
+        y: 372
+    }, {
+        s: .6,
+        x: 2499,
+        y: 79
+    }, {
+        s: .6,
+        x: 2704,
+        y: 334
+    }, {
+        s: .6,
+        x: 2271,
+        y: 356
+    }, {
+        s: .6,
+        x: 795,
+        y: 226
+    }, {
+        s: .6,
+        x: 276,
+        y: 256
+    }, {
+        s: .6,
+        x: 1210,
+        y: 365
+    }, {
+        s: .6,
+        x: 444,
+        y: 193
+    }, {
+        s: .6,
+        x: 2545,
+        y: 387
+    }, {
+        s: .8,
+        x: 1303,
+        y: 193
+    }, {
+        s: .8,
+        x: 907,
+        y: 88
+    }, {
+        s: .8,
+        x: 633,
+        y: 320
+    }, {
+        s: .8,
+        x: 323,
+        y: 60
+    }, {
+        s: .8,
+        x: 129,
+        y: 357
+    }, {
+        s: .8,
+        x: 1440,
+        y: 342
+    }, {
+        s: .8,
+        x: 1929,
+        y: 293
+    }, {
+        s: .8,
+        x: 2135,
+        y: 198
+    }, {
+        s: .8,
+        x: 2276,
+        y: 82
+    }, {
+        s: .8,
+        x: 2654,
+        y: 182
+    }, {
+        s: .8,
+        x: 2783,
+        y: 60
+    }, {
+        x: 1519,
+        y: 118
+    }, {
+        x: 1071,
+        y: 233
+    }, {
+        x: 1773,
+        y: 148
+    }, {
+        x: 2098,
+        y: 385
+    }, {
+        x: 2423,
+        y: 244
+    }, {
+        x: 901,
+        y: 385
+    }, {
+        x: 624,
+        y: 111
+    }, {
+        x: 75,
+        y: 103
+    }, {
+        x: 413,
+        y: 367
+    }, {
+        x: 2895,
+        y: 271
+    }, {
+        x: 1990,
+        y: 75
+    }],
+    logos = ["Affirm", "Amazon", "Asana", "BOOK A TIGER", "Blue Apron", "Catawiki", "Deliveroo", "Doordash", "Dribbble", "Facebook", "Fancy", "Fitbit", "Indiegogo", "Instacart", "Kickstarter", "Lyft", "OpenTable", "Panic", "Pinterest", "Postmates", "Rackspace", "Reddit", "SAP", "Salesforce", "Shopify", "Slack", "Spring", "Squarespace", "Target", "TaskRabbit", "Ted", "Teespring", "The Guardian", "TicketSwap", "WeTransfer", "Wish", "Wolfram Alpha", "Xero", "Yelp"];
+
+Strut.ready(function() {
+    window.logoBubbles = new LogoBubbles({
+        bubbles: bubbles,
+        logos: logos,
+        classPrefix: "Icon Icon-img",
+        containerSelector: ".IconsContainer",
+        containerWidth: 3e3,
+        containerHeight: 460,
+        maxShrink: .2,
+        noiseSpeed: 55e-6,
+        noiseScale: 80,
+        scrollSpeed: .0175,
+        introDelay: 1500,
+        introDuration: 1500
+    })
+});
+
+var perlin, PERLIN_ZWRAPB = 8,
+    PERLIN_ZWRAP = 1 << PERLIN_ZWRAPB,
+    PERLIN_SIZE = 4095,
+    perlin_octaves = 4,
+    perlin_amp_falloff = .5,
+    scaled_cosine = function(e) {
+        return .5 * (1 - Math.cos(e * Math.PI))
+    },
+    noise = function(e) {
+        if (null == perlin) {
+            perlin = new Array(PERLIN_SIZE + 1);
+            for (var n = 0; n < PERLIN_SIZE + 1; n++) perlin[n] = Math.random()
+        }
+        e < 0 && (e = -e);
+        for (var t, o, i = Math.floor(e), r = e - i, a = 0, s = .5, l = 0; l < perlin_octaves; l++) t = scaled_cosine(r), o = perlin[i & PERLIN_SIZE], o += t * (perlin[i + 1 & PERLIN_SIZE] - o), a += o * s, s *= perlin_amp_falloff, i <<= 1, (r *= 2) >= 1 && (i++, r--);
+        return a
+    };
