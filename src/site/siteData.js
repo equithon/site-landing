@@ -215,6 +215,7 @@ export const sponsorsPageData = {
         'mailto: hello@equithon.org?subject=Equithon Sponsorship/Partnership Inquiry'
     }
   },
+  shouldShowSponsorBubbles: false,
   sponsorBubbles: [
     {
       name: 'Facebook',

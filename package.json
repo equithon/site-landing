@@ -4,7 +4,8 @@
   "scripts": {
     "develop": "gatsby develop",
     "build": "gatsby build",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "lint": "prettier --single-quote --list-different 'src/**/*.jsx' 'test/*.test.js' 'test/*.test.jsx'; eslint --ext .jsx,.js src/"
   },
   "dependencies": {
     "@firebase/app": "^0.3.6",

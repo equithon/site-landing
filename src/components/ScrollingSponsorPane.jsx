@@ -114,7 +114,6 @@ class ScrollingSponsorPane extends React.Component {
   componentDidMount() {
     this.paneHeight = this.pane.clientHeight;
     this.paneWidth = this.pane.clientWidth;
-    console.log(this.paneWidth);
     this.windowWidth = typeof window !== 'undefined' && window.innerWidth;
     this.placeAllBubbles();
     this.animateBubbles = this.animateBubbles.bind(this);
