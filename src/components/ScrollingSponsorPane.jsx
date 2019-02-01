@@ -172,7 +172,7 @@ class ScrollingSponsorPane extends React.Component {
         newBubble.x -= Math.random() * (0.4 - 0.3) + 0.3; // eslint-disable-line
         newBubble.y += newBubble.vy; // eslint-disable-line
 
-        if (newBubble.x < -400)
+        if (newBubble.x < -260)
           newBubble = this.placeBubble(bubble, prevState.bubbles, true); // eslint-disable-line
 
         // only update y if new position does not collide

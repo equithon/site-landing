@@ -197,14 +197,14 @@ export const previewPageData = {
 };
 
 export const sponsorBubbleTiers = {
-  diamond: 200,
-  gold: 160,
-  silver: 130,
-  bronze: 100
+  diamond: 250,
+  gold: 220,
+  silver: 190,
+  bronze: 160
 };
 
 export const sponsorsPageData = {
-  header: 'Special Thanks',
+  header: 'Previous Sponsors',
   sponsorUsBlurb:
     'Equithon would not be possible without the generous sponsorship of companies and individuals who have all exhibited a passion for social innovation and are commited to helping us improve the world, one project at a time.',
   sponsorAction: {
@@ -215,11 +215,11 @@ export const sponsorsPageData = {
         'mailto: hello@equithon.org?subject=Equithon Sponsorship/Partnership Inquiry'
     }
   },
-  shouldShowSponsorBubbles: false,
+  shouldShowSponsorBubbles: true,
   sponsorBubbles: [
     {
       name: 'Facebook',
-      size: sponsorBubbleTiers.diamond,
+      size: sponsorBubbleTiers.silver,
       link: 'https://www.facebook.com',
       imgSrc: require('../static/img/sponsors/logos/logo_facebook.png'),
       color: '#fff',
@@ -229,9 +229,31 @@ export const sponsorsPageData = {
       vy: 0.1
     },
     {
+      name: 'Google',
+      size: sponsorBubbleTiers.silver,
+      link: 'https://www.facebook.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_google.png'),
+      color: '#fff',
+      backgroundColor: '#fff',
+      x: 10,
+      y: 20,
+      vy: 0.1
+    },
+    {
+      name: 'WiCS',
+      size: sponsorBubbleTiers.silver,
+      link: 'https://cs.uwaterloo.ca/wics',
+      imgSrc: require('../static/img/sponsors/logos/logo_wics.png'),
+      color: '#fff',
+      backgroundColor: '#f6e2e7',
+      x: 230,
+      y: 120,
+      vy: 0.1
+    },
+    {
       name: 'University of Waterloo',
       size: sponsorBubbleTiers.diamond,
-      link: 'https://www.uwaterloo.com',
+      link: 'https://uwaterloo.ca/',
       imgSrc: require('../static/img/sponsors/logos/logo_uw.png'),
       color: '#fff',
       backgroundColor: '#FFD54F',
@@ -240,42 +262,9 @@ export const sponsorsPageData = {
       vy: -0.1
     },
     {
-      name: 'Flipp',
-      size: sponsorBubbleTiers.diamond,
-      link: 'https://www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_flipp.png'),
-      color: '#fff',
-      backgroundColor: '#28c0d2',
-      x: 20,
-      y: 470,
-      vy: 0.1
-    },
-    {
-      name: 'WiCS',
-      size: sponsorBubbleTiers.diamond,
-      link: 'https://www.wics.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_wics.png'),
-      color: '#fff',
-      backgroundColor: '#ffd1dc',
-      x: 230,
-      y: 120,
-      vy: 0.1
-    },
-    {
-      name: 'Google',
-      size: sponsorBubbleTiers.diamond,
-      link: 'https://www.google.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_google.png'),
-      color: '#27cc24',
-      backgroundColor: '#fff',
-      x: 215,
-      y: 345,
-      vy: 0.1
-    },
-    {
       name: 'Stripe',
-      size: sponsorBubbleTiers.gold,
-      link: 'https://www.facebook.com',
+      size: sponsorBubbleTiers.silver,
+      link: 'https://stripe.com',
       imgSrc: require('../static/img/sponsors/logos/logo_stripe.png'),
       color: '#fff',
       backgroundColor: '#6676de',
@@ -284,183 +273,369 @@ export const sponsorsPageData = {
       vy: 0.1
     },
     {
-      name: 'Bloomberg',
-      size: sponsorBubbleTiers.diamond,
-      link: 'https://www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_bloomberg.png'),
+      name: 'BMO',
+      size: sponsorBubbleTiers.silver,
+      link: 'https://www.bmo.com/main/personal',
+      imgSrc: require('../static/img/sponsors/logos/logo_bmo.png'),
+      color: '#fff',
+      backgroundColor: '#0079c1',
+      x: 225,
+      y: 550,
+      vy: 0.1
+    },
+    {
+      name: 'PagerDuty',
+      size: sponsorBubbleTiers.bronze,
+      link: 'https://www.pagerduty.com/',
+      imgSrc: require('../static/img/sponsors/logos/logo_pagerduty.png'),
+      color: '#fff',
+      backgroundColor: '#25c151',
+      x: 10,
+      y: 20,
+      vy: 0.1
+    },
+    {
+      name: 'Mathematics Society',
+      size: sponsorBubbleTiers.bronze,
+      link: 'http://mathsoc.uwaterloo.ca/',
+      imgSrc: require('../static/img/sponsors/logos/logo_mathsoc.png'),
+      color: '#fff',
+      backgroundColor: '#C60078',
+      x: 10,
+      y: 20,
+      vy: 0.1
+    },
+    {
+      name: 'HeForShe',
+      size: sponsorBubbleTiers.bronze,
+      link: 'https://www.heforshe.org/en',
+      imgSrc: require('../static/img/sponsors/logos/logo_heforshe.png'),
       color: '#fff',
       backgroundColor: '#fff',
-      x: 1050,
-      y: 100,
+      x: 10,
+      y: 20,
       vy: 0.1
     },
     {
-      name: 'Datadog',
+      name: 'Math Endowment Fund',
       size: sponsorBubbleTiers.diamond,
-      link: 'https://www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_datadog.png'),
+      link: 'https://uwaterloo.ca/math-endowment-fund/',
+      imgSrc: require('../static/img/sponsors/logos/logo_mef.png'),
       color: '#fff',
-      backgroundColor: '#774aa4',
-      x: 1050,
-      y: 100,
-      vy: 0.1
-    },
-    {
-      name: 'Square',
-      size: sponsorBubbleTiers.diamond,
-      link: 'https://www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_square.png'),
-      color: '#fff',
-      backgroundColor: '#000',
-      x: 1050,
-      y: 100,
-      vy: 0.1
-    },
-    {
-      name: 'Shopify',
-      size: sponsorBubbleTiers.diamond,
-      link: 'https://www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_shopify.png'),
-      color: '#fff',
-      backgroundColor: '#3b9a2b',
-      x: 1050,
-      y: 100,
+      backgroundColor: '#fff',
+      x: 10,
+      y: 20,
       vy: 0.1
     },
     {
       name: 'Microsoft',
-      size: sponsorBubbleTiers.diamond,
-      link: 'https://www.facebook.com',
+      size: sponsorBubbleTiers.bronze,
+      link: 'https://www.microsoft.com/en-ca',
       imgSrc: require('../static/img/sponsors/logos/logo_microsoft.png'),
       color: '#fff',
-      backgroundColor: '#fff',
+      backgroundColor: '#575352',
       x: 1050,
       y: 100,
       vy: 0.1
     },
     {
-      name: 'Dropbox',
-      size: sponsorBubbleTiers.diamond,
-      link: 'https://www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_dropbox.png'),
-      color: '#fff',
-      backgroundColor: '#fff',
-      x: 1050,
-      y: 100,
-      vy: 0.1
-    },
-    {
-      name: 'SeatGeek',
-      size: sponsorBubbleTiers.diamond,
-      link: 'https://www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_seatgeek.png'),
-      color: '#fff',
-      backgroundColor: '#1696f2',
-      x: 1050,
-      y: 100,
-      vy: 0.1
-    },
-    {
-      name: 'Loopio',
-      size: sponsorBubbleTiers.diamond,
-      link: 'https://www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_loopio.png'),
-      color: '#fff',
-      backgroundColor: '#38babe',
-      x: 1050,
-      y: 100,
-      vy: 0.1
-    },
-    {
-      name: 'Top Hat',
-      size: sponsorBubbleTiers.diamond,
-      link: 'https://www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_tophat.png'),
-      color: '#fff',
-      backgroundColor: '#fff',
-      x: 1050,
-      y: 100,
-      vy: 0.1
-    },
-    {
-      name: 'D2L',
-      size: sponsorBubbleTiers.diamond,
-      link: 'https://www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_d2l.png'),
-      color: '#fff',
-      backgroundColor: '#ffb800',
-      x: 1050,
-      y: 100,
-      vy: 0.1
-    },
-    {
-      name: 'kik',
-      size: sponsorBubbleTiers.diamond,
-      link: 'https://www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_kik.png'),
-      color: '#fff',
-      backgroundColor: '#fff',
-      x: 1050,
-      y: 100,
-      vy: 0.1
-    },
-    {
-      name: 'Wealthsimple',
-      size: sponsorBubbleTiers.silver,
-      link: 'https://www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_wealthsimple.png'),
-      color: '#fff',
-      backgroundColor: '#fcb117',
-      x: 1050,
-      y: 100,
-      vy: 0.1
-    },
-    {
-      name: 'Borrowell',
+      name: 'Balsamiq',
       size: sponsorBubbleTiers.bronze,
-      link: 'https://www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_borrowell.png'),
+      link: 'https://www.balsamiq.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_balsamiq.png'),
       color: '#fff',
-      backgroundColor: '#fff',
-      x: 1050,
-      y: 100,
+      backgroundColor: '#cc0000',
+      x: 10,
+      y: 20,
       vy: 0.1
     },
     {
-      name: 'CIBC',
-      size: sponsorBubbleTiers.gold,
-      link: 'https://www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_cibc.png'),
+      name: 'DigitalOcean',
+      size: sponsorBubbleTiers.bronze,
+      link: 'https://www.digitalocean.com',
+      imgSrc: require('../static/img/sponsors/logos/logo_digitalocean.png'),
       color: '#fff',
-      backgroundColor: '#b00b1c',
-      x: 1050,
-      y: 100,
+      backgroundColor: '#0080FF',
+      x: 10,
+      y: 20,
       vy: 0.1
     },
     {
-      name: 'Tribalscale',
-      size: sponsorBubbleTiers.silver,
-      link: 'https://www.facebook.com',
-      imgSrc: require('../static/img/sponsors/logos/logo_tribalscale.png'),
+      name: 'Sticker Mule',
+      size: sponsorBubbleTiers.bronze,
+      link: 'https://www.stickermule.com/ca',
+      imgSrc: require('../static/img/sponsors/logos/logo_stickermule.png'),
       color: '#fff',
-      backgroundColor: '#000',
-      x: 1050,
-      y: 100,
+      backgroundColor: '#4E2817',
+      x: 10,
+      y: 20,
       vy: 0.1
     },
     {
-      name: 'heheheh',
-      size: sponsorBubbleTiers.silver,
-      link: 'https://www.alexieyizhe.ne',
-      imgSrc: require('../static/img/sponsors/logos/logo_alex.png'),
+      name: 'GoDaddy',
+      size: sponsorBubbleTiers.bronze,
+      link: 'https://ca.godaddy.com/',
+      imgSrc: require('../static/img/sponsors/logos/logo_godaddy.png'),
       color: '#fff',
-      backgroundColor: '#ff00cf',
-      x: 1050,
-      y: 100,
+      backgroundColor: '#00a63f',
+      x: 10,
+      y: 20,
       vy: 0.1
     }
   ]
 };
+
+/*
+SPONSOR HEADER
+'Special Thanks'
+
+
+TEST SPONSOR DATA
+{
+  name: 'Facebook',
+  size: sponsorBubbleTiers.diamond,
+  link: 'https://www.facebook.com',
+  imgSrc: require('../static/img/sponsors/logos/logo_facebook.png'),
+  color: '#fff',
+  backgroundColor: '#3b5998',
+  x: 10,
+  y: 20,
+  vy: 0.1
+},
+{
+  name: 'University of Waterloo',
+  size: sponsorBubbleTiers.diamond,
+  link: 'https://www.uwaterloo.com',
+  imgSrc: require('../static/img/sponsors/logos/logo_uw.png'),
+  color: '#fff',
+  backgroundColor: '#FFD54F',
+  x: 0,
+  y: 260,
+  vy: -0.1
+},
+{
+  name: 'Flipp',
+  size: sponsorBubbleTiers.diamond,
+  link: 'https://www.facebook.com',
+  imgSrc: require('../static/img/sponsors/logos/logo_flipp.png'),
+  color: '#fff',
+  backgroundColor: '#28c0d2',
+  x: 20,
+  y: 470,
+  vy: 0.1
+},
+{
+  name: 'WiCS',
+  size: sponsorBubbleTiers.diamond,
+  link: 'https://www.wics.com',
+  imgSrc: require('../static/img/sponsors/logos/logo_wics.png'),
+  color: '#fff',
+  backgroundColor: '#ffd1dc',
+  x: 230,
+  y: 120,
+  vy: 0.1
+},
+{
+  name: 'Google',
+  size: sponsorBubbleTiers.diamond,
+  link: 'https://www.google.com',
+  imgSrc: require('../static/img/sponsors/logos/logo_google.png'),
+  color: '#27cc24',
+  backgroundColor: '#fff',
+  x: 215,
+  y: 345,
+  vy: 0.1
+},
+{
+  name: 'Stripe',
+  size: sponsorBubbleTiers.gold,
+  link: 'https://www.facebook.com',
+  imgSrc: require('../static/img/sponsors/logos/logo_stripe.png'),
+  color: '#fff',
+  backgroundColor: '#6676de',
+  x: 225,
+  y: 550,
+  vy: 0.1
+},
+{
+  name: 'Bloomberg',
+  size: sponsorBubbleTiers.diamond,
+  link: 'https://www.facebook.com',
+  imgSrc: require('../static/img/sponsors/logos/logo_bloomberg.png'),
+  color: '#fff',
+  backgroundColor: '#fff',
+  x: 1050,
+  y: 100,
+  vy: 0.1
+},
+{
+  name: 'Datadog',
+  size: sponsorBubbleTiers.diamond,
+  link: 'https://www.facebook.com',
+  imgSrc: require('../static/img/sponsors/logos/logo_datadog.png'),
+  color: '#fff',
+  backgroundColor: '#774aa4',
+  x: 1050,
+  y: 100,
+  vy: 0.1
+},
+{
+  name: 'Square',
+  size: sponsorBubbleTiers.diamond,
+  link: 'https://www.facebook.com',
+  imgSrc: require('../static/img/sponsors/logos/logo_square.png'),
+  color: '#fff',
+  backgroundColor: '#000',
+  x: 1050,
+  y: 100,
+  vy: 0.1
+},
+{
+  name: 'Shopify',
+  size: sponsorBubbleTiers.diamond,
+  link: 'https://www.facebook.com',
+  imgSrc: require('../static/img/sponsors/logos/logo_shopify.png'),
+  color: '#fff',
+  backgroundColor: '#3b9a2b',
+  x: 1050,
+  y: 100,
+  vy: 0.1
+},
+{
+  name: 'Microsoft',
+  size: sponsorBubbleTiers.diamond,
+  link: 'https://www.facebook.com',
+  imgSrc: require('../static/img/sponsors/logos/logo_microsoft.png'),
+  color: '#fff',
+  backgroundColor: '#fff',
+  x: 1050,
+  y: 100,
+  vy: 0.1
+},
+{
+  name: 'Dropbox',
+  size: sponsorBubbleTiers.diamond,
+  link: 'https://www.facebook.com',
+  imgSrc: require('../static/img/sponsors/logos/logo_dropbox.png'),
+  color: '#fff',
+  backgroundColor: '#fff',
+  x: 1050,
+  y: 100,
+  vy: 0.1
+},
+{
+  name: 'SeatGeek',
+  size: sponsorBubbleTiers.diamond,
+  link: 'https://www.facebook.com',
+  imgSrc: require('../static/img/sponsors/logos/logo_seatgeek.png'),
+  color: '#fff',
+  backgroundColor: '#1696f2',
+  x: 1050,
+  y: 100,
+  vy: 0.1
+},
+{
+  name: 'Loopio',
+  size: sponsorBubbleTiers.diamond,
+  link: 'https://www.facebook.com',
+  imgSrc: require('../static/img/sponsors/logos/logo_loopio.png'),
+  color: '#fff',
+  backgroundColor: '#38babe',
+  x: 1050,
+  y: 100,
+  vy: 0.1
+},
+{
+  name: 'Top Hat',
+  size: sponsorBubbleTiers.diamond,
+  link: 'https://www.facebook.com',
+  imgSrc: require('../static/img/sponsors/logos/logo_tophat.png'),
+  color: '#fff',
+  backgroundColor: '#fff',
+  x: 1050,
+  y: 100,
+  vy: 0.1
+},
+{
+  name: 'D2L',
+  size: sponsorBubbleTiers.diamond,
+  link: 'https://www.facebook.com',
+  imgSrc: require('../static/img/sponsors/logos/logo_d2l.png'),
+  color: '#fff',
+  backgroundColor: '#ffb800',
+  x: 1050,
+  y: 100,
+  vy: 0.1
+},
+{
+  name: 'kik',
+  size: sponsorBubbleTiers.diamond,
+  link: 'https://www.facebook.com',
+  imgSrc: require('../static/img/sponsors/logos/logo_kik.png'),
+  color: '#fff',
+  backgroundColor: '#fff',
+  x: 1050,
+  y: 100,
+  vy: 0.1
+},
+{
+  name: 'Wealthsimple',
+  size: sponsorBubbleTiers.silver,
+  link: 'https://www.facebook.com',
+  imgSrc: require('../static/img/sponsors/logos/logo_wealthsimple.png'),
+  color: '#fff',
+  backgroundColor: '#fcb117',
+  x: 1050,
+  y: 100,
+  vy: 0.1
+},
+{
+  name: 'Borrowell',
+  size: sponsorBubbleTiers.bronze,
+  link: 'https://www.facebook.com',
+  imgSrc: require('../static/img/sponsors/logos/logo_borrowell.png'),
+  color: '#fff',
+  backgroundColor: '#fff',
+  x: 1050,
+  y: 100,
+  vy: 0.1
+},
+{
+  name: 'CIBC',
+  size: sponsorBubbleTiers.gold,
+  link: 'https://www.facebook.com',
+  imgSrc: require('../static/img/sponsors/logos/logo_cibc.png'),
+  color: '#fff',
+  backgroundColor: '#b00b1c',
+  x: 1050,
+  y: 100,
+  vy: 0.1
+},
+{
+  name: 'Tribalscale',
+  size: sponsorBubbleTiers.silver,
+  link: 'https://www.facebook.com',
+  imgSrc: require('../static/img/sponsors/logos/logo_tribalscale.png'),
+  color: '#fff',
+  backgroundColor: '#000',
+  x: 1050,
+  y: 100,
+  vy: 0.1
+},
+{
+  name: 'heheheh',
+  size: sponsorBubbleTiers.silver,
+  link: 'https://www.alexieyizhe.ne',
+  imgSrc: require('../static/img/sponsors/logos/logo_alex.png'),
+  color: '#fff',
+  backgroundColor: '#ff00cf',
+  x: 1050,
+  y: 100,
+  vy: 0.1
+}
+
+
+*/
 
 export const FAQPageData = {
   header: 'Frequently Asked Questions',
