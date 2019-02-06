@@ -227,21 +227,22 @@ class PageFooter extends React.Component {
           <LinksContainer>
             <a
               className="centerDiv"
-              href="https://abc.xyz/investor/other/google-code-of-conduct/"
+              href="https://docs.google.com/document/d/1Cw8T4l_V1cSOm48QULE-QGHmPW7PIr8SB9aVb_II2D8/edit?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Code of Conduct
             </a>
 
-            <a
-              className="centerDiv"
-              href="https://www.apple.com/ca/apple-events/"
-            >
+            <a className="centerDiv" href="mailto:hello@equithon.org">
               Press
             </a>
 
             <a
               className="centerDiv"
-              href="https://www.facebook.com/legal/FB_Work_Privacy"
+              href="https://docs.google.com/document/d/136n9uXP3t8RK4q2x0ZCnc0YC6k6octZAPDIi8Wtg-_Q/edit?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Privacy Policy
             </a>
