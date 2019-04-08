@@ -33,7 +33,12 @@ export const siteButtons = {
   },
   applyButton: {
     text: 'Apply',
-    link: 'https://www.my.equithon.org',
+    link: 'https://my.equithon.org',
+    location: '_self'
+  },
+  statusButton: {
+    text: 'My Equithon',
+    link: 'https://my.equithon.org',
     location: '_self'
   },
   signupButton: {
@@ -51,7 +56,7 @@ export const mobileMenuData = {
 export const headerData = {
   logoSrc: '',
   links: siteStructure.sections,
-  actionButton: siteButtons.contactButton
+  actionButton: siteButtons.statusButton
 };
 
 export const footerdata = {};
