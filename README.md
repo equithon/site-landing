@@ -1,6 +1,6 @@
 # Equithon 2019 Main Site
 
-[![Build Status](https://travis-ci.com/equithon/site-main.svg?branch=master)](https://travis-ci.com/equithon/site-main)
+[![Build Status](https://travis-ci.com/equithon/site-main.svg?branch=master)](https://travis-ci.com/equithon/site-landing)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![GitHub license](https://img.shields.io/github/license/equithon/site-main.svg?style=flat-square)](https://github.com/equithon/site-main/blob/master/LICENSE)
 
